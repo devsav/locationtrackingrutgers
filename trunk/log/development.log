@@ -1,0 +1,3490 @@
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (2.5ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (2.4ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20091106045116)
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "loginName" varchar(255), "hashed_password" varchar(255), "salt" varchar(255), "userName" varchar(255), "contactNumber" integer, "address" text, "emailId" varchar(255), "registered" boolean, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20091106045116')[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("users")[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20091106045116)
+Migrating to CreateLocations (20091106045448)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCREATE TABLE "locations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255), "phonenumber" integer, "latitude" float, "longitude" float, "date" date, "time" time, "commType" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20091106045448')[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("locations")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("users")[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-11-05 23:55:18) [GET]
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" [0m
+Rendering template within layouts/users
+Rendering users/index
+Completed in 110ms (View: 105, DB: 0) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-11-05 23:55:20) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 22ms (View: 16, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-11-05 23:55:24) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 15ms (View: 9, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-11-05 23:55:53) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"LFifh2dsYvbml3Y9O5mdlrtLgvaXtwc+wmiuRSCkYuE=", "user"=>{"address"=>"sndknandknnkan\r\ndansandak", "userName"=>"Sonia Pinto", "salt"=>"aa", "loginName"=>"sonia", "registered"=>"1", "hashed_password"=>"sonia", "emailId"=>"sonia@gmail.com", "contactNumber"=>"+3293292874792"}}
+  [4;35;1mUser Create (0.6ms)[0m   [0mINSERT INTO "users" ("loginName", "salt", "userName", "address", "created_at", "registered", "updated_at", "hashed_password", "emailId", "contactNumber") VALUES('sonia', 'aa', 'Sonia Pinto', 'sndknandknnkan
+dansandak', '2009-11-06 04:55:53', 't', '2009-11-06 04:55:53', 'sonia', 'sonia@gmail.com', 3293292874792)[0m
+Redirected to http://localhost:3000/users/1
+Completed in 15ms (DB: 1) | 302 Found [http://localhost/users]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-05 23:55:54) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/users
+Rendering users/show
+Completed in 15ms (View: 8, DB: 0) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-11-05 23:56:23) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"LFifh2dsYvbml3Y9O5mdlrtLgvaXtwc+wmiuRSCkYuE=", "user"=>{"address"=>"sndknandknnkan\r\ndansandak", "userName"=>"Sonia Pinto1", "salt"=>"aa", "loginName"=>"sonia1", "registered"=>"1", "hashed_password"=>"sonia1", "emailId"=>"sonia23@gmail.com", "contactNumber"=>"+32932928722"}}
+  [4;35;1mUser Create (0.5ms)[0m   [0mINSERT INTO "users" ("loginName", "salt", "userName", "address", "created_at", "registered", "updated_at", "hashed_password", "emailId", "contactNumber") VALUES('sonia1', 'aa', 'Sonia Pinto1', 'sndknandknnkan
+dansandak', '2009-11-06 04:56:23', 't', '2009-11-06 04:56:23', 'sonia1', 'sonia23@gmail.com', 32932928722)[0m
+Redirected to http://localhost:3000/users/2
+Completed in 16ms (DB: 1) | 302 Found [http://localhost/users]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-05 23:56:23) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendering template within layouts/users
+Rendering users/show
+Completed in 10ms (View: 4, DB: 0) | 200 OK [http://localhost/users/2]
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2009-11-05 23:56:26) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendering template within layouts/users
+Rendering users/edit
+Completed in 23ms (View: 16, DB: 0) | 200 OK [http://localhost/users/2/edit]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-11-05 23:56:29) [GET]
+  [4;36;1mUser Load (1.8ms)[0m   [0;1mSELECT * FROM "users" [0m
+Rendering template within layouts/users
+Rendering users/index
+Completed in 20ms (View: 13, DB: 2) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-11-05 23:57:46) [GET]
+  [4;35;1mUser Load (0.7ms)[0m   [0mSELECT * FROM "users" [0m
+Rendering template within layouts/users
+Rendering users/index
+Completed in 20ms (View: 15, DB: 1) | 200 OK [http://localhost/users]
+
+
+Processing LocationsController#index (for 127.0.0.1 at 2009-11-05 23:57:51) [GET]
+  [4;36;1mLocation Load (0.5ms)[0m   [0;1mSELECT * FROM "locations" [0m
+Rendering template within layouts/locations
+Rendering locations/index
+Completed in 22ms (View: 17, DB: 0) | 200 OK [http://localhost/locations]
+
+
+Processing LocationsController#new (for 127.0.0.1 at 2009-11-05 23:57:53) [GET]
+Rendering template within layouts/locations
+Rendering locations/new
+Completed in 239ms (View: 232, DB: 0) | 200 OK [http://localhost/locations/new]
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (2.6ms)[0m   [0;1mDROP TABLE "locations"[0m
+  [4;35;1mSQL (2.2ms)[0m   [0mDELETE FROM schema_migrations WHERE version = '20091106045448'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("users")[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (3.1ms)[0m   [0mCREATE TABLE "locations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255), "phonenumber" integer, "latitude" float, "longitude" float, "time" time, "commType" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (2.9ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20091106045448')[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("locations")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("users")[0m
+
+
+Processing LocationsController#new (for 127.0.0.1 at 2009-11-05 23:59:33) [GET]
+Rendering template within layouts/locations
+Rendering locations/new
+
+ActionView::TemplateError (undefined method `date' for #<Location:0x104453a80>) on line #24 of app/views/locations/new.html.erb:
+21:   </p>
+22:   <p>
+23:     <%= f.label :date %><br />
+24:     <%= f.date_select :date %>
+25:   </p>
+26:   <p>
+27:     <%= f.label :time %><br />
+
+    app/views/locations/new.html.erb:24
+    app/views/locations/new.html.erb:3
+    app/controllers/locations_controller.rb:29:in `new'
+
+Rendered rescues/_trace (61.2ms)
+Rendered rescues/_request_and_response (1.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing LocationsController#new (for 127.0.0.1 at 2009-11-06 00:00:57) [GET]
+Rendering template within layouts/locations
+Rendering locations/new
+Completed in 47ms (View: 41, DB: 0) | 200 OK [http://localhost/locations/new]
+
+
+Processing LocationsController#create (for 127.0.0.1 at 2009-11-06 00:01:01) [POST]
+  Parameters: {"location"=>{"latitude"=>"2388923789", "time(1i)"=>"2009", "time(2i)"=>"11", "phonenumber"=>"+24369868926", "time(3i)"=>"6", "username"=>"sonia", "time(4i)"=>"05", "time(5i)"=>"00", "longitude"=>"23328779237", "commType"=>"1"}, "commit"=>"Create", "authenticity_token"=>"LFifh2dsYvbml3Y9O5mdlrtLgvaXtwc+wmiuRSCkYuE="}
+  [4;35;1mLocation Create (0.4ms)[0m   [0mINSERT INTO "locations" ("latitude", "created_at", "phonenumber", "updated_at", "username", "time", "longitude", "commType") VALUES(2388923789.0, '2009-11-06 05:01:01', 24369868926, '2009-11-06 05:01:01', 'sonia', '2009-11-06 05:00:00', 23328779237.0, 1)[0m
+Redirected to http://localhost:3000/locations/1
+Completed in 15ms (DB: 0) | 302 Found [http://localhost/locations]
+
+
+Processing LocationsController#show (for 127.0.0.1 at 2009-11-06 00:01:01) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mLocation Load (0.3ms)[0m   [0;1mSELECT * FROM "locations" WHERE ("locations"."id" = 1) [0m
+Rendering template within layouts/locations
+Rendering locations/show
+Completed in 15ms (View: 8, DB: 0) | 200 OK [http://localhost/locations/1]
+
+
+Processing LocationsController#create (for 127.0.0.1 at 2009-11-06 00:01:20) [POST]
+  Parameters: {"location"=>{"latitude"=>"238892322", "time(1i)"=>"2009", "time(2i)"=>"11", "phonenumber"=>"+24369868926", "time(3i)"=>"6", "username"=>"sonia", "time(4i)"=>"05", "time(5i)"=>"13", "longitude"=>"233287722", "commType"=>"1"}, "commit"=>"Create", "authenticity_token"=>"LFifh2dsYvbml3Y9O5mdlrtLgvaXtwc+wmiuRSCkYuE="}
+  [4;35;1mLocation Create (0.5ms)[0m   [0mINSERT INTO "locations" ("latitude", "created_at", "phonenumber", "updated_at", "username", "time", "longitude", "commType") VALUES(238892322.0, '2009-11-06 05:01:20', 24369868926, '2009-11-06 05:01:20', 'sonia', '2009-11-06 05:13:00', 233287722.0, 1)[0m
+Redirected to http://localhost:3000/locations/2
+Completed in 16ms (DB: 0) | 302 Found [http://localhost/locations]
+
+
+Processing LocationsController#show (for 127.0.0.1 at 2009-11-06 00:01:21) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mLocation Load (0.3ms)[0m   [0;1mSELECT * FROM "locations" WHERE ("locations"."id" = 2) [0m
+Rendering template within layouts/locations
+Rendering locations/show
+Completed in 10ms (View: 4, DB: 0) | 200 OK [http://localhost/locations/2]
+
+
+Processing LocationsController#index (for 127.0.0.1 at 2009-11-06 00:01:23) [GET]
+  [4;35;1mLocation Load (0.7ms)[0m   [0mSELECT * FROM "locations" [0m
+Rendering template within layouts/locations
+Rendering locations/index
+Completed in 22ms (View: 17, DB: 1) | 200 OK [http://localhost/locations]
+
+
+Processing LocationsController#new (for 127.0.0.1 at 2009-11-06 00:01:30) [GET]
+Rendering template within layouts/locations
+Rendering locations/new
+Completed in 23ms (View: 17, DB: 0) | 200 OK [http://localhost/locations/new]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-11-06 00:01:36) [GET]
+  [4;36;1mUser Load (0.9ms)[0m   [0;1mSELECT * FROM "users" [0m
+Rendering template within layouts/users
+Rendering users/index
+Completed in 21ms (View: 15, DB: 1) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-06 00:05:13) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/users
+Rendering users/show
+Completed in 10ms (View: 4, DB: 0) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-11-06 00:05:18) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 16ms (View: 9, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-11-06 00:05:48) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"LFifh2dsYvbml3Y9O5mdlrtLgvaXtwc+wmiuRSCkYuE=", "user"=>{"address"=>"dsdsdsds", "userName"=>"sonia", "salt"=>"dsndnsnk", "loginName"=>"sonia", "registered"=>"0", "hashed_password"=>"dsds", "emailId"=>"dsidsih@fnsd.com", "contactNumber"=>"42372997239"}}
+  [4;36;1mUser Create (0.6ms)[0m   [0;1mINSERT INTO "users" ("loginName", "salt", "userName", "address", "created_at", "registered", "updated_at", "hashed_password", "emailId", "contactNumber") VALUES('sonia', 'dsndnsnk', 'sonia', 'dsdsdsds', '2009-11-06 05:05:48', 'f', '2009-11-06 05:05:48', 'dsds', 'dsidsih@fnsd.com', 42372997239)[0m
+Redirected to http://localhost:3000/users/3
+Completed in 15ms (DB: 1) | 302 Found [http://localhost/users]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-06 00:05:48) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+Rendering template within layouts/users
+Rendering users/show
+Completed in 11ms (View: 5, DB: 0) | 200 OK [http://localhost/users/3]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-11-06 00:05:55) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"LFifh2dsYvbml3Y9O5mdlrtLgvaXtwc+wmiuRSCkYuE=", "user"=>{"address"=>"dsdsdsds", "userName"=>"sonia", "salt"=>"dsndnsnk", "loginName"=>"sonia", "registered"=>"0", "hashed_password"=>"dsds", "emailId"=>"dsidsih@fnsd.com", "contactNumber"=>"42372997239"}}
+  [4;36;1mUser Create (0.4ms)[0m   [0;1mINSERT INTO "users" ("loginName", "salt", "userName", "address", "created_at", "registered", "updated_at", "hashed_password", "emailId", "contactNumber") VALUES('sonia', 'dsndnsnk', 'sonia', 'dsdsdsds', '2009-11-06 05:05:55', 'f', '2009-11-06 05:05:55', 'dsds', 'dsidsih@fnsd.com', 42372997239)[0m
+Redirected to http://localhost:3000/users/4
+Completed in 15ms (DB: 0) | 302 Found [http://localhost/users]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-06 00:05:55) [GET]
+  Parameters: {"id"=>"4"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 4) [0m
+Rendering template within layouts/users
+Rendering users/show
+Completed in 10ms (View: 4, DB: 0) | 200 OK [http://localhost/users/4]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-11-06 00:06:31) [GET]
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" [0m
+Rendering template within layouts/users
+Rendering users/index
+Completed in 112ms (View: 106, DB: 1) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#destroy (for 127.0.0.1 at 2009-11-06 00:06:39) [DELETE]
+  Parameters: {"authenticity_token"=>"LFifh2dsYvbml3Y9O5mdlrtLgvaXtwc+wmiuRSCkYuE=", "id"=>"4"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 4) [0m
+  [4;36;1mUser Destroy (0.6ms)[0m   [0;1mDELETE FROM "users" WHERE "id" = 4[0m
+Redirected to http://localhost:3000/users
+Completed in 11ms (DB: 1) | 302 Found [http://localhost/users/4]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-11-06 00:06:39) [GET]
+  [4;35;1mUser Load (1.5ms)[0m   [0mSELECT * FROM "users" [0m
+Rendering template within layouts/users
+Rendering users/index
+Completed in 23ms (View: 17, DB: 1) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2009-11-06 00:06:43) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendering template within layouts/users
+Rendering users/edit
+Completed in 22ms (View: 16, DB: 0) | 200 OK [http://localhost/users/2/edit]
+
+
+Processing UsersController#update (for 127.0.0.1 at 2009-11-06 00:06:48) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"LFifh2dsYvbml3Y9O5mdlrtLgvaXtwc+wmiuRSCkYuE=", "id"=>"2", "user"=>{"address"=>"sndknandknnkan\r\ndansandak", "userName"=>"Sonia Pinto1", "salt"=>"aa", "loginName"=>"sonia1", "registered"=>"1", "hashed_password"=>"", "emailId"=>"sonia23@gmail.com", "contactNumber"=>"32932928722"}}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mUser Update (0.3ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2009-11-06 05:06:48', "hashed_password" = '' WHERE "id" = 2[0m
+Redirected to http://localhost:3000/users/2
+Completed in 16ms (DB: 1) | 302 Found [http://localhost/users/2]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-06 00:06:48) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendering template within layouts/users
+Rendering users/show
+Completed in 15ms (View: 9, DB: 0) | 200 OK [http://localhost/users/2]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-11-06 00:07:53) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 25ms (View: 15, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-11-06 00:08:02) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"LFifh2dsYvbml3Y9O5mdlrtLgvaXtwc+wmiuRSCkYuE=", "user"=>{"address"=>"", "userName"=>"", "salt"=>"", "loginName"=>"sonia", "registered"=>"0", "hashed_password"=>"dns", "emailId"=>"", "contactNumber"=>""}}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."loginName" = 'sonia') LIMIT 1[0m
+Rendering template within layouts/users
+Rendering users/new
+Completed in 28ms (View: 16, DB: 0) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-06 00:09:45) [GET]
+  Parameters: {"id"=>"login"}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find User with ID=login):
+  app/controllers/users_controller.rb:16:in `show'
+
+Rendered rescues/_trace (43.7ms)
+Rendered rescues/_request_and_response (1.3ms)
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-11-06 00:12:45) [GET]
+
+ActionController::RoutingError (No route matches "/login" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-11-06 00:13:19) [GET]
+
+ActionController::RoutingError (No route matches "/login/index" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-11-06 00:14:45) [GET]
+
+ActionController::RoutingError (No route matches "/user/login" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-11-06 00:15:57) [GET]
+
+ActionController::RoutingError (No route matches "/user/" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-11-06 00:18:06) [GET]
+
+ActionController::RoutingError (No route matches "/user/1" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-11-06 00:18:12) [GET]
+
+ActionController::RoutingError (No route matches "/user/login/1" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-11-06 00:19:13) [GET]
+
+ActionController::RoutingError (No route matches "/user/" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-11-06 00:19:17) [GET]
+  [4;36;1mUser Load (1.1ms)[0m   [0;1mSELECT * FROM "users" [0m
+Rendering template within layouts/users
+Rendering users/index
+Completed in 188ms (View: 19, DB: 1) | 200 OK [http://localhost/users/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-11-06 00:19:50) [GET]
+
+ActionController::RoutingError (No route matches "/user/" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-11-06 00:20:29) [GET]
+
+ActionController::RoutingError (No route matches "/user/" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-11-06 00:21:02) [GET]
+
+ActionController::RoutingError (No route matches "/user/" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-11-06 00:21:04) [GET]
+
+ActionController::RoutingError (No route matches "/user/" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-11-06 00:21:04) [GET]
+
+ActionController::RoutingError (No route matches "/user/" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-11-06 00:21:04) [GET]
+
+ActionController::RoutingError (No route matches "/user/" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing UserController#index (for 127.0.0.1 at 2009-11-06 00:22:56) [GET]
+  [4;36;1mUser Load (0.9ms)[0m   [0;1mSELECT * FROM "users" [0m
+Rendering template within layouts/user
+Rendering user/index
+Completed in 114ms (View: 105, DB: 1) | 200 OK [http://localhost/user/]
+
+
+Processing UserController#index (for 127.0.0.1 at 2009-11-06 00:23:01) [GET]
+  [4;35;1mUser Load (0.8ms)[0m   [0mSELECT * FROM "users" [0m
+Rendering template within layouts/user
+Rendering user/index
+Completed in 24ms (View: 16, DB: 1) | 200 OK [http://localhost/user/index]
+
+
+Processing UserController#login (for 127.0.0.1 at 2009-11-06 00:23:06) [GET]
+Rendering template within layouts/user
+Rendering user/login
+Completed in 7ms (View: 6, DB: 0) | 200 OK [http://localhost/user/login]
+
+
+Processing UserController#login (for 127.0.0.1 at 2009-11-06 00:27:32) [GET]
+Rendering template within layouts/user
+Rendering user/login
+Completed in 9ms (View: 7, DB: 0) | 200 OK [http://localhost/user/login]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-11-06 00:27:41) [GET]
+  [4;36;1mUser Load (0.9ms)[0m   [0;1mSELECT * FROM "users" [0m
+Rendering template within layouts/users
+Rendering users/index
+Completed in 38ms (View: 30, DB: 1) | 200 OK [http://localhost/users]
+
+
+Processing UserController#login (for 127.0.0.1 at 2009-11-06 00:27:49) [POST]
+  Parameters: {"name"=>"sonia", "commit"=>"Login", "authenticity_token"=>"LFifh2dsYvbml3Y9O5mdlrtLgvaXtwc+wmiuRSCkYuE=", "password"=>"sonia"}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."loginName" = 'sonia') LIMIT 1[0m
+Rendering template within layouts/user
+Rendering user/login
+Completed in 41ms (View: 5, DB: 0) | 200 OK [http://localhost/user/login]
+
+
+Processing UserController#login (for 127.0.0.1 at 2009-11-06 00:27:56) [POST]
+  Parameters: {"name"=>"sonia", "commit"=>"Login", "authenticity_token"=>"LFifh2dsYvbml3Y9O5mdlrtLgvaXtwc+wmiuRSCkYuE=", "password"=>"sonia"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."loginName" = 'sonia') LIMIT 1[0m
+Rendering template within layouts/user
+Rendering user/login
+Completed in 15ms (View: 3, DB: 0) | 200 OK [http://localhost/user/login]
+
+
+Processing UserController#login (for 127.0.0.1 at 2009-11-06 00:29:54) [POST]
+  Parameters: {"name"=>"sonia", "commit"=>"Login", "authenticity_token"=>"LFifh2dsYvbml3Y9O5mdlrtLgvaXtwc+wmiuRSCkYuE=", "password"=>"sonia"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."loginName" = 'sonia') LIMIT 1[0m
+Rendering template within layouts/user
+Rendering user/login
+Completed in 15ms (View: 3, DB: 0) | 200 OK [http://localhost/user/login]
+
+
+Processing UserController#login (for 127.0.0.1 at 2009-11-06 00:30:21) [POST]
+  Parameters: {"name"=>"sonia", "commit"=>"Login", "authenticity_token"=>"LFifh2dsYvbml3Y9O5mdlrtLgvaXtwc+wmiuRSCkYuE=", "password"=>"sonia"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."loginName" = 'sonia') LIMIT 1[0m
+Rendering template within layouts/user
+Rendering user/login
+Completed in 16ms (View: 3, DB: 0) | 200 OK [http://localhost/user/login]
+
+
+Processing UsersController#destroy (for 127.0.0.1 at 2009-11-06 00:30:52) [DELETE]
+  Parameters: {"authenticity_token"=>"LFifh2dsYvbml3Y9O5mdlrtLgvaXtwc+wmiuRSCkYuE=", "id"=>"3"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;36;1mUser Destroy (0.4ms)[0m   [0;1mDELETE FROM "users" WHERE "id" = 3[0m
+Redirected to http://localhost:3000/users
+Completed in 14ms (DB: 1) | 302 Found [http://localhost/users/3]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-11-06 00:30:52) [GET]
+  [4;35;1mUser Load (0.7ms)[0m   [0mSELECT * FROM "users" [0m
+Rendering template within layouts/users
+Rendering users/index
+Completed in 20ms (View: 12, DB: 1) | 200 OK [http://localhost/users]
+
+
+Processing UserController#login (for 127.0.0.1 at 2009-11-06 00:30:56) [POST]
+  Parameters: {"name"=>"sonia", "commit"=>"Login", "authenticity_token"=>"LFifh2dsYvbml3Y9O5mdlrtLgvaXtwc+wmiuRSCkYuE=", "password"=>"sonia"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."loginName" = 'sonia') LIMIT 1[0m
+Rendering template within layouts/user
+Rendering user/login
+Completed in 15ms (View: 3, DB: 0) | 200 OK [http://localhost/user/login]
+
+
+Processing UserController#login (for 127.0.0.1 at 2009-11-06 00:30:58) [POST]
+  Parameters: {"name"=>"sonia", "commit"=>"Login", "authenticity_token"=>"LFifh2dsYvbml3Y9O5mdlrtLgvaXtwc+wmiuRSCkYuE=", "password"=>"sonia"}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."loginName" = 'sonia') LIMIT 1[0m
+Rendering template within layouts/user
+Rendering user/login
+Completed in 16ms (View: 3, DB: 0) | 200 OK [http://localhost/user/login]
+
+
+Processing UserController#login (for 127.0.0.1 at 2009-11-06 00:31:07) [POST]
+  Parameters: {"name"=>"sonia", "commit"=>"Login", "authenticity_token"=>"LFifh2dsYvbml3Y9O5mdlrtLgvaXtwc+wmiuRSCkYuE=", "password"=>"sonia"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."loginName" = 'sonia') LIMIT 1[0m
+Rendering template within layouts/user
+Rendering user/login
+Completed in 20ms (View: 3, DB: 0) | 200 OK [http://localhost/user/login]
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2009-11-06 00:31:55) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/users
+Rendering users/edit
+Completed in 23ms (View: 15, DB: 0) | 200 OK [http://localhost/users/1/edit]
+
+
+Processing UsersController#update (for 127.0.0.1 at 2009-11-06 00:32:08) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"LFifh2dsYvbml3Y9O5mdlrtLgvaXtwc+wmiuRSCkYuE=", "id"=>"1", "user"=>{"address"=>"sndknandknnkan\r\ndansandak", "userName"=>"Sonia Pinto", "salt"=>"wibble", "loginName"=>"sonia", "registered"=>"1", "hashed_password"=>"sonia", "emailId"=>"sonia@gmail.com", "contactNumber"=>"3293292874792"}}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."loginName" = 'sonia' AND "users".id <> 1) LIMIT 1[0m
+  [4;36;1mUser Update (0.4ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2009-11-06 05:32:08', "salt" = 'wibble' WHERE "id" = 1[0m
+Redirected to http://localhost:3000/users/1
+Completed in 20ms (DB: 1) | 302 Found [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-06 00:32:08) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/users
+Rendering users/show
+Completed in 18ms (View: 10, DB: 0) | 200 OK [http://localhost/users/1]
+
+
+Processing UserController#login (for 127.0.0.1 at 2009-11-06 00:32:14) [POST]
+  Parameters: {"name"=>"sonia", "commit"=>"Login", "authenticity_token"=>"LFifh2dsYvbml3Y9O5mdlrtLgvaXtwc+wmiuRSCkYuE=", "password"=>"sonia"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."loginName" = 'sonia') LIMIT 1[0m
+Rendering template within layouts/user
+Rendering user/login
+Completed in 15ms (View: 3, DB: 0) | 200 OK [http://localhost/user/login]
+
+
+Processing UserController#login (for 127.0.0.1 at 2009-11-06 00:33:45) [POST]
+  Parameters: {"name"=>"sonia", "commit"=>"Login", "authenticity_token"=>"LFifh2dsYvbml3Y9O5mdlrtLgvaXtwc+wmiuRSCkYuE=", "password"=>"sonia"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."loginName" = 'sonia') LIMIT 1[0m
+Rendering template within layouts/user
+Rendering user/login
+Completed in 16ms (View: 3, DB: 0) | 200 OK [http://localhost/user/login]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-11-06 00:35:44) [GET]
+
+ActionController::RoutingError (No route matches "/map" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-11-06 00:35:56) [GET]
+
+ActionController::RoutingError (No route matches "/map" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-11-06 00:35:59) [GET]
+
+ActionController::RoutingError (No route matches "/map" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-11-06 00:36:47) [GET]
+
+ActionController::RoutingError (No route matches "/map" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-06 00:37:05) [GET]
+Rendering template within layouts/map
+Rendering map/index
+Completed in 16ms (View: 14, DB: 0) | 200 OK [http://localhost/map]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-06 00:40:47) [GET]
+Rendering template within layouts/map
+Rendering map/index
+Completed in 8ms (View: 6, DB: 0) | 200 OK [http://localhost/map]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-06 00:41:26) [GET]
+Rendering template within layouts/map
+Rendering map/index
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.username) on line #3 of app/views/map/index.html.erb:
+1: <p>
+2:   <b>Username:</b>
+3:   <%=h @location.username %>
+4: </p>
+5: 
+6: <p>
+
+    app/views/map/index.html.erb:3
+
+Rendered rescues/_trace (50.4ms)
+Rendered rescues/_request_and_response (1.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-06 00:42:12) [GET]
+  [4;36;1mLocation Load (0.8ms)[0m   [0;1mSELECT * FROM "locations" [0m
+Rendering template within layouts/map
+Rendering map/index
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.username) on line #3 of app/views/map/index.html.erb:
+1: <p>
+2:   <b>Username:</b>
+3:   <%=h @location.username %>
+4: </p>
+5: 
+6: <p>
+
+    app/views/map/index.html.erb:3
+    app/controllers/map_controller.rb:5:in `index'
+
+Rendered rescues/_trace (126.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-06 00:42:38) [GET]
+  [4;36;1mLocation Load (0.8ms)[0m   [0;1mSELECT * FROM "locations" [0m
+Rendering template within layouts/map
+Rendering map/index
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.username) on line #3 of app/views/map/index.html.erb:
+1: <p>
+2:   <b>Username:</b>
+3:   <%=h @location.username %>
+4: </p>
+5: 
+6: <p>
+
+    app/views/map/index.html.erb:3
+    app/controllers/map_controller.rb:5:in `index'
+
+Rendered rescues/_trace (55.4ms)
+Rendered rescues/_request_and_response (1.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-06 00:43:27) [GET]
+Rendering template within layouts/map
+Rendering map/index
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.username) on line #3 of app/views/map/index.html.erb:
+1: <p>
+2:   <b>Username:</b>
+3:   <%=h @location.username %>
+4: </p>
+5: 
+6: <p>
+
+    app/views/map/index.html.erb:3
+
+Rendered rescues/_trace (129.3ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-06 00:43:41) [GET]
+Rendering template within layouts/map
+Rendering map/index
+Completed in 8ms (View: 6, DB: 0) | 200 OK [http://localhost/map]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-06 00:46:30) [GET]
+Rendering template within layouts/map
+Rendering map/index
+Completed in 7ms (View: 6, DB: 0) | 200 OK [http://localhost/map]
+
+
+Processing UserController#logout (for 127.0.0.1 at 2009-11-06 00:47:11) [GET]
+Rendering template within layouts/user
+Rendering user/logout
+Completed in 16ms (View: 14, DB: 0) | 200 OK [http://localhost/user/logout]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-11-06 00:47:22) [GET]
+  [4;35;1mUser Load (0.8ms)[0m   [0mSELECT * FROM "users" [0m
+Rendering template within layouts/users
+Rendering users/index
+Completed in 45ms (View: 36, DB: 1) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-06 00:47:25) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/users
+Rendering users/show
+Completed in 17ms (View: 9, DB: 0) | 200 OK [http://localhost/users/1]
+
+
+Processing LocationsController#index (for 127.0.0.1 at 2009-11-06 00:48:43) [GET]
+  [4;35;1mLocation Load (0.7ms)[0m   [0mSELECT * FROM "locations" [0m
+Rendering template within layouts/locations
+Rendering locations/index
+Completed in 31ms (View: 26, DB: 1) | 200 OK [http://localhost/locations]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-11-06 00:49:04) [GET]
+
+ActionController::RoutingError (No route matches "/maps" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-06 00:49:09) [GET]
+
+NameError (uninitialized constant MapController::Locations):
+  app/controllers/map_controller.rb:3:in `index'
+
+Rendered rescues/_trace (39.2ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-06 00:49:27) [GET]
+
+NameError (uninitialized constant MapController::LocationController):
+  app/controllers/map_controller.rb:3:in `index'
+
+Rendered rescues/_trace (40.5ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-11-06 09:38:13) [GET]
+
+ActionController::RoutingError (No route matches "/maps" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-06 09:38:19) [GET]
+  [4;36;1mLocation Load (0.8ms)[0m   [0;1mSELECT * FROM "locations" [0m
+Rendering template within layouts/map
+Rendering map/index
+Completed in 18ms (View: 12, DB: 1) | 200 OK [http://localhost/map]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-06 09:38:42) [GET]
+  [4;35;1mLocation Load (0.7ms)[0m   [0mSELECT * FROM "locations" [0m
+Rendering template within layouts/map
+Rendering map/index
+Completed in 9ms (View: 1, DB: 1) | 200 OK [http://localhost/map]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-06 09:38:44) [GET]
+  [4;36;1mLocation Load (0.7ms)[0m   [0;1mSELECT * FROM "locations" [0m
+Rendering template within layouts/map
+Rendering map/index
+Completed in 9ms (View: 1, DB: 1) | 200 OK [http://localhost/map]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-06 09:40:20) [GET]
+  [4;35;1mLocation Load (0.7ms)[0m   [0mSELECT * FROM "locations" [0m
+Rendering template within layouts/map
+Rendering map/index
+Completed in 33ms (View: 25, DB: 1) | 200 OK [http://localhost/map]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-06 09:49:55) [GET]
+  [4;36;1mLocation Load (0.7ms)[0m   [0;1mSELECT * FROM "locations" [0m
+Rendering template within layouts/map
+Rendering map/index
+Completed in 23ms (View: 15, DB: 1) | 200 OK [http://localhost/map]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-06 09:50:25) [GET]
+  [4;35;1mLocation Load (0.7ms)[0m   [0mSELECT * FROM "locations" [0m
+Rendering template within layouts/map
+Rendering map/index
+Completed in 22ms (View: 15, DB: 1) | 200 OK [http://localhost/map]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-06 09:50:29) [GET]
+  [4;36;1mLocation Load (0.7ms)[0m   [0;1mSELECT * FROM "locations" [0m
+Rendering template within layouts/map
+Rendering map/index
+Completed in 17ms (View: 10, DB: 1) | 200 OK [http://localhost/map]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-06 09:51:08) [GET]
+  [4;35;1mLocation Load (0.7ms)[0m   [0mSELECT * FROM "locations" [0m
+Rendering template within layouts/map
+Rendering map/index
+Completed in 22ms (View: 14, DB: 1) | 200 OK [http://localhost/map]
+
+
+Processing LocationsController#edit (for 127.0.0.1 at 2009-11-06 09:51:17) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mLocation Load (0.3ms)[0m   [0;1mSELECT * FROM "locations" WHERE ("locations"."id" = 1) [0m
+Rendering template within layouts/locations
+Rendering locations/edit
+Completed in 34ms (View: 29, DB: 0) | 200 OK [http://localhost/locations/1/edit]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-06 18:47:27) [GET]
+  [4;36;1mLocation Load (0.8ms)[0m   [0;1mSELECT * FROM "locations" [0m
+Rendering template within layouts/map
+Rendering map/index
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.items) on line #14 of app/views/map/index.html.erb:
+11:     <th>Commtype</th>
+12:   </tr>
+13: 
+14: <%= render(:partial => "location", :collection => @location.items ) %>
+15: <%
+16: =begin %>
+17: <% @locations.each do |location| %>
+
+    app/views/map/index.html.erb:14
+    app/controllers/map_controller.rb:5:in `index'
+
+Rendered rescues/_trace (55.9ms)
+Rendered rescues/_request_and_response (1.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-06 18:48:15) [GET]
+  [4;35;1mLocation Load (0.7ms)[0m   [0mSELECT * FROM "locations" [0m
+Rendering template within layouts/map
+Rendering map/index
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.items) on line #15 of app/views/map/index.html.erb:
+12:   </tr>
+13: 
+14: print @location.methods.sort
+15: <%= render(:partial => "location", :collection => @location.items ) %>
+16: <%
+17: =begin %>
+18: <% @locations.each do |location| %>
+
+    app/views/map/index.html.erb:15
+    app/controllers/map_controller.rb:5:in `index'
+
+Rendered rescues/_trace (132.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-06 18:48:28) [GET]
+  [4;36;1mLocation Load (0.7ms)[0m   [0;1mSELECT * FROM "locations" [0m
+Rendering template within layouts/map
+Rendering map/index
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.items) on line #15 of app/views/map/index.html.erb:
+12:   </tr>
+13: 
+14: print @location.methods.sort
+15: <%= render(:partial => "location", :collection => @location.items ) %>
+16: <%
+17: =begin %>
+18: <% @locations.each do |location| %>
+
+    app/views/map/index.html.erb:15
+    app/controllers/map_controller.rb:5:in `index'
+
+Rendered rescues/_trace (52.3ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-06 18:49:09) [GET]
+  [4;35;1mLocation Load (0.7ms)[0m   [0mSELECT * FROM "locations" [0m
+Rendering template within layouts/map
+Rendering map/index
+
+ActionView::TemplateError (undefined method `items' for #<Array:0x104108fd8>) on line #15 of app/views/map/index.html.erb:
+12:   </tr>
+13: 
+14: print @locations.methods.sort
+15: <%= render(:partial => "location", :collection => @locations.items ) %>
+16: <%
+17: =begin %>
+18: <% @locations.each do |location| %>
+
+    app/views/map/index.html.erb:15
+    app/controllers/map_controller.rb:5:in `index'
+
+Rendered rescues/_trace (53.7ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-06 18:49:45) [GET]
+  [4;36;1mLocation Load (0.7ms)[0m   [0;1mSELECT * FROM "locations" [0m
+Rendering template within layouts/map
+Rendering map/index
+
+ActionView::TemplateError (undefined method `items' for #<Array:0x10424f770>) on line #15 of app/views/map/index.html.erb:
+12:   </tr>
+13: 
+14: print @locations
+15: <%= render(:partial => "location", :collection => @locations.items ) %>
+16: <%
+17: =begin %>
+18: <% @locations.each do |location| %>
+
+    app/views/map/index.html.erb:15
+    app/controllers/map_controller.rb:5:in `index'
+
+Rendered rescues/_trace (131.1ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-06 18:51:10) [GET]
+  [4;35;1mLocation Load (0.7ms)[0m   [0mSELECT * FROM "locations" [0m
+Rendering template within layouts/map
+Rendering map/index
+Rendered map/_location (16.7ms)
+Rendered map/_location (4.5ms)
+Completed in 39ms (View: 31, DB: 1) | 200 OK [http://localhost/map]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-06 18:51:45) [GET]
+  [4;36;1mLocation Load (0.7ms)[0m   [0;1mSELECT * FROM "locations" [0m
+Rendering template within layouts/map
+Rendering map/index
+Rendered map/_location (5.1ms)
+Rendered map/_location (4.4ms)
+Completed in 23ms (View: 16, DB: 1) | 200 OK [http://localhost/map]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-06 21:08:07) [GET]
+
+NameError (uninitialized constant MapController::GMap):
+  app/controllers/map_controller.rb:5:in `index'
+
+Rendered rescues/_trace (885.2ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-11-06 21:09:22) [GET]
+
+MissingSourceFile (no such file to load -- ym4r_gm):
+  app/controllers/map_controller.rb:1
+
+Rendered rescues/_trace (43.2ms)
+Rendered rescues/_request_and_response (1.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-06 21:10:03) [GET]
+  [4;36;1mLocation Load (0.8ms)[0m   [0;1mSELECT * FROM "locations" [0m
+Rendering template within layouts/map
+Rendering map/index
+Rendered map/_location (19.9ms)
+Rendered map/_location (4.4ms)
+Completed in 74ms (View: 64, DB: 1) | 200 OK [http://localhost/map]
+
+
+Processing LocationsController#edit (for 127.0.0.1 at 2009-11-06 21:12:59) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mLocation Load (0.3ms)[0m   [0mSELECT * FROM "locations" WHERE ("locations"."id" = 1) [0m
+Rendering template within layouts/locations
+Rendering locations/edit
+Completed in 118ms (View: 111, DB: 0) | 200 OK [http://localhost/locations/1/edit]
+
+
+Processing LocationsController#update (for 127.0.0.1 at 2009-11-06 21:13:15) [PUT]
+  Parameters: {"location"=>{"latitude"=>"41.023849", "time(1i)"=>"2000", "time(2i)"=>"1", "phonenumber"=>"24369868926", "time(3i)"=>"1", "username"=>"sonia", "time(4i)"=>"05", "time(5i)"=>"00", "longitude"=>"-80.682053", "commType"=>"1"}, "commit"=>"Update", "authenticity_token"=>"LFifh2dsYvbml3Y9O5mdlrtLgvaXtwc+wmiuRSCkYuE=", "id"=>"1"}
+  [4;36;1mLocation Load (0.3ms)[0m   [0;1mSELECT * FROM "locations" WHERE ("locations"."id" = 1) [0m
+  [4;35;1mLocation Update (0.4ms)[0m   [0mUPDATE "locations" SET "updated_at" = '2009-11-07 02:13:15', "longitude" = -80.682053, "latitude" = 41.023849 WHERE "id" = 1[0m
+Redirected to http://localhost:3000/locations/1
+Completed in 83ms (DB: 1) | 302 Found [http://localhost/locations/1]
+
+
+Processing LocationsController#show (for 127.0.0.1 at 2009-11-06 21:13:15) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mLocation Load (0.3ms)[0m   [0;1mSELECT * FROM "locations" WHERE ("locations"."id" = 1) [0m
+Rendering template within layouts/locations
+Rendering locations/show
+Completed in 16ms (View: 9, DB: 0) | 200 OK [http://localhost/locations/1]
+
+
+Processing LocationsController#index (for 127.0.0.1 at 2009-11-06 21:13:17) [GET]
+  [4;35;1mLocation Load (0.7ms)[0m   [0mSELECT * FROM "locations" [0m
+Rendering template within layouts/locations
+Rendering locations/index
+Completed in 48ms (View: 42, DB: 1) | 200 OK [http://localhost/locations]
+
+
+Processing LocationsController#edit (for 127.0.0.1 at 2009-11-06 21:13:19) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mLocation Load (0.3ms)[0m   [0;1mSELECT * FROM "locations" WHERE ("locations"."id" = 2) [0m
+Rendering template within layouts/locations
+Rendering locations/edit
+Completed in 26ms (View: 19, DB: 0) | 200 OK [http://localhost/locations/2/edit]
+
+
+Processing LocationsController#update (for 127.0.0.1 at 2009-11-06 21:13:50) [PUT]
+  Parameters: {"location"=>{"latitude"=>"41.023822", "time(1i)"=>"2000", "time(2i)"=>"1", "phonenumber"=>"24369868926", "time(3i)"=>"1", "username"=>"sonia", "time(4i)"=>"05", "time(5i)"=>"13", "longitude"=>"-80.681111", "commType"=>"1"}, "commit"=>"Update", "authenticity_token"=>"LFifh2dsYvbml3Y9O5mdlrtLgvaXtwc+wmiuRSCkYuE=", "id"=>"2"}
+  [4;35;1mLocation Load (0.3ms)[0m   [0mSELECT * FROM "locations" WHERE ("locations"."id" = 2) [0m
+  [4;36;1mLocation Update (0.3ms)[0m   [0;1mUPDATE "locations" SET "updated_at" = '2009-11-07 02:13:50', "longitude" = -80.681111, "latitude" = 41.023822 WHERE "id" = 2[0m
+Redirected to http://localhost:3000/locations/2
+Completed in 14ms (DB: 1) | 302 Found [http://localhost/locations/2]
+
+
+Processing LocationsController#show (for 127.0.0.1 at 2009-11-06 21:13:50) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mLocation Load (0.3ms)[0m   [0mSELECT * FROM "locations" WHERE ("locations"."id" = 2) [0m
+Rendering template within layouts/locations
+Rendering locations/show
+Completed in 10ms (View: 4, DB: 0) | 200 OK [http://localhost/locations/2]
+
+
+Processing LocationsController#index (for 127.0.0.1 at 2009-11-06 21:13:52) [GET]
+  [4;36;1mLocation Load (0.8ms)[0m   [0;1mSELECT * FROM "locations" [0m
+Rendering template within layouts/locations
+Rendering locations/index
+Completed in 20ms (View: 14, DB: 1) | 200 OK [http://localhost/locations]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-11-06 21:13:57) [GET]
+
+ActionController::RoutingError (No route matches "/maps" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-06 21:14:00) [GET]
+  [4;35;1mLocation Load (0.7ms)[0m   [0mSELECT * FROM "locations" [0m
+Rendering template within layouts/map
+Rendering map/index
+Rendered map/_location (4.8ms)
+Rendered map/_location (4.2ms)
+Completed in 19ms (View: 11, DB: 1) | 200 OK [http://localhost/map]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-06 21:16:43) [GET]
+  [4;36;1mLocation Load (0.7ms)[0m   [0;1mSELECT * FROM "locations" [0m
+Rendering template within layouts/map
+Rendering map/index
+Rendered map/_location (5.0ms)
+Rendered map/_location (4.4ms)
+Completed in 24ms (View: 16, DB: 1) | 200 OK [http://localhost/map]
+
+
+Processing LocationsController#edit (for 127.0.0.1 at 2009-11-06 21:16:53) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mLocation Load (0.3ms)[0m   [0mSELECT * FROM "locations" WHERE ("locations"."id" = 1) [0m
+Rendering template within layouts/locations
+Rendering locations/edit
+Completed in 26ms (View: 19, DB: 0) | 200 OK [http://localhost/locations/1/edit]
+
+
+Processing LocationsController#update (for 127.0.0.1 at 2009-11-06 21:17:02) [PUT]
+  Parameters: {"location"=>{"latitude"=>"41.011849", "time(1i)"=>"2000", "time(2i)"=>"1", "phonenumber"=>"24369868926", "time(3i)"=>"1", "username"=>"sonia", "time(4i)"=>"05", "time(5i)"=>"00", "longitude"=>"-80.682053", "commType"=>"1"}, "commit"=>"Update", "authenticity_token"=>"LFifh2dsYvbml3Y9O5mdlrtLgvaXtwc+wmiuRSCkYuE=", "id"=>"1"}
+  [4;36;1mLocation Load (0.3ms)[0m   [0;1mSELECT * FROM "locations" WHERE ("locations"."id" = 1) [0m
+  [4;35;1mLocation Update (0.4ms)[0m   [0mUPDATE "locations" SET "updated_at" = '2009-11-07 02:17:02', "latitude" = 41.011849 WHERE "id" = 1[0m
+Redirected to http://localhost:3000/locations/1
+Completed in 16ms (DB: 1) | 302 Found [http://localhost/locations/1]
+
+
+Processing LocationsController#show (for 127.0.0.1 at 2009-11-06 21:17:02) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mLocation Load (0.3ms)[0m   [0;1mSELECT * FROM "locations" WHERE ("locations"."id" = 1) [0m
+Rendering template within layouts/locations
+Rendering locations/show
+Completed in 10ms (View: 4, DB: 0) | 200 OK [http://localhost/locations/1]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-06 21:17:07) [GET]
+  [4;35;1mLocation Load (0.7ms)[0m   [0mSELECT * FROM "locations" [0m
+Rendering template within layouts/map
+Rendering map/index
+Rendered map/_location (5.1ms)
+Rendered map/_location (4.3ms)
+Completed in 19ms (View: 12, DB: 1) | 200 OK [http://localhost/map]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-06 21:21:41) [GET]
+  [4;36;1mLocation Load (0.7ms)[0m   [0;1mSELECT * FROM "locations" [0m
+Rendering template within layouts/map
+Rendering map/index
+Rendered map/_location (4.5ms)
+Rendered map/_location (4.0ms)
+Completed in 24ms (View: 16, DB: 1) | 200 OK [http://localhost/map]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-06 21:22:51) [GET]
+  [4;35;1mLocation Load (0.7ms)[0m   [0mSELECT * FROM "locations" [0m
+Rendering template within layouts/map
+Rendering map/index
+Rendered map/_location (4.6ms)
+Rendered map/_location (3.9ms)
+Completed in 24ms (View: 16, DB: 1) | 200 OK [http://localhost/map]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-06 21:24:17) [GET]
+  [4;36;1mLocation Load (0.7ms)[0m   [0;1mSELECT * FROM "locations" [0m
+Rendering template within layouts/map
+Rendering map/index
+Rendered map/_location (6.3ms)
+Rendered map/_location (4.4ms)
+Completed in 29ms (View: 21, DB: 1) | 200 OK [http://localhost/map]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-11-28 16:54:41) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 243ms (View: 203, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-11-28 16:54:54) [GET]
+
+ActionController::RoutingError (No route matches "/maps/index" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-11-28 16:54:54) [GET]
+
+ActionController::RoutingError (No route matches "/maps/index" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-11-28 16:54:59) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 46ms (View: 11, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-28 16:55:09) [GET]
+  [4;36;1mLocation Load (1.0ms)[0m   [0;1mSELECT * FROM "locations" [0m
+Rendering template within layouts/map
+Rendering map/index
+Rendered map/_location (9.0ms)
+Rendered map/_location (6.0ms)
+Completed in 61ms (View: 45, DB: 1) | 200 OK [http://localhost/map/index]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-11-28 17:17:51) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 35ms (View: 12, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UserController#login (for 127.0.0.1 at 2009-11-28 17:18:07) [GET]
+Rendering template within layouts/user
+Rendering user/login
+Completed in 25ms (View: 23, DB: 0) | 200 OK [http://localhost/user/login]
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-28 17:18:20) [POST]
+  Parameters: {"authenticity_token"=>"u8V8dCdBfJkjOjMMaRe2BwFeB6ZPBRbkQewv7gOFWZM=", "userform"=>{"userName"=>"Sonia Pinto", "hashed_password"=>"sonia"}}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE (userName = 'Sonia Pinto' and hashed_password = 'sonia') LIMIT 1[0m
+Redirected to http://localhost:3000/user/map
+Completed in 30ms (DB: 1) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing UserController#map (for 127.0.0.1 at 2009-11-28 17:18:20) [GET]
+
+ActionController::UnknownAction (No action responded to map. Actions: authenticate, login, logout, and private):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-28 17:18:20) [GET]
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE (userName = NULL and hashed_password = NULL) LIMIT 1[0m
+Redirected to http://localhost:3000/user/login
+Completed in 28ms (DB: 1) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing UserController#login (for 127.0.0.1 at 2009-11-28 17:18:20) [GET]
+Rendering template within layouts/user
+Rendering user/login
+Completed in 8ms (View: 5, DB: 0) | 200 OK [http://localhost/user/login]
+
+
+Processing UserController#login (for 127.0.0.1 at 2009-11-28 17:18:27) [GET]
+Rendering template within layouts/user
+Rendering user/login
+Completed in 8ms (View: 5, DB: 0) | 200 OK [http://localhost/user/login]
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-28 17:22:54) [POST]
+  Parameters: {"authenticity_token"=>"u8V8dCdBfJkjOjMMaRe2BwFeB6ZPBRbkQewv7gOFWZM=", "userform"=>{"userName"=>"Sonia Pinto", "hashed_password"=>"sonia"}}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE (userName = 'Sonia Pinto' and hashed_password = 'sonia') LIMIT 1[0m
+Redirected to http://localhost:3000/map
+Completed in 120ms (DB: 1) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-28 17:22:54) [GET]
+  [4;36;1mLocation Load (2.0ms)[0m   [0;1mSELECT * FROM "locations" [0m
+Rendering template within layouts/map
+Rendering map/index
+Rendered map/_location (7.0ms)
+Rendered map/_location (6.0ms)
+Completed in 34ms (View: 16, DB: 2) | 200 OK [http://localhost/map]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-28 17:23:14) [GET]
+  Parameters: {"id"=>"show"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find User with ID=show):
+  app/controllers/users_controller.rb:16:in `show'
+
+Rendered rescues/_trace (80.0ms)
+Rendered rescues/_request_and_response (3.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-28 17:23:14) [GET]
+  Parameters: {"id"=>"show"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find User with ID=show):
+  app/controllers/users_controller.rb:16:in `show'
+
+Rendered rescues/_trace (155.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-28 17:23:22) [GET]
+  [4;35;1mLocation Load (3.0ms)[0m   [0mSELECT * FROM "locations" [0m
+Rendering template within layouts/map
+Rendering map/index
+Rendered map/_location (6.0ms)
+Rendered map/_location (5.0ms)
+Completed in 34ms (View: 14, DB: 3) | 200 OK [http://localhost/map]
+
+
+Processing LocationsController#show (for 127.0.0.1 at 2009-11-28 17:23:25) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mLocation Load (1.0ms)[0m   [0;1mSELECT * FROM "locations" WHERE ("locations"."id" = 1) [0m
+Rendering template within layouts/locations
+Rendering locations/show
+Completed in 74ms (View: 50, DB: 1) | 200 OK [http://localhost/locations/1]
+
+
+Processing LocationsController#index (for 127.0.0.1 at 2009-11-28 17:23:28) [GET]
+  [4;35;1mLocation Load (2.0ms)[0m   [0mSELECT * FROM "locations" [0m
+Rendering template within layouts/locations
+Rendering locations/index
+Completed in 109ms (View: 99, DB: 2) | 200 OK [http://localhost/locations]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-28 17:23:41) [GET]
+  Parameters: {"id"=>"edit"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find User with ID=edit):
+  app/controllers/users_controller.rb:16:in `show'
+
+Rendered rescues/_trace (87.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-28 17:23:41) [GET]
+  Parameters: {"id"=>"edit"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find User with ID=edit):
+  app/controllers/users_controller.rb:16:in `show'
+
+Rendered rescues/_trace (149.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing UserController#login (for 127.0.0.1 at 2009-11-28 17:24:18) [GET]
+Rendering template within layouts/user
+Rendering user/login
+Completed in 16ms (View: 12, DB: 0) | 200 OK [http://localhost/user/login]
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-28 17:24:25) [POST]
+  Parameters: {"authenticity_token"=>"u8V8dCdBfJkjOjMMaRe2BwFeB6ZPBRbkQewv7gOFWZM=", "userform"=>{"userName"=>"ewbfiqef'", "hashed_password"=>"aiebf'pqehf"}}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE (userName = 'ewbfiqef''' and hashed_password = 'aiebf''pqehf') LIMIT 1[0m
+Redirected to http://localhost:3000/user/login
+Completed in 29ms (DB: 1) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing UserController#login (for 127.0.0.1 at 2009-11-28 17:24:25) [GET]
+Rendering template within layouts/user
+Rendering user/login
+Completed in 9ms (View: 6, DB: 0) | 200 OK [http://localhost/user/login]
+
+
+Processing UserController#login (for 127.0.0.1 at 2009-11-28 17:28:31) [GET]
+Rendering template within layouts/user
+Rendering user/login
+Completed in 13ms (View: 9, DB: 0) | 200 OK [http://localhost/user/login]
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-28 17:28:39) [POST]
+  Parameters: {"authenticity_token"=>"u8V8dCdBfJkjOjMMaRe2BwFeB6ZPBRbkQewv7gOFWZM=", "userform"=>{"userName"=>"Sonia Pinto", "hashed_password"=>"sonia"}}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE (userName = 'Sonia Pinto' and hashed_password = 'sonia') LIMIT 1[0m
+Redirected to http://localhost:3000/map
+Completed in 29ms (DB: 1) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-28 17:28:39) [GET]
+  [4;36;1mLocation Load (1.0ms)[0m   [0;1mSELECT * FROM "locations" [0m
+Rendering template within layouts/map
+Rendering map/index
+Rendered map/_location (7.0ms)
+Rendered map/_location (5.0ms)
+Completed in 109ms (View: 94, DB: 1) | 200 OK [http://localhost/map]
+
+
+Processing UserController#login (for 127.0.0.1 at 2009-11-28 17:54:01) [GET]
+Rendering template within layouts/user
+Rendering user/login
+Completed in 12ms (View: 8, DB: 0) | 200 OK [http://localhost/user/login]
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-28 17:54:15) [POST]
+  Parameters: {"authenticity_token"=>"u8V8dCdBfJkjOjMMaRe2BwFeB6ZPBRbkQewv7gOFWZM=", "userform"=>{"userName"=>"Sonia Pinto", "hashed_password"=>"sonia"}}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE (userName = 'Sonia Pinto' and hashed_password = 'sonia') LIMIT 1[0m
+Redirected to http://localhost:3000/map
+Completed in 35ms (DB: 1) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-28 17:54:15) [GET]
+  [4;36;1mLocation Load (1.0ms)[0m   [0;1mSELECT * FROM "locations" [0m
+Rendering template within layouts/map
+Rendering map/index
+Rendered map/_location (5.0ms)
+Rendered map/_location (5.0ms)
+Completed in 37ms (View: 22, DB: 1) | 200 OK [http://localhost/map]
+
+
+Processing UserController#logout (for 127.0.0.1 at 2009-11-28 18:06:28) [GET]
+Redirected to http://localhost:3000/user/login
+Completed in 6ms (DB: 0) | 302 Found [http://localhost/user/logout]
+
+
+Processing UserController#login (for 127.0.0.1 at 2009-11-28 18:06:28) [GET]
+Rendering template within layouts/user
+Rendering user/login
+Completed in 7ms (View: 5, DB: 0) | 200 OK [http://localhost/user/login]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-11-28 18:51:44) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 56ms (View: 13, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-11-28 18:52:25) [POST]
+  Parameters: {"user"=>{"userName"=>"ashwini gadling", "salt"=>"", "registered"=>"0", "hashed_password"=>"gadling", "loginName"=>"ashwini", "emailId"=>"", "address"=>"jbsfioewhfi", "contactNumber"=>"283420374037"}, "commit"=>"Create", "authenticity_token"=>"OQxAufV0FqvjWsZHqkb3w9tHbP/F/92p41ISchbK5/M="}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."loginName" = 'ashwini') LIMIT 1[0m
+  [4;36;1mUser Create (27.0ms)[0m   [0;1mINSERT INTO "users" ("salt", "userName", "updated_at", "loginName", "hashed_password", "registered", "emailId", "contactNumber", "address", "created_at") VALUES('', 'ashwini gadling', '2009-11-28 23:52:25', 'ashwini', 'gadling', 'f', '', 283420374037, 'jbsfioewhfi', '2009-11-28 23:52:25')[0m
+Redirected to http://localhost:3000/users/5
+Completed in 81ms (DB: 27) | 302 Found [http://localhost/users]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-28 18:52:25) [GET]
+  Parameters: {"id"=>"5"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 5) [0m
+Rendering template within layouts/users
+Rendering users/show
+Completed in 40ms (View: 15, DB: 1) | 200 OK [http://localhost/users/5]
+
+
+Processing UserController#login (for 127.0.0.1 at 2009-11-28 18:52:41) [GET]
+Rendering template within layouts/user
+Rendering user/login
+Completed in 7ms (View: 5, DB: 0) | 200 OK [http://localhost/user/login]
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-28 18:52:54) [POST]
+  Parameters: {"authenticity_token"=>"OQxAufV0FqvjWsZHqkb3w9tHbP/F/92p41ISchbK5/M=", "userform"=>{"userName"=>"ashwini gadling", "hashed_password"=>"gadling"}}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE (userName = 'ashwini gadling' and hashed_password = 'gadling') LIMIT 1[0m
+Redirected to http://localhost:3000/map
+Completed in 28ms (DB: 1) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-28 18:52:54) [GET]
+  [4;35;1mLocation Load (1.0ms)[0m   [0mSELECT * FROM "locations" [0m
+Rendering template within layouts/map
+Rendering map/index
+Rendered map/_location (5.0ms)
+Rendered map/_location (5.0ms)
+Completed in 55ms (View: 38, DB: 1) | 200 OK [http://localhost/map]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-11-28 18:53:07) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 42ms (View: 17, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-11-28 18:53:38) [POST]
+  Parameters: {"user"=>{"userName"=>"savio", "salt"=>"", "registered"=>"0", "hashed_password"=>"dsouza", "loginName"=>"savio ", "emailId"=>"", "address"=>"bfiuwgf", "contactNumber"=>"238742374"}, "commit"=>"Create", "authenticity_token"=>"OQxAufV0FqvjWsZHqkb3w9tHbP/F/92p41ISchbK5/M="}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."loginName" = 'savio ') LIMIT 1[0m
+  [4;35;1mUser Create (1.0ms)[0m   [0mINSERT INTO "users" ("salt", "userName", "updated_at", "loginName", "hashed_password", "registered", "emailId", "contactNumber", "address", "created_at") VALUES('', 'savio', '2009-11-28 23:53:38', 'savio ', 'dsouza', 'f', '', 238742374, 'bfiuwgf', '2009-11-28 23:53:38')[0m
+Redirected to http://localhost:3000/users/6
+Completed in 59ms (DB: 1) | 302 Found [http://localhost/users]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-28 18:53:38) [GET]
+  Parameters: {"id"=>"6"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+Rendering template within layouts/users
+Rendering users/show
+Completed in 31ms (View: 6, DB: 1) | 200 OK [http://localhost/users/6]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-11-28 18:53:42) [GET]
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT * FROM "users" [0m
+Rendering template within layouts/users
+Rendering users/index
+Completed in 80ms (View: 48, DB: 2) | 200 OK [http://localhost/users]
+
+
+Processing UserController#login (for 127.0.0.1 at 2009-11-28 18:53:49) [GET]
+Rendering template within layouts/user
+Rendering user/login
+Completed in 7ms (View: 5, DB: 0) | 200 OK [http://localhost/user/login]
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-28 18:53:57) [POST]
+  Parameters: {"authenticity_token"=>"OQxAufV0FqvjWsZHqkb3w9tHbP/F/92p41ISchbK5/M=", "userform"=>{"userName"=>"savio", "hashed_password"=>"dsouza"}}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE (userName = 'savio' and hashed_password = 'dsouza') LIMIT 1[0m
+Redirected to http://localhost:3000/map
+Completed in 29ms (DB: 1) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-28 18:53:57) [GET]
+  [4;35;1mLocation Load (1.0ms)[0m   [0mSELECT * FROM "locations" [0m
+Rendering template within layouts/map
+Rendering map/index
+Rendered map/_location (5.0ms)
+Rendered map/_location (5.0ms)
+Completed in 30ms (View: 14, DB: 1) | 200 OK [http://localhost/map]
+
+
+Processing UserController#login (for 127.0.0.1 at 2009-11-29 16:53:46) [GET]
+Rendering template within layouts/user
+Rendering user/login
+Completed in 2762ms (View: 2760, DB: 0) | 200 OK [http://localhost/user/login]
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-29 16:54:12) [POST]
+  Parameters: {"authenticity_token"=>"ZB3I06gGKCTMpVIi6m3f4kzcFuXEgl4LbkqwRhoh/OE=", "userform"=>{"userName"=>"Sonia Pinto", "hashed_password"=>"sonia"}}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE (userName = 'Sonia Pinto' and hashed_password = 'sonia') LIMIT 1[0m
+Redirected to http://localhost:3000/map
+Completed in 174ms (DB: 0) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-29 16:54:13) [GET]
+  [4;35;1mLocation Load (1.0ms)[0m   [0mSELECT * FROM "locations" [0m
+Rendering template within layouts/map
+Rendering map/index
+Rendered map/_location (44.0ms)
+Rendered map/_location (5.0ms)
+Completed in 91ms (View: 76, DB: 1) | 200 OK [http://localhost/map]
+
+
+Processing UserController#logout (for 127.0.0.1 at 2009-11-29 16:54:43) [GET]
+Redirected to http://localhost:3000/user/login
+Completed in 4ms (DB: 0) | 302 Found [http://localhost/user/logout]
+
+
+Processing UserController#login (for 127.0.0.1 at 2009-11-29 16:54:44) [GET]
+Rendering template within layouts/user
+Rendering user/login
+Completed in 9ms (View: 6, DB: 0) | 200 OK [http://localhost/user/login]
+
+
+Processing UserController#login (for 127.0.0.1 at 2009-11-29 16:55:08) [GET]
+Rendering template within layouts/user
+Rendering user/login
+Completed in 7ms (View: 5, DB: 0) | 200 OK [http://localhost/user/login]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-11-29 16:55:21) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 166ms (View: 144, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-11-29 16:56:08) [POST]
+  Parameters: {"user"=>{"userName"=>"savio", "salt"=>"a", "registered"=>"1", "hashed_password"=>"dsouza", "loginName"=>"savio", "emailId"=>"savio85@gmail.com", "address"=>"8A Bartle Court", "contactNumber"=>"7323254547"}, "commit"=>"Create", "authenticity_token"=>"wX0JYZ+uKOCAlSO7Ze71xXEl9E6zUS+oc8Bq8VFiSWg="}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."loginName" = 'savio') LIMIT 1[0m
+  [4;35;1mUser Create (0.0ms)[0m   [0mINSERT INTO "users" ("salt", "userName", "updated_at", "loginName", "hashed_password", "registered", "emailId", "contactNumber", "address", "created_at") VALUES('a', 'savio', '2009-11-29 21:56:08', 'savio', 'dsouza', 't', 'savio85@gmail.com', 7323254547, '8A Bartle Court', '2009-11-29 21:56:08')[0m
+Redirected to http://localhost:3000/users/7
+Completed in 94ms (DB: 0) | 302 Found [http://localhost/users]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-29 16:56:09) [GET]
+  Parameters: {"id"=>"7"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+Rendering template within layouts/users
+Rendering users/show
+Completed in 45ms (View: 15, DB: 1) | 200 OK [http://localhost/users/7]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-11-29 16:56:12) [GET]
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT * FROM "users" [0m
+Rendering template within layouts/users
+Rendering users/index
+Completed in 84ms (View: 61, DB: 2) | 200 OK [http://localhost/users]
+
+
+Processing UserController#login (for 127.0.0.1 at 2009-11-29 16:56:46) [GET]
+Rendering template within layouts/user
+Rendering user/login
+Completed in 7ms (View: 5, DB: 0) | 200 OK [http://localhost/user/login]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-11-29 16:57:13) [GET]
+
+ActionController::RoutingError (No route matches "/location/index" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-11-29 16:57:19) [GET]
+
+ActionController::RoutingError (No route matches "/location/new" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing LocationsController#new (for 127.0.0.1 at 2009-11-29 16:57:30) [GET]
+Rendering template within layouts/locations
+Rendering locations/new
+Completed in 630ms (View: 613, DB: 0) | 200 OK [http://localhost/locations/new]
+
+
+Processing LocationsController#create (for 127.0.0.1 at 2009-11-29 16:58:48) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"wX0JYZ+uKOCAlSO7Ze71xXEl9E6zUS+oc8Bq8VFiSWg=", "location"=>{"time(1i)"=>"2009", "time(2i)"=>"11", "latitude"=>"62.802971", "time(3i)"=>"29", "time(4i)"=>"21", "time(5i)"=>"57", "username"=>"ashwini", "phonenumber"=>"9829282989", "longitude"=>"-18.339851", "commType"=>"1"}}
+  [4;36;1mLocation Create (1.0ms)[0m   [0;1mINSERT INTO "locations" ("latitude", "updated_at", "time", "username", "phonenumber", "longitude", "commType", "created_at") VALUES(62.802971, '2009-11-29 21:58:48', '2009-11-29 21:57:00', 'ashwini', 9829282989, -18.339851, 1, '2009-11-29 21:58:48')[0m
+Redirected to http://localhost:3000/locations/3
+Completed in 21ms (DB: 1) | 302 Found [http://localhost/locations]
+
+
+Processing LocationsController#show (for 127.0.0.1 at 2009-11-29 16:58:49) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mLocation Load (1.0ms)[0m   [0mSELECT * FROM "locations" WHERE ("locations"."id" = 3) [0m
+Rendering template within layouts/locations
+Rendering locations/show
+Completed in 98ms (View: 79, DB: 1) | 200 OK [http://localhost/locations/3]
+
+
+Processing UserController#login (for 127.0.0.1 at 2009-11-29 16:59:05) [GET]
+Rendering template within layouts/user
+Rendering user/login
+Completed in 9ms (View: 6, DB: 0) | 200 OK [http://localhost/user/login]
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-29 16:59:16) [POST]
+  Parameters: {"authenticity_token"=>"wX0JYZ+uKOCAlSO7Ze71xXEl9E6zUS+oc8Bq8VFiSWg=", "userform"=>{"userName"=>"ashwini", "hashed_password"=>"gadling"}}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE (userName = 'ashwini' and hashed_password = 'gadling') LIMIT 1[0m
+Redirected to http://localhost:3000/user/login
+Completed in 26ms (DB: 0) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing UserController#login (for 127.0.0.1 at 2009-11-29 16:59:17) [GET]
+Rendering template within layouts/user
+Rendering user/login
+Completed in 7ms (View: 5, DB: 0) | 200 OK [http://localhost/user/login]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-29 16:59:58) [GET]
+  Parameters: {"id"=>"index"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find User with ID=index):
+  app/controllers/users_controller.rb:16:in `show'
+
+Rendered rescues/_trace (78.0ms)
+Rendered rescues/_request_and_response (3.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing UserController#login (for 127.0.0.1 at 2009-11-29 17:00:10) [GET]
+Rendering template within layouts/user
+Rendering user/login
+Completed in 7ms (View: 5, DB: 0) | 200 OK [http://localhost/user/login]
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-29 17:00:19) [POST]
+  Parameters: {"authenticity_token"=>"wX0JYZ+uKOCAlSO7Ze71xXEl9E6zUS+oc8Bq8VFiSWg=", "userform"=>{"userName"=>"Sonia Pinto", "hashed_password"=>"sonia"}}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE (userName = 'Sonia Pinto' and hashed_password = 'sonia') LIMIT 1[0m
+Redirected to http://localhost:3000/map
+Completed in 27ms (DB: 0) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-29 17:00:20) [GET]
+  [4;35;1mLocation Load (2.0ms)[0m   [0mSELECT * FROM "locations" [0m
+Rendering template within layouts/map
+Rendering map/index
+Rendered map/_location (6.0ms)
+Rendered map/_location (5.0ms)
+Rendered map/_location (5.0ms)
+Completed in 33ms (View: 19, DB: 2) | 200 OK [http://localhost/map]
+
+
+Processing LocationsController#edit (for 127.0.0.1 at 2009-11-29 17:00:39) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mLocation Load (3.0ms)[0m   [0;1mSELECT * FROM "locations" WHERE ("locations"."id" = 3) [0m
+Rendering template within layouts/locations
+Rendering locations/edit
+Completed in 85ms (View: 71, DB: 3) | 200 OK [http://localhost/locations/3/edit]
+
+
+Processing UserController#logout (for 127.0.0.1 at 2009-11-29 17:00:51) [GET]
+Redirected to http://localhost:3000/user/login
+Completed in 3ms (DB: 0) | 302 Found [http://localhost/user/logout]
+
+
+Processing UserController#login (for 127.0.0.1 at 2009-11-29 17:00:52) [GET]
+Rendering template within layouts/user
+Rendering user/login
+Completed in 6ms (View: 4, DB: 0) | 200 OK [http://localhost/user/login]
+
+
+Processing UserController#login (for 127.0.0.1 at 2009-11-29 17:07:55) [GET]
+Rendering template within layouts/user
+Rendering user/login
+Completed in 9ms (View: 6, DB: 0) | 200 OK [http://localhost/user/login]
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-29 17:08:22) [POST]
+  Parameters: {"authenticity_token"=>"f7TQmRdAurIhEeDHrfkfe/jpOtVd5+XXbIAN6sAS1+U=", "userform"=>{"userName"=>"Sonia Pinto", "hashed_password"=>"sonia"}}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE (userName = 'Sonia Pinto' and hashed_password = 'sonia') LIMIT 1[0m
+Redirected to http://localhost:3000/map
+Completed in 27ms (DB: 0) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-29 17:08:23) [GET]
+  [4;36;1mLocation Load (1.0ms)[0m   [0;1mSELECT * FROM "locations" [0m
+Rendering template within layouts/map
+Rendering map/index
+Rendered map/_location (5.0ms)
+Rendered map/_location (4.0ms)
+Rendered map/_location (4.0ms)
+Completed in 41ms (View: 26, DB: 1) | 200 OK [http://localhost/map]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-11-29 17:08:53) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 35ms (View: 12, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-11-29 17:09:31) [POST]
+  Parameters: {"user"=>{"userName"=>"savio1", "salt"=>"s", "registered"=>"1", "hashed_password"=>"dsouza1", "loginName"=>"savio1", "emailId"=>"dkk", "address"=>"njdsnjsn", "contactNumber"=>"939393993"}, "commit"=>"Create", "authenticity_token"=>"f7TQmRdAurIhEeDHrfkfe/jpOtVd5+XXbIAN6sAS1+U="}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."loginName" = 'savio1') LIMIT 1[0m
+  [4;36;1mUser Create (1.0ms)[0m   [0;1mINSERT INTO "users" ("salt", "userName", "updated_at", "loginName", "hashed_password", "registered", "emailId", "contactNumber", "address", "created_at") VALUES('s', 'savio1', '2009-11-29 22:09:31', 'savio1', 'dsouza1', 't', 'dkk', 939393993, 'njdsnjsn', '2009-11-29 22:09:31')[0m
+Redirected to http://localhost:3000/users/8
+Completed in 40ms (DB: 2) | 302 Found [http://localhost/users]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-29 17:09:32) [GET]
+  Parameters: {"id"=>"8"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 8) [0m
+Rendering template within layouts/users
+Rendering users/show
+Completed in 33ms (View: 6, DB: 0) | 200 OK [http://localhost/users/8]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-11-29 17:09:38) [GET]
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT * FROM "users" [0m
+Rendering template within layouts/users
+Rendering users/index
+Completed in 61ms (View: 35, DB: 2) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#destroy (for 127.0.0.1 at 2009-11-29 17:10:07) [DELETE]
+  Parameters: {"authenticity_token"=>"f7TQmRdAurIhEeDHrfkfe/jpOtVd5+XXbIAN6sAS1+U=", "id"=>"7"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;36;1mUser Destroy (1.0ms)[0m   [0;1mDELETE FROM "users" WHERE "id" = 7[0m
+Redirected to http://localhost:3000/users
+Completed in 36ms (DB: 2) | 302 Found [http://localhost/users/7]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-11-29 17:10:08) [GET]
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT * FROM "users" [0m
+Rendering template within layouts/users
+Rendering users/index
+Completed in 50ms (View: 28, DB: 2) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#destroy (for 127.0.0.1 at 2009-11-29 17:10:14) [DELETE]
+  Parameters: {"authenticity_token"=>"f7TQmRdAurIhEeDHrfkfe/jpOtVd5+XXbIAN6sAS1+U=", "id"=>"6"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+  [4;35;1mUser Destroy (1.0ms)[0m   [0mDELETE FROM "users" WHERE "id" = 6[0m
+Redirected to http://localhost:3000/users
+Completed in 32ms (DB: 2) | 302 Found [http://localhost/users/6]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-11-29 17:10:15) [GET]
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT * FROM "users" [0m
+Rendering template within layouts/users
+Rendering users/index
+Completed in 47ms (View: 24, DB: 2) | 200 OK [http://localhost/users]
+
+
+Processing UserController#login (for 127.0.0.1 at 2009-11-29 17:10:26) [GET]
+Rendering template within layouts/user
+Rendering user/login
+Completed in 7ms (View: 5, DB: 0) | 200 OK [http://localhost/user/login]
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-29 17:10:44) [POST]
+  Parameters: {"authenticity_token"=>"f7TQmRdAurIhEeDHrfkfe/jpOtVd5+XXbIAN6sAS1+U=", "userform"=>{"userName"=>"ashwini gadling", "hashed_password"=>"gadling"}}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE (userName = 'ashwini gadling' and hashed_password = 'gadling') LIMIT 1[0m
+Redirected to http://localhost:3000/map
+Completed in 30ms (DB: 1) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-29 17:10:46) [GET]
+  [4;36;1mLocation Load (1.0ms)[0m   [0;1mSELECT * FROM "locations" [0m
+Rendering template within layouts/map
+Rendering map/index
+Rendered map/_location (6.0ms)
+Rendered map/_location (5.0ms)
+Rendered map/_location (5.0ms)
+Completed in 32ms (View: 19, DB: 1) | 200 OK [http://localhost/map]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-29 17:11:21) [GET]
+  [4;35;1mLocation Load (2.0ms)[0m   [0mSELECT * FROM "locations" [0m
+Rendering template within layouts/map
+Rendering map/index
+Rendered map/_location (5.0ms)
+Rendered map/_location (5.0ms)
+Rendered map/_location (5.0ms)
+Completed in 33ms (View: 19, DB: 2) | 200 OK [http://localhost/map/index]
+
+
+Processing UserController#logout (for 127.0.0.1 at 2009-11-29 17:12:53) [GET]
+Redirected to http://localhost:3000/user/login
+Completed in 4ms (DB: 0) | 302 Found [http://localhost/user/logout]
+
+
+Processing UserController#login (for 127.0.0.1 at 2009-11-29 17:12:54) [GET]
+Rendering template within layouts/user
+Rendering user/login
+Completed in 7ms (View: 5, DB: 0) | 200 OK [http://localhost/user/login]
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-29 17:13:04) [POST]
+  Parameters: {"authenticity_token"=>"3ackY09xwUWSbgjx2EN66BdKZDiLXEUIACr5LVOZbGI=", "userform"=>{"userName"=>"Sonia Pinto", "hashed_password"=>"sonia"}}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE (userName = 'Sonia Pinto' and hashed_password = 'sonia') LIMIT 1[0m
+Redirected to http://localhost:3000/map
+Completed in 46ms (DB: 1) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-29 17:13:05) [GET]
+  [4;35;1mLocation Load (3.0ms)[0m   [0mSELECT * FROM "locations" [0m
+Rendering template within layouts/map
+Rendering map/index
+Rendered map/_location (6.0ms)
+Rendered map/_location (5.0ms)
+Rendered map/_location (5.0ms)
+Completed in 55ms (View: 31, DB: 3) | 200 OK [http://localhost/map]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-29 17:13:31) [GET]
+  [4;36;1mLocation Load (1.0ms)[0m   [0;1mSELECT * FROM "locations" [0m
+Rendering template within layouts/map
+Rendering map/index
+Rendered map/_location (5.0ms)
+Rendered map/_location (5.0ms)
+Rendered map/_location (5.0ms)
+Completed in 34ms (View: 20, DB: 1) | 200 OK [http://localhost/map/index]
+
+
+Processing UserController#login (for 127.0.0.1 at 2009-11-29 17:14:22) [GET]
+Rendering template within layouts/user
+Rendering user/login
+Completed in 7ms (View: 5, DB: 0) | 200 OK [http://localhost/user/login]
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-29 17:14:33) [POST]
+  Parameters: {"authenticity_token"=>"3ackY09xwUWSbgjx2EN66BdKZDiLXEUIACr5LVOZbGI=", "userform"=>{"userName"=>"savio1", "hashed_password"=>"dsouza1"}}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE (userName = 'savio1' and hashed_password = 'dsouza1') LIMIT 1[0m
+Redirected to http://localhost:3000/map
+Completed in 31ms (DB: 1) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-29 17:14:34) [GET]
+  [4;36;1mLocation Load (2.0ms)[0m   [0;1mSELECT * FROM "locations" [0m
+Rendering template within layouts/map
+Rendering map/index
+Rendered map/_location (6.0ms)
+Rendered map/_location (5.0ms)
+Rendered map/_location (5.0ms)
+Completed in 33ms (View: 19, DB: 2) | 200 OK [http://localhost/map]
+
+
+Processing UserController#login (for 127.0.0.1 at 2009-11-29 18:26:24) [GET]
+Rendering template within layouts/user
+Rendering user/login
+Completed in 7ms (View: 5, DB: 0) | 200 OK [http://localhost/user/login]
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-29 18:26:33) [POST]
+  Parameters: {"authenticity_token"=>"3ackY09xwUWSbgjx2EN66BdKZDiLXEUIACr5LVOZbGI=", "userform"=>{"userName"=>"Sonia Pinto", "hashed_password"=>"sonia"}}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE (userName = 'Sonia Pinto' and hashed_password = 'sonia') LIMIT 1[0m
+Redirected to http://localhost:3000/map
+Completed in 27ms (DB: 1) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-29 18:26:34) [GET]
+  [4;36;1mLocation Load (1.0ms)[0m   [0;1mSELECT * FROM "locations" [0m
+Rendering template within layouts/map
+Rendering map/index
+Rendered map/_location (6.0ms)
+Rendered map/_location (4.0ms)
+Rendered map/_location (5.0ms)
+Completed in 35ms (View: 21, DB: 1) | 200 OK [http://localhost/map]
+
+
+Processing UserController#login (for 127.0.0.1 at 2009-11-29 20:16:25) [GET]
+Rendering template within layouts/user
+Rendering user/login
+Completed in 80ms (View: 77, DB: 0) | 200 OK [http://localhost/user/login]
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-29 20:16:34) [POST]
+  Parameters: {"authenticity_token"=>"3ackY09xwUWSbgjx2EN66BdKZDiLXEUIACr5LVOZbGI=", "userform"=>{"userName"=>"Sonia Pinto", "hashed_password"=>"sonia"}}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE (userName = 'Sonia Pinto' and hashed_password = 'sonia') LIMIT 1[0m
+Redirected to http://localhost:3000/map
+Completed in 58ms (DB: 0) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-29 20:16:35) [GET]
+  [4;35;1mLocation Load (2.0ms)[0m   [0mSELECT * FROM "locations" [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+NoMethodError (undefined method `current_user' for #<Class:0x6f9b450>):
+  app/controllers/map_controller.rb:18:in `index'
+
+Rendered rescues/_trace (84.0ms)
+Rendered rescues/_request_and_response (3.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ActionController::Base#login (for 127.0.0.1 at 2009-11-29 20:20:06) [GET]
+
+NameError (uninitialized constant ApplicationController::Public):
+  app/controllers/application_controller.rb:11
+  app/controllers/user_controller.rb:1
+
+Rendered rescues/_trace (165.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserController#login (for 127.0.0.1 at 2009-11-29 20:22:00) [GET]
+Rendering template within layouts/user
+Rendering user/login
+Completed in 9ms (View: 6, DB: 0) | 200 OK [http://localhost/user/login]
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-29 20:22:14) [POST]
+  Parameters: {"authenticity_token"=>"3ackY09xwUWSbgjx2EN66BdKZDiLXEUIACr5LVOZbGI=", "userform"=>{"userName"=>"Sonia Pinto", "hashed_password"=>"sonia"}}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE (userName = 'Sonia Pinto' and hashed_password = 'sonia') LIMIT 1[0m
+Redirected to http://localhost:3000/map
+Completed in 28ms (DB: 1) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-11-29 20:22:15) [GET]
+
+SyntaxError (C:/Users/Savio/Desktop/InstantRails-2.0-win/rails_apps/locationtrial/location/app/controllers/map_controller.rb:25: syntax error, unexpected $end, expecting kEND):
+  
+
+Rendered rescues/_trace (145.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserController#login (for 127.0.0.1 at 2009-11-29 20:23:20) [GET]
+Rendering template within layouts/user
+Rendering user/login
+Completed in 9ms (View: 7, DB: 0) | 200 OK [http://localhost/user/login]
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-29 20:23:28) [POST]
+  Parameters: {"authenticity_token"=>"3ackY09xwUWSbgjx2EN66BdKZDiLXEUIACr5LVOZbGI=", "userform"=>{"userName"=>"Sonia Pinto", "hashed_password"=>"sonia"}}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE (userName = 'Sonia Pinto' and hashed_password = 'sonia') LIMIT 1[0m
+Redirected to http://localhost:3000/map
+Completed in 46ms (DB: 1) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-29 20:23:30) [GET]
+  [4;35;1mLocation Load (2.0ms)[0m   [0mSELECT * FROM "locations" [0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+NoMethodError (undefined method `current_user' for #<Class:0x6ee905c>):
+  app/controllers/map_controller.rb:18:in `index'
+
+Rendered rescues/_trace (75.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ActionController::Base#login (for 127.0.0.1 at 2009-11-29 20:53:21) [GET]
+
+NameError (uninitialized constant ApplicationController::Protected):
+  app/controllers/application_controller.rb:11
+  app/controllers/user_controller.rb:1
+
+Rendered rescues/_trace (81.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+/!\ FAILSAFE /!\  Sun Nov 29 20:57:58 -0500 2009
+  Status: 500 Internal Server Error
+  C:/Users/Savio/Desktop/InstantRails-2.0-win/rails_apps/locationtrial/location/app/controllers/application_controller.rb:11: syntax error, unexpected ':', expecting kEND
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:380:in `load_without_new_constant_marking'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:380:in `load_file'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:379:in `load_file'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:259:in `require_or_load'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:425:in `load_missing_constant'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:80:in `const_missing'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:92:in `const_missing'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:89:in `dispatch'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:121:in `_call'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:29:in `call'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:29:in `call'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.4/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:9:in `cache'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:28:in `call'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.4/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/head.rb:9:in `call'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/methodoverride.rb:24:in `call'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/params_parser.rb:15:in `call'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/session/cookie_store.rb:93:in `call'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/failsafe.rb:26:in `call'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `synchronize'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:114:in `call'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/reloader.rb:34:in `run'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:108:in `call'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/rails-2.3.4/lib/rails/rack/static.rb:31:in `call'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:46:in `call'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `each'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `call'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/rails-2.3.4/lib/rails/rack/log_tailer.rb:17:in `call'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/content_length.rb:13:in `call'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/chunked.rb:15:in `call'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/handler/mongrel.rb:64:in `process'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:159:in `process_client'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:158:in `each'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:158:in `process_client'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:285:in `run'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:285:in `initialize'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:285:in `new'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:285:in `run'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:268:in `initialize'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:268:in `new'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:268:in `run'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/handler/mongrel.rb:34:in `run'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/rails-2.3.4/lib/commands/server.rb:111
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+/!\ FAILSAFE /!\  Sun Nov 29 21:00:03 -0500 2009
+  Status: 500 Internal Server Error
+  C:/Users/Savio/Desktop/InstantRails-2.0-win/rails_apps/locationtrial/location/app/controllers/application_controller.rb:11: syntax error, unexpected ':', expecting kEND
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:380:in `load_without_new_constant_marking'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:380:in `load_file'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:379:in `load_file'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:259:in `require_or_load'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:425:in `load_missing_constant'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:80:in `const_missing'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:92:in `const_missing'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:89:in `dispatch'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:121:in `_call'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:29:in `call'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:29:in `call'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.4/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:9:in `cache'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:28:in `call'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.4/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/head.rb:9:in `call'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/methodoverride.rb:24:in `call'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/params_parser.rb:15:in `call'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/session/cookie_store.rb:93:in `call'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/failsafe.rb:26:in `call'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `synchronize'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:114:in `call'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/reloader.rb:34:in `run'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:108:in `call'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/rails-2.3.4/lib/rails/rack/static.rb:31:in `call'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:46:in `call'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `each'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `call'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/rails-2.3.4/lib/rails/rack/log_tailer.rb:17:in `call'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/content_length.rb:13:in `call'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/chunked.rb:15:in `call'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/handler/mongrel.rb:64:in `process'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:159:in `process_client'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:158:in `each'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:158:in `process_client'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:285:in `run'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:285:in `initialize'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:285:in `new'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:285:in `run'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:268:in `initialize'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:268:in `new'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:268:in `run'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/handler/mongrel.rb:34:in `run'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/gems/1.8/gems/rails-2.3.4/lib/commands/server.rb:111
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    C:/Users/Savio/Desktop/InstantRails-2.0-win/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+
+Processing UserController#login (for 127.0.0.1 at 2009-11-29 21:00:41) [GET]
+Rendering template within layouts/user
+Rendering user/login
+Completed in 108ms (View: 105, DB: 0) | 200 OK [http://localhost/user/login]
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-29 21:00:51) [POST]
+  Parameters: {"authenticity_token"=>"3ackY09xwUWSbgjx2EN66BdKZDiLXEUIACr5LVOZbGI=", "userform"=>{"userName"=>"Sonia Pinto", "hashed_password"=>"sonia"}}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE (userName = 'Sonia Pinto' and hashed_password = 'sonia') LIMIT 1[0m
+Redirected to http://localhost:3000/map
+Completed in 45ms (DB: 1) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-29 21:00:52) [GET]
+  [4;35;1mLocation Load (2.0ms)[0m   [0mSELECT * FROM "locations" [0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+NoMethodError (undefined method `current_user' for #<Class:0x6f745d0>):
+  app/controllers/map_controller.rb:18:in `index'
+
+Rendered rescues/_trace (80.0ms)
+Rendered rescues/_request_and_response (2.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserController#login (for 127.0.0.1 at 2009-11-29 21:13:07) [GET]
+Rendering template within layouts/user
+Rendering user/login
+Completed in 12ms (View: 8, DB: 0) | 200 OK [http://localhost/user/login]
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-29 21:13:16) [POST]
+  Parameters: {"authenticity_token"=>"3ackY09xwUWSbgjx2EN66BdKZDiLXEUIACr5LVOZbGI=", "userform"=>{"userName"=>"Sonia Pinto", "hashed_password"=>"sonia"}}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE (userName = 'Sonia Pinto' and hashed_password = 'sonia') LIMIT 1[0m
+Redirected to http://localhost:3000/map
+Completed in 47ms (DB: 1) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-29 21:13:18) [GET]
+  [4;36;1mLocation Load (2.0ms)[0m   [0;1mSELECT * FROM "locations" [0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+NoMethodError (undefined method `current_user' for #<Class:0x6fe1f40>):
+  app/controllers/map_controller.rb:18:in `index'
+
+Rendered rescues/_trace (75.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserController#login (for 127.0.0.1 at 2009-11-29 22:20:27) [GET]
+Rendering template within layouts/user
+Rendering user/login
+Completed in 16ms (View: 12, DB: 0) | 200 OK [http://localhost/user/login]
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-29 22:20:38) [POST]
+  Parameters: {"authenticity_token"=>"3ackY09xwUWSbgjx2EN66BdKZDiLXEUIACr5LVOZbGI=", "userform"=>{"userName"=>"Sonia Pinto", "hashed_password"=>"sonia"}}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE (userName = 'Sonia Pinto' and hashed_password = 'sonia') LIMIT 1[0m
+Redirected to http://localhost:3000/map
+Completed in 52ms (DB: 1) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-29 22:20:39) [GET]
+  [4;35;1mLocation Load (3.0ms)[0m   [0mSELECT * FROM "locations" [0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+NoMethodError (undefined method `current_user' for #<Class:0x6e010a4>):
+  app/controllers/map_controller.rb:18:in `index'
+
+Rendered rescues/_trace (160.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserController#login (for 127.0.0.1 at 2009-11-29 22:40:03) [GET]
+Rendering template within layouts/user
+Rendering user/login
+Completed in 12ms (View: 8, DB: 0) | 200 OK [http://localhost/user/login]
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-29 22:40:12) [POST]
+  Parameters: {"authenticity_token"=>"3ackY09xwUWSbgjx2EN66BdKZDiLXEUIACr5LVOZbGI=", "userform"=>{"userName"=>"Sonia Pinto", "hashed_password"=>"sonia"}}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE (userName = 'Sonia Pinto' and hashed_password = 'sonia') LIMIT 1[0m
+Redirected to http://localhost:3000/map
+Completed in 52ms (DB: 1) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-29 22:40:13) [GET]
+  [4;36;1mLocation Load (3.0ms)[0m   [0;1mSELECT * FROM "locations" [0m
+Rendering template within layouts/map
+Rendering map/index
+Rendered map/_location (15.0ms)
+Rendered map/_location (11.0ms)
+Rendered map/_location (10.0ms)
+Completed in 110ms (View: 86, DB: 3) | 200 OK [http://localhost/map]
+
+
+Processing UserController#login (for 127.0.0.1 at 2009-11-29 23:44:24) [GET]
+Rendering template within layouts/user
+Rendering user/login
+Completed in 13ms (View: 8, DB: 0) | 200 OK [http://localhost/user/login]
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-29 23:44:36) [POST]
+  Parameters: {"authenticity_token"=>"3ackY09xwUWSbgjx2EN66BdKZDiLXEUIACr5LVOZbGI=", "userform"=>{"userName"=>"Sonia Pinto", "hashed_password"=>"sonia"}}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE (userName = 'Sonia Pinto' and hashed_password = 'sonia') LIMIT 1[0m
+Redirected to http://localhost:3000/map
+Completed in 45ms (DB: 1) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-11-29 23:44:37) [GET]
+
+SyntaxError (C:/Users/Savio/Desktop/InstantRails-2.0-win/rails_apps/locationtrial/location/app/controllers/map_controller.rb:17: Invalid char `\223' in expression
+C:/Users/Savio/Desktop/InstantRails-2.0-win/rails_apps/locationtrial/location/app/controllers/map_controller.rb:17: Invalid char `\224' in expression):
+  
+
+Rendered rescues/_trace (103.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserController#login (for 127.0.0.1 at 2009-11-29 23:49:08) [GET]
+Rendering template within layouts/user
+Rendering user/login
+Completed in 12ms (View: 8, DB: 0) | 200 OK [http://localhost/user/login]
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-29 23:49:19) [POST]
+  Parameters: {"authenticity_token"=>"3ackY09xwUWSbgjx2EN66BdKZDiLXEUIACr5LVOZbGI=", "userform"=>{"userName"=>"Sonia Pinto", "hashed_password"=>"sonia"}}
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT * FROM "users" WHERE (userName = 'Sonia Pinto' and hashed_password = 'sonia') LIMIT 1[0m
+Redirected to http://localhost:3000/map
+Completed in 47ms (DB: 2) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-29 23:49:21) [GET]
+  [4;35;1mLocation Load (1.0ms)[0m   [0mSELECT * FROM "locations" WHERE (username ="Sonia Pinto") [0m
+Rendering template within layouts/map
+Rendering map/index
+Completed in 12ms (View: 2, DB: 1) | 200 OK [http://localhost/map]
+
+
+Processing LocationsController#show (for 127.0.0.1 at 2009-11-29 23:50:10) [GET]
+  Parameters: {"id"=>"index"}
+  [4;36;1mLocation Load (0.0ms)[0m   [0;1mSELECT * FROM "locations" WHERE ("locations"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Location with ID=index):
+  app/controllers/locations_controller.rb:16:in `show'
+
+Rendered rescues/_trace (77.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing LocationsController#show (for 127.0.0.1 at 2009-11-29 23:51:03) [GET]
+  Parameters: {"id"=>"index"}
+  [4;35;1mLocation Load (1.0ms)[0m   [0mSELECT * FROM "locations" WHERE ("locations"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Location with ID=index):
+  app/controllers/locations_controller.rb:16:in `show'
+
+Rendered rescues/_trace (232.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing LocationsController#new (for 127.0.0.1 at 2009-11-29 23:51:22) [GET]
+Rendering template within layouts/locations
+Rendering locations/new
+Completed in 313ms (View: 296, DB: 0) | 200 OK [http://localhost/locations/new]
+
+
+Processing LocationsController#index (for 127.0.0.1 at 2009-11-29 23:51:26) [GET]
+  [4;36;1mLocation Load (2.0ms)[0m   [0;1mSELECT * FROM "locations" [0m
+Rendering template within layouts/locations
+Rendering locations/index
+Completed in 210ms (View: 194, DB: 2) | 200 OK [http://localhost/locations]
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-29 23:53:25) [POST]
+  Parameters: {"authenticity_token"=>"3ackY09xwUWSbgjx2EN66BdKZDiLXEUIACr5LVOZbGI=", "userform"=>{"userName"=>"Sonia", "hashed_password"=>"sonia"}}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE (userName = 'Sonia' and hashed_password = 'sonia') LIMIT 1[0m
+Redirected to http://localhost:3000/user/login
+Completed in 46ms (DB: 1) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing UserController#login (for 127.0.0.1 at 2009-11-29 23:53:26) [GET]
+Rendering template within layouts/user
+Rendering user/login
+Completed in 12ms (View: 9, DB: 0) | 200 OK [http://localhost/user/login]
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-29 23:53:36) [POST]
+  Parameters: {"authenticity_token"=>"3ackY09xwUWSbgjx2EN66BdKZDiLXEUIACr5LVOZbGI=", "userform"=>{"userName"=>"Sonia Pinto", "hashed_password"=>"sonia"}}
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT * FROM "users" WHERE (userName = 'Sonia Pinto' and hashed_password = 'sonia') LIMIT 1[0m
+Redirected to http://localhost:3000/map
+Completed in 48ms (DB: 2) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-29 23:53:37) [GET]
+  [4;35;1mLocation Load (2.0ms)[0m   [0mSELECT * FROM "locations" WHERE (username ="Sonia") [0m
+Rendering template within layouts/map
+Rendering map/index
+Completed in 13ms (View: 3, DB: 2) | 200 OK [http://localhost/map]
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-29 23:53:54) [POST]
+  Parameters: {"authenticity_token"=>"3ackY09xwUWSbgjx2EN66BdKZDiLXEUIACr5LVOZbGI=", "userform"=>{"userName"=>"Sonia", "hashed_password"=>""}}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE (userName = 'Sonia' and hashed_password = '') LIMIT 1[0m
+Redirected to http://localhost:3000/user/login
+Completed in 46ms (DB: 1) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing UserController#login (for 127.0.0.1 at 2009-11-29 23:53:55) [GET]
+Rendering template within layouts/user
+Rendering user/login
+Completed in 11ms (View: 8, DB: 0) | 200 OK [http://localhost/user/login]
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-29 23:54:02) [POST]
+  Parameters: {"authenticity_token"=>"3ackY09xwUWSbgjx2EN66BdKZDiLXEUIACr5LVOZbGI=", "userform"=>{"userName"=>"Sonia", "hashed_password"=>"sonia"}}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE (userName = 'Sonia' and hashed_password = 'sonia') LIMIT 1[0m
+Redirected to http://localhost:3000/user/login
+Completed in 45ms (DB: 0) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing UserController#login (for 127.0.0.1 at 2009-11-29 23:54:03) [GET]
+Rendering template within layouts/user
+Rendering user/login
+Completed in 12ms (View: 8, DB: 0) | 200 OK [http://localhost/user/login]
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-29 23:54:09) [POST]
+  Parameters: {"authenticity_token"=>"3ackY09xwUWSbgjx2EN66BdKZDiLXEUIACr5LVOZbGI=", "userform"=>{"userName"=>"Sonia", "hashed_password"=>"Sonia"}}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE (userName = 'Sonia' and hashed_password = 'Sonia') LIMIT 1[0m
+Redirected to http://localhost:3000/user/login
+Completed in 40ms (DB: 1) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing UserController#login (for 127.0.0.1 at 2009-11-29 23:54:11) [GET]
+Rendering template within layouts/user
+Rendering user/login
+Completed in 12ms (View: 8, DB: 0) | 200 OK [http://localhost/user/login]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-11-29 23:54:32) [GET]
+
+ActionController::RoutingError (No route matches "/location/new" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing UserController#login (for 127.0.0.1 at 2009-11-29 23:55:22) [GET]
+Rendering template within layouts/user
+Rendering user/login
+Completed in 12ms (View: 8, DB: 0) | 200 OK [http://localhost/user/login]
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-29 23:55:42) [POST]
+  Parameters: {"authenticity_token"=>"3ackY09xwUWSbgjx2EN66BdKZDiLXEUIACr5LVOZbGI=", "userform"=>{"userName"=>"Sonia Pinto", "hashed_password"=>"sonia"}}
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT * FROM "users" WHERE (userName = 'Sonia Pinto' and hashed_password = 'sonia') LIMIT 1[0m
+Redirected to http://localhost:3000/map
+Completed in 46ms (DB: 2) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-29 23:55:43) [GET]
+  [4;36;1mLocation Load (1.0ms)[0m   [0;1mSELECT * FROM "locations" WHERE (username ="Sonia") [0m
+Rendering template within layouts/map
+Rendering map/index
+Completed in 19ms (View: 4, DB: 1) | 200 OK [http://localhost/map]
+
+
+Processing UserController#login (for 127.0.0.1 at 2009-11-29 23:57:24) [GET]
+Rendering template within layouts/user
+Rendering user/login
+Completed in 11ms (View: 8, DB: 0) | 200 OK [http://localhost/user/login]
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-29 23:57:34) [POST]
+  Parameters: {"authenticity_token"=>"3ackY09xwUWSbgjx2EN66BdKZDiLXEUIACr5LVOZbGI=", "userform"=>{"userName"=>"sonia", "hashed_password"=>"sonia"}}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE (userName = 'sonia' and hashed_password = 'sonia') LIMIT 1[0m
+Redirected to http://localhost:3000/user/login
+Completed in 45ms (DB: 0) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing UserController#login (for 127.0.0.1 at 2009-11-29 23:57:35) [GET]
+Rendering template within layouts/user
+Rendering user/login
+Completed in 14ms (View: 11, DB: 0) | 200 OK [http://localhost/user/login]
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-29 23:57:45) [POST]
+  Parameters: {"authenticity_token"=>"3ackY09xwUWSbgjx2EN66BdKZDiLXEUIACr5LVOZbGI=", "userform"=>{"userName"=>"Sonia", "hashed_password"=>"sonia"}}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE (userName = 'Sonia' and hashed_password = 'sonia') LIMIT 1[0m
+Redirected to http://localhost:3000/user/login
+Completed in 28ms (DB: 1) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing UserController#login (for 127.0.0.1 at 2009-11-29 23:57:47) [GET]
+Rendering template within layouts/user
+Rendering user/login
+Completed in 12ms (View: 8, DB: 0) | 200 OK [http://localhost/user/login]
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-29 23:59:38) [POST]
+  Parameters: {"authenticity_token"=>"3ackY09xwUWSbgjx2EN66BdKZDiLXEUIACr5LVOZbGI=", "userform"=>{"userName"=>"Sonia Pinto", "hashed_password"=>"sonia"}}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE (userName = 'Sonia Pinto' and hashed_password = 'sonia') LIMIT 1[0m
+Redirected to http://localhost:3000/map
+Completed in 50ms (DB: 1) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-29 23:59:39) [GET]
+  [4;36;1mLocation Load (3.0ms)[0m   [0;1mSELECT * FROM "locations" [0m
+Rendering template within layouts/map
+Rendering map/index
+Rendered map/_location (10.0ms)
+Rendered map/_location (10.0ms)
+Rendered map/_location (9.0ms)
+Completed in 74ms (View: 50, DB: 3) | 200 OK [http://localhost/map]
+
+
+Processing LocationsController#edit (for 127.0.0.1 at 2009-11-29 23:59:59) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mLocation Load (1.0ms)[0m   [0mSELECT * FROM "locations" WHERE ("locations"."id" = 1) [0m
+Rendering template within layouts/locations
+Rendering locations/edit
+Completed in 76ms (View: 57, DB: 1) | 200 OK [http://localhost/locations/1/edit]
+
+
+Processing UserController#new (for 127.0.0.1 at 2009-11-30 00:05:46) [GET]
+
+ActionController::UnknownAction (No action responded to new. Actions: authenticate, current_user, login, logout, and private):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-11-30 00:06:07) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 54ms (View: 30, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-11-30 00:06:14) [GET]
+  [4;36;1mUser Load (3.0ms)[0m   [0;1mSELECT * FROM "users" [0m
+Rendering template within layouts/users
+Rendering users/index
+Completed in 92ms (View: 53, DB: 3) | 200 OK [http://localhost/users]
+
+
+Processing LocationsController#new (for 127.0.0.1 at 2009-11-30 00:06:40) [GET]
+Rendering template within layouts/locations
+Rendering locations/new
+Completed in 56ms (View: 39, DB: 0) | 200 OK [http://localhost/locations/new]
+
+
+Processing LocationsController#index (for 127.0.0.1 at 2009-11-30 00:06:46) [GET]
+  [4;35;1mLocation Load (2.0ms)[0m   [0mSELECT * FROM "locations" [0m
+Rendering template within layouts/locations
+Rendering locations/index
+Completed in 54ms (View: 37, DB: 2) | 200 OK [http://localhost/locations]
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-30 00:07:25) [POST]
+  Parameters: {"authenticity_token"=>"3ackY09xwUWSbgjx2EN66BdKZDiLXEUIACr5LVOZbGI=", "userform"=>{"userName"=>"Sonia Pinto", "hashed_password"=>"sonia"}}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE (userName = 'Sonia Pinto' and hashed_password = 'sonia') LIMIT 1[0m
+Redirected to http://localhost:3000/map
+Completed in 49ms (DB: 1) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-30 00:07:26) [GET]
+
+NoMethodError (undefined method `>' for :conditions:Symbol):
+  app/controllers/map_controller.rb:18:in `index'
+
+Rendered rescues/_trace (128.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-11-30 00:08:22) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 60ms (View: 20, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-11-30 00:08:33) [GET]
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" [0m
+Rendering template within layouts/users
+Rendering users/index
+Completed in 46ms (View: 23, DB: 1) | 200 OK [http://localhost/users]
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-30 00:09:07) [POST]
+  Parameters: {"authenticity_token"=>"3ackY09xwUWSbgjx2EN66BdKZDiLXEUIACr5LVOZbGI=", "userform"=>{"userName"=>"Sonia Pinto", "hashed_password"=>"sonia"}}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE (userName = 'Sonia Pinto' and hashed_password = 'sonia') LIMIT 1[0m
+Redirected to http://localhost:3000/map
+Completed in 32ms (DB: 0) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-30 00:09:08) [GET]
+
+NoMethodError (undefined method `>' for :conditions:Symbol):
+  app/controllers/map_controller.rb:18:in `index'
+
+Rendered rescues/_trace (133.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserController#login (for 127.0.0.1 at 2009-11-30 00:10:52) [GET]
+Rendering template within layouts/user
+Rendering user/login
+Completed in 11ms (View: 8, DB: 0) | 200 OK [http://localhost/user/login]
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-30 00:11:06) [POST]
+  Parameters: {"authenticity_token"=>"3ackY09xwUWSbgjx2EN66BdKZDiLXEUIACr5LVOZbGI=", "userform"=>{"userName"=>"Sonia Pinto", "hashed_password"=>"sonia"}}
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT * FROM "users" WHERE (userName = 'Sonia Pinto' and hashed_password = 'sonia') LIMIT 1[0m
+Redirected to http://localhost:3000/map
+Completed in 48ms (DB: 2) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-30 00:11:07) [GET]
+  [4;36;1mLocation Load (2.0ms)[0m   [0;1mSELECT * FROM "locations" [0m
+Rendering template within layouts/map
+Rendering map/index
+Rendered map/_location (9.0ms)
+Rendered map/_location (8.0ms)
+Rendered map/_location (9.0ms)
+Completed in 57ms (View: 34, DB: 2) | 200 OK [http://localhost/map]
+
+
+Processing UserController#login (for 127.0.0.1 at 2009-11-30 00:12:16) [GET]
+Rendering template within layouts/user
+Rendering user/login
+Completed in 12ms (View: 9, DB: 0) | 200 OK [http://localhost/user/login]
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-30 00:12:27) [POST]
+  Parameters: {"authenticity_token"=>"3ackY09xwUWSbgjx2EN66BdKZDiLXEUIACr5LVOZbGI=", "userform"=>{"userName"=>"Sonia Pinto", "hashed_password"=>"sonia"}}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE (userName = 'Sonia Pinto' and hashed_password = 'sonia') LIMIT 1[0m
+Redirected to http://localhost:3000/map
+Completed in 27ms (DB: 1) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-30 00:12:28) [GET]
+
+NoMethodError (undefined method `>' for :conditions:Symbol):
+  app/controllers/map_controller.rb:18:in `index'
+
+Rendered rescues/_trace (128.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserController#login (for 127.0.0.1 at 2009-11-30 00:13:26) [GET]
+Rendering template within layouts/user
+Rendering user/login
+Completed in 13ms (View: 9, DB: 0) | 200 OK [http://localhost/user/login]
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-30 00:13:37) [POST]
+  Parameters: {"authenticity_token"=>"3ackY09xwUWSbgjx2EN66BdKZDiLXEUIACr5LVOZbGI=", "userform"=>{"userName"=>"Sonia Pinto", "hashed_password"=>"sonia"}}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE (userName = 'Sonia Pinto' and hashed_password = 'sonia') LIMIT 1[0m
+Redirected to http://localhost:3000/map
+Completed in 48ms (DB: 1) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-30 00:13:38) [GET]
+  [4;35;1mLocation Load (2.0ms)[0m   [0mSELECT * FROM "locations" WHERE (username = "sonia") [0m
+Rendering template within layouts/map
+Rendering map/index
+Rendered map/_location (5.0ms)
+Rendered map/_location (5.0ms)
+Completed in 112ms (View: 22, DB: 2) | 200 OK [http://localhost/map]
+
+
+Processing UserController#logout (for 127.0.0.1 at 2009-11-30 00:14:34) [GET]
+Redirected to http://localhost:3000/user/login
+Completed in 4ms (DB: 0) | 302 Found [http://localhost/user/logout]
+
+
+Processing UserController#login (for 127.0.0.1 at 2009-11-30 00:14:36) [GET]
+Rendering template within layouts/user
+Rendering user/login
+Completed in 11ms (View: 8, DB: 0) | 200 OK [http://localhost/user/login]
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-30 00:32:31) [POST]
+  Parameters: {"authenticity_token"=>"JHPHt/PxWVtqatdbGUxjQRIDb0W1CqvFgTiEKSBcRt8=", "userform"=>{"userName"=>"Sonia Pinto", "hashed_password"=>"sonia"}}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE (userName = 'Sonia Pinto' and hashed_password = 'sonia') LIMIT 1[0m
+Redirected to http://localhost:3000/map
+Completed in 47ms (DB: 1) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-30 00:32:32) [GET]
+  [4;35;1mLocation Load (0.0ms)[0m   [0mSQLite3::SQLException: unrecognized token: "#": SELECT * FROM "locations" WHERE (username = #{user_session}) [0m
+
+ActiveRecord::StatementInvalid (SQLite3::SQLException: unrecognized token: "#": SELECT * FROM "locations" WHERE (username = #{user_session}) ):
+  app/controllers/map_controller.rb:18:in `index'
+
+Rendered rescues/_trace (157.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-30 00:33:08) [POST]
+  Parameters: {"authenticity_token"=>"JHPHt/PxWVtqatdbGUxjQRIDb0W1CqvFgTiEKSBcRt8=", "userform"=>{"userName"=>"Sonia Pinto", "hashed_password"=>"sonia"}}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE (userName = 'Sonia Pinto' and hashed_password = 'sonia') LIMIT 1[0m
+Redirected to http://localhost:3000/map
+Completed in 47ms (DB: 1) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-30 00:33:09) [GET]
+  [4;35;1mLocation Load (0.0ms)[0m   [0mSQLite3::SQLException: unrecognized token: "{": SELECT * FROM "locations" WHERE (username = {user_session}) [0m
+
+ActiveRecord::StatementInvalid (SQLite3::SQLException: unrecognized token: "{": SELECT * FROM "locations" WHERE (username = {user_session}) ):
+  app/controllers/map_controller.rb:18:in `index'
+
+Rendered rescues/_trace (99.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-30 00:33:26) [POST]
+  Parameters: {"authenticity_token"=>"JHPHt/PxWVtqatdbGUxjQRIDb0W1CqvFgTiEKSBcRt8=", "userform"=>{"userName"=>"Sonia Pinto", "hashed_password"=>"sonia"}}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE (userName = 'Sonia Pinto' and hashed_password = 'sonia') LIMIT 1[0m
+Redirected to http://localhost:3000/map
+Completed in 120ms (DB: 1) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-30 00:33:27) [GET]
+  [4;35;1mLocation Load (0.0ms)[0m   [0mSQLite3::SQLException: no such column: user_session: SELECT * FROM "locations" WHERE (username = user_session) [0m
+
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such column: user_session: SELECT * FROM "locations" WHERE (username = user_session) ):
+  app/controllers/map_controller.rb:18:in `index'
+
+Rendered rescues/_trace (90.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-30 00:34:04) [POST]
+  Parameters: {"authenticity_token"=>"JHPHt/PxWVtqatdbGUxjQRIDb0W1CqvFgTiEKSBcRt8=", "userform"=>{"userName"=>"Sonia Pinto", "hashed_password"=>"sonia"}}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE (userName = 'Sonia Pinto' and hashed_password = 'sonia') LIMIT 1[0m
+Redirected to http://localhost:3000/map
+Completed in 31ms (DB: 0) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-11-30 00:34:05) [GET]
+
+SyntaxError (C:/Users/Savio/Desktop/InstantRails-2.0-win/rails_apps/locationtrial/location/app/controllers/map_controller.rb:18: syntax error, unexpected tIDENTIFIER, expecting ']'
+    @locations = Location.find(:all, :conditions => ['username = 'user_session	]) 
+                                                                              ^):
+  
+
+Rendered rescues/_trace (168.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-30 00:34:39) [POST]
+  Parameters: {"authenticity_token"=>"JHPHt/PxWVtqatdbGUxjQRIDb0W1CqvFgTiEKSBcRt8=", "userform"=>{"userName"=>"Sonia Pinto", "hashed_password"=>"sonia"}}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE (userName = 'Sonia Pinto' and hashed_password = 'sonia') LIMIT 1[0m
+Redirected to http://localhost:3000/map
+Completed in 48ms (DB: 1) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-30 00:34:40) [GET]
+
+NameError (undefined local variable or method `user_session' for #<MapController:0x6e91eec>):
+  app/controllers/map_controller.rb:18:in `index'
+
+Rendered rescues/_trace (146.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-30 00:35:58) [POST]
+  Parameters: {"authenticity_token"=>"JHPHt/PxWVtqatdbGUxjQRIDb0W1CqvFgTiEKSBcRt8=", "userform"=>{"userName"=>"Sonia Pinto", "hashed_password"=>"sonia"}}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE (userName = 'Sonia Pinto' and hashed_password = 'sonia') LIMIT 1[0m
+Redirected to http://localhost:3000/map
+Completed in 47ms (DB: 1) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-30 00:35:59) [GET]
+
+NameError (undefined local variable or method `user_session' for #<MapController:0x6f37824>):
+  app/controllers/map_controller.rb:18:in `index'
+
+Rendered rescues/_trace (115.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-30 00:44:08) [POST]
+  Parameters: {"authenticity_token"=>"JHPHt/PxWVtqatdbGUxjQRIDb0W1CqvFgTiEKSBcRt8=", "userform"=>{"userName"=>"Sonia Pinto", "hashed_password"=>"sonia"}}
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT * FROM "users" WHERE (userName = 'Sonia Pinto' and hashed_password = 'sonia') LIMIT 1[0m
+Redirected to http://localhost:3000/map
+Completed in 51ms (DB: 2) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-30 00:44:09) [GET]
+  [4;36;1mLocation Load (0.0ms)[0m   [0;1mSQLite3::SQLException: no such column: sonia: SELECT * FROM "locations" WHERE (sonia) [0m
+
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such column: sonia: SELECT * FROM "locations" WHERE (sonia) ):
+  app/controllers/map_controller.rb:18:in `index'
+
+Rendered rescues/_trace (87.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-30 00:44:41) [POST]
+  Parameters: {"authenticity_token"=>"JHPHt/PxWVtqatdbGUxjQRIDb0W1CqvFgTiEKSBcRt8=", "userform"=>{"userName"=>"Sonia Pinto", "hashed_password"=>"sonia"}}
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT * FROM "users" WHERE (userName = 'Sonia Pinto' and hashed_password = 'sonia') LIMIT 1[0m
+Redirected to http://localhost:3000/map
+Completed in 47ms (DB: 2) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-30 00:44:42) [GET]
+  [4;36;1mLocation Load (0.0ms)[0m   [0;1mSQLite3::SQLException: no such column: sonia: SELECT * FROM "locations" WHERE (sonia) [0m
+
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such column: sonia: SELECT * FROM "locations" WHERE (sonia) ):
+  app/controllers/map_controller.rb:18:in `index'
+
+Rendered rescues/_trace (168.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-30 00:45:17) [POST]
+  Parameters: {"authenticity_token"=>"JHPHt/PxWVtqatdbGUxjQRIDb0W1CqvFgTiEKSBcRt8=", "userform"=>{"userName"=>"Sonia Pinto", "hashed_password"=>"sonia"}}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE (userName = 'Sonia Pinto' and hashed_password = 'sonia') LIMIT 1[0m
+Redirected to http://localhost:3000/map
+Completed in 28ms (DB: 0) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-30 00:45:18) [GET]
+  [4;36;1mLocation Load (0.0ms)[0m   [0;1mSQLite3::SQLException: near "[:user_session]": syntax error: SELECT * FROM "locations" WHERE (username = session[:user_session]) [0m
+
+ActiveRecord::StatementInvalid (SQLite3::SQLException: near "[:user_session]": syntax error: SELECT * FROM "locations" WHERE (username = session[:user_session]) ):
+  app/controllers/map_controller.rb:18:in `index'
+
+Rendered rescues/_trace (175.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-30 00:45:41) [POST]
+  Parameters: {"authenticity_token"=>"JHPHt/PxWVtqatdbGUxjQRIDb0W1CqvFgTiEKSBcRt8=", "userform"=>{"userName"=>"Sonia Pinto", "hashed_password"=>"sonia"}}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE (userName = 'Sonia Pinto' and hashed_password = 'sonia') LIMIT 1[0m
+Redirected to http://localhost:3000/map
+Completed in 35ms (DB: 0) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-11-30 00:45:42) [GET]
+
+SyntaxError (C:/Users/Savio/Desktop/InstantRails-2.0-win/rails_apps/locationtrial/location/app/controllers/map_controller.rb:18: syntax error, unexpected tIDENTIFIER, expecting ']'
+    @locations = Location.find(:all, :conditions => ['username =' session[:user_session]	]) 
+                                                                         ^
+C:/Users/Savio/Desktop/InstantRails-2.0-win/rails_apps/locationtrial/location/app/controllers/map_controller.rb:18: syntax error, unexpected ']', expecting kEND
+    @locations = Location.find(:all, :conditions => ['username =' session[:user_session]	]) 
+                                                                                        	 ^):
+  
+
+Rendered rescues/_trace (95.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-30 00:55:08) [POST]
+  Parameters: {"authenticity_token"=>"JHPHt/PxWVtqatdbGUxjQRIDb0W1CqvFgTiEKSBcRt8=", "userform"=>{"userName"=>"Sonia Pinto", "hashed_password"=>"sonia"}}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE (userName = 'Sonia Pinto' and hashed_password = 'sonia') LIMIT 1[0m
+Redirected to http://localhost:3000/map
+Completed in 27ms (DB: 1) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-30 00:55:10) [GET]
+  [4;35;1mLocation Load (0.0ms)[0m   [0mSQLite3::SQLException: near "[:user_session]": syntax error: SELECT * FROM "locations" WHERE (username=@session[:user_session]) [0m
+
+ActiveRecord::StatementInvalid (SQLite3::SQLException: near "[:user_session]": syntax error: SELECT * FROM "locations" WHERE (username=@session[:user_session]) ):
+  app/controllers/map_controller.rb:18:in `index'
+
+Rendered rescues/_trace (88.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-30 00:56:00) [POST]
+  Parameters: {"authenticity_token"=>"JHPHt/PxWVtqatdbGUxjQRIDb0W1CqvFgTiEKSBcRt8=", "userform"=>{"userName"=>"Sonia Pinto", "hashed_password"=>"sonia"}}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE (userName = 'Sonia Pinto' and hashed_password = 'sonia') LIMIT 1[0m
+Redirected to http://localhost:3000/map
+Completed in 29ms (DB: 1) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-30 00:56:01) [GET]
+  [4;35;1mLocation Load (0.0ms)[0m   [0mSQLite3::SQLException: no such column: sonia: SELECT * FROM "locations" WHERE (sonia) [0m
+
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such column: sonia: SELECT * FROM "locations" WHERE (sonia) ):
+  app/controllers/map_controller.rb:18:in `index'
+
+Rendered rescues/_trace (213.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-30 00:59:05) [POST]
+  Parameters: {"authenticity_token"=>"JHPHt/PxWVtqatdbGUxjQRIDb0W1CqvFgTiEKSBcRt8=", "userform"=>{"userName"=>"Sonia Pinto", "hashed_password"=>"sonia"}}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE (userName = 'Sonia Pinto' and hashed_password = 'sonia') LIMIT 1[0m
+Redirected to http://localhost:3000/map
+Completed in 48ms (DB: 1) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-30 00:59:06) [GET]
+  [4;35;1mLocation Load (0.0ms)[0m   [0mSQLite3::SQLException: near ")": syntax error: SELECT * FROM "locations" WHERE (username=) [0m
+
+ActiveRecord::StatementInvalid (SQLite3::SQLException: near ")": syntax error: SELECT * FROM "locations" WHERE (username=) ):
+  app/controllers/map_controller.rb:18:in `index'
+
+Rendered rescues/_trace (227.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-30 01:01:32) [POST]
+  Parameters: {"authenticity_token"=>"JHPHt/PxWVtqatdbGUxjQRIDb0W1CqvFgTiEKSBcRt8=", "userform"=>{"userName"=>"Sonia Pinto", "hashed_password"=>"sonia"}}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE (userName = 'Sonia Pinto' and hashed_password = 'sonia') LIMIT 1[0m
+Redirected to http://localhost:3000/map
+Completed in 47ms (DB: 1) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-30 01:01:33) [GET]
+  [4;35;1mLocation Load (1.0ms)[0m   [0mSELECT * FROM "locations" WHERE (username='#session[:user_session]') [0m
+Rendering template within layouts/map
+Rendering map/index
+Completed in 12ms (View: 2, DB: 1) | 200 OK [http://localhost/map]
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-30 01:04:04) [POST]
+  Parameters: {"authenticity_token"=>"JHPHt/PxWVtqatdbGUxjQRIDb0W1CqvFgTiEKSBcRt8=", "userform"=>{"userName"=>"Sonia Pinto", "hashed_password"=>"sonia"}}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE (userName = 'Sonia Pinto' and hashed_password = 'sonia') LIMIT 1[0m
+Redirected to http://localhost:3000/map
+Completed in 28ms (DB: 1) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-30 01:04:05) [GET]
+  [4;35;1mLocation Load (1.0ms)[0m   [0mSELECT * FROM "locations" WHERE (username=:uname) [0m
+Rendering template within layouts/map
+Rendering map/index
+Completed in 12ms (View: 2, DB: 1) | 200 OK [http://localhost/map]
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-30 01:04:33) [POST]
+  Parameters: {"authenticity_token"=>"JHPHt/PxWVtqatdbGUxjQRIDb0W1CqvFgTiEKSBcRt8=", "userform"=>{"userName"=>"Sonia Pinto", "hashed_password"=>"sonia"}}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE (userName = 'Sonia Pinto' and hashed_password = 'sonia') LIMIT 1[0m
+Redirected to http://localhost:3000/map
+Completed in 46ms (DB: 1) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-30 01:04:35) [GET]
+  [4;35;1mLocation Load (0.0ms)[0m   [0mSQLite3::SQLException: no such column: sonia: SELECT * FROM "locations" WHERE (username=sonia) [0m
+
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such column: sonia: SELECT * FROM "locations" WHERE (username=sonia) ):
+  app/controllers/map_controller.rb:18:in `index'
+
+Rendered rescues/_trace (185.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-30 01:04:57) [POST]
+  Parameters: {"authenticity_token"=>"JHPHt/PxWVtqatdbGUxjQRIDb0W1CqvFgTiEKSBcRt8=", "userform"=>{"userName"=>"Sonia Pinto", "hashed_password"=>"sonia"}}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE (userName = 'Sonia Pinto' and hashed_password = 'sonia') LIMIT 1[0m
+Redirected to http://localhost:3000/map
+Completed in 47ms (DB: 1) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-30 01:04:59) [GET]
+  [4;35;1mLocation Load (0.0ms)[0m   [0mSQLite3::SQLException: no such column: sonia: SELECT * FROM "locations" WHERE (username=sonia) [0m
+
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such column: sonia: SELECT * FROM "locations" WHERE (username=sonia) ):
+  app/controllers/map_controller.rb:18:in `index'
+
+Rendered rescues/_trace (161.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-30 01:05:15) [POST]
+  Parameters: {"authenticity_token"=>"JHPHt/PxWVtqatdbGUxjQRIDb0W1CqvFgTiEKSBcRt8=", "userform"=>{"userName"=>"Sonia Pinto", "hashed_password"=>"sonia"}}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE (userName = 'Sonia Pinto' and hashed_password = 'sonia') LIMIT 1[0m
+Redirected to http://localhost:3000/map
+Completed in 47ms (DB: 1) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-30 01:05:17) [GET]
+  [4;35;1mLocation Load (2.0ms)[0m   [0mSELECT * FROM "locations" WHERE (username="sonia") [0m
+Rendering template within layouts/map
+Rendering map/index
+Rendered map/_location (6.0ms)
+Rendered map/_location (5.0ms)
+Completed in 29ms (View: 14, DB: 2) | 200 OK [http://localhost/map]
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-30 01:05:40) [POST]
+  Parameters: {"authenticity_token"=>"JHPHt/PxWVtqatdbGUxjQRIDb0W1CqvFgTiEKSBcRt8=", "userform"=>{"userName"=>"Sonia Pinto", "hashed_password"=>"sonia"}}
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT * FROM "users" WHERE (userName = 'Sonia Pinto' and hashed_password = 'sonia') LIMIT 1[0m
+Redirected to http://localhost:3000/map
+Completed in 47ms (DB: 2) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-30 01:05:41) [GET]
+  [4;35;1mLocation Load (1.0ms)[0m   [0mSELECT * FROM "locations" WHERE (username=":uname") [0m
+Rendering template within layouts/map
+Rendering map/index
+Completed in 21ms (View: 4, DB: 1) | 200 OK [http://localhost/map]
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-30 01:05:59) [POST]
+  Parameters: {"authenticity_token"=>"JHPHt/PxWVtqatdbGUxjQRIDb0W1CqvFgTiEKSBcRt8=", "userform"=>{"userName"=>"Sonia Pinto", "hashed_password"=>"sonia"}}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE (userName = 'Sonia Pinto' and hashed_password = 'sonia') LIMIT 1[0m
+Redirected to http://localhost:3000/map
+Completed in 47ms (DB: 0) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-30 01:06:00) [GET]
+  [4;35;1mLocation Load (1.0ms)[0m   [0mSELECT * FROM "locations" WHERE (username=:uname) [0m
+Rendering template within layouts/map
+Rendering map/index
+Completed in 20ms (View: 4, DB: 1) | 200 OK [http://localhost/map]
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-30 01:08:03) [POST]
+  Parameters: {"authenticity_token"=>"JHPHt/PxWVtqatdbGUxjQRIDb0W1CqvFgTiEKSBcRt8=", "userform"=>{"userName"=>"Sonia Pinto", "hashed_password"=>"sonia"}}
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT * FROM "users" WHERE (userName = 'Sonia Pinto' and hashed_password = 'sonia') LIMIT 1[0m
+Redirected to http://localhost:3000/map
+Completed in 54ms (DB: 2) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-11-30 01:08:04) [GET]
+
+SyntaxError (C:/Users/Savio/Desktop/InstantRails-2.0-win/rails_apps/locationtrial/location/app/controllers/map_controller.rb:19: odd number list for Hash
+    @locations = Location.find(:all, :conditions => { username="sonia"})
+                                                                       ^):
+  
+
+Rendered rescues/_trace (70.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-30 01:09:35) [POST]
+  Parameters: {"authenticity_token"=>"JHPHt/PxWVtqatdbGUxjQRIDb0W1CqvFgTiEKSBcRt8=", "userform"=>{"userName"=>"Sonia Pinto", "hashed_password"=>"sonia"}}
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT * FROM "users" WHERE (userName = 'Sonia Pinto' and hashed_password = 'sonia') LIMIT 1[0m
+Redirected to http://localhost:3000/map
+Completed in 64ms (DB: 2) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-11-30 01:09:36) [GET]
+
+SyntaxError (C:/Users/Savio/Desktop/InstantRails-2.0-win/rails_apps/locationtrial/location/app/controllers/map_controller.rb:19: unterminated string meets end of file
+C:/Users/Savio/Desktop/InstantRails-2.0-win/rails_apps/locationtrial/location/app/controllers/map_controller.rb:19: syntax error, unexpected $end):
+  
+
+Rendered rescues/_trace (155.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-30 01:10:22) [POST]
+  Parameters: {"authenticity_token"=>"JHPHt/PxWVtqatdbGUxjQRIDb0W1CqvFgTiEKSBcRt8=", "userform"=>{"userName"=>"Sonia Pinto", "hashed_password"=>"sonia"}}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE (userName = 'Sonia Pinto' and hashed_password = 'sonia') LIMIT 1[0m
+Redirected to http://localhost:3000/map
+Completed in 46ms (DB: 1) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-30 01:10:23) [GET]
+  [4;35;1mLocation Load (0.0ms)[0m   [0mSQLite3::SQLException: near "sonia": syntax error: SELECT * FROM "locations" WHERE (username=''sonia'') [0m
+
+ActiveRecord::StatementInvalid (SQLite3::SQLException: near "sonia": syntax error: SELECT * FROM "locations" WHERE (username=''sonia'') ):
+  app/controllers/map_controller.rb:19:in `index'
+
+Rendered rescues/_trace (98.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-30 01:10:41) [POST]
+  Parameters: {"authenticity_token"=>"JHPHt/PxWVtqatdbGUxjQRIDb0W1CqvFgTiEKSBcRt8=", "userform"=>{"userName"=>"Sonia Pinto", "hashed_password"=>"sonia"}}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE (userName = 'Sonia Pinto' and hashed_password = 'sonia') LIMIT 1[0m
+Redirected to http://localhost:3000/map
+Completed in 28ms (DB: 0) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-30 01:10:42) [GET]
+  [4;35;1mLocation Load (1.0ms)[0m   [0mSELECT * FROM "locations" WHERE (username='sonia') [0m
+Rendering template within layouts/map
+Rendering map/index
+Rendered map/_location (5.0ms)
+Rendered map/_location (4.0ms)
+Completed in 29ms (View: 13, DB: 1) | 200 OK [http://localhost/map]
+
+
+Processing UserController#login (for 127.0.0.1 at 2009-11-30 01:11:38) [GET]
+Rendering template within layouts/user
+Rendering user/login
+Completed in 11ms (View: 8, DB: 0) | 200 OK [http://localhost/user/login]
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-30 01:11:51) [POST]
+  Parameters: {"authenticity_token"=>"JHPHt/PxWVtqatdbGUxjQRIDb0W1CqvFgTiEKSBcRt8=", "userform"=>{"userName"=>"ashwini gadling", "hashed_password"=>"gadling"}}
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT * FROM "users" WHERE (userName = 'ashwini gadling' and hashed_password = 'gadling') LIMIT 1[0m
+Redirected to http://localhost:3000/map
+Completed in 49ms (DB: 2) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-30 01:11:52) [GET]
+  [4;35;1mLocation Load (2.0ms)[0m   [0mSELECT * FROM "locations" WHERE (username='sonia') [0m
+Rendering template within layouts/map
+Rendering map/index
+Rendered map/_location (5.0ms)
+Rendered map/_location (4.0ms)
+Completed in 36ms (View: 13, DB: 2) | 200 OK [http://localhost/map]
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-30 01:22:45) [POST]
+  Parameters: {"authenticity_token"=>"JHPHt/PxWVtqatdbGUxjQRIDb0W1CqvFgTiEKSBcRt8=", "userform"=>{"userName"=>"Sonia Pinto", "hashed_password"=>"sonia"}}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE (userName = 'Sonia Pinto' and hashed_password = 'sonia') LIMIT 1[0m
+
+NameError (undefined local variable or method `loginname' for #<UserController:0x6d7ca0c>):
+  app/controllers/user_controller.rb:14:in `authenticate'
+
+Rendered rescues/_trace (183.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-30 01:25:53) [POST]
+  Parameters: {"authenticity_token"=>"JHPHt/PxWVtqatdbGUxjQRIDb0W1CqvFgTiEKSBcRt8=", "userform"=>{"userName"=>"Sonia Pinto", "hashed_password"=>"sonia"}}
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT * FROM "users" WHERE (userName = 'Sonia Pinto' and hashed_password = 'sonia') LIMIT 1[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '--- :loginname
+' AND (userName ='Sonia Pinto')) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find User with ID=loginname AND (userName ='Sonia Pinto')):
+  app/controllers/user_controller.rb:14:in `authenticate'
+
+Rendered rescues/_trace (89.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-30 01:26:17) [POST]
+  Parameters: {"authenticity_token"=>"JHPHt/PxWVtqatdbGUxjQRIDb0W1CqvFgTiEKSBcRt8=", "userform"=>{"userName"=>"Sonia Pinto", "hashed_password"=>"sonia"}}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE (userName = 'Sonia Pinto' and hashed_password = 'sonia') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '--- :loginname
+' AND (userName ='Sonia Pinto')) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find User with ID=loginname AND (userName ='Sonia Pinto')):
+  app/controllers/user_controller.rb:14:in `authenticate'
+
+Rendered rescues/_trace (146.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-30 01:29:39) [POST]
+  Parameters: {"authenticity_token"=>"JHPHt/PxWVtqatdbGUxjQRIDb0W1CqvFgTiEKSBcRt8=", "userform"=>{"userName"=>"Sonia Pinto", "hashed_password"=>"sonia"}}
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT * FROM "users" WHERE (userName = 'Sonia Pinto' and hashed_password = 'sonia') LIMIT 1[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT loginname FROM "users" WHERE (userName ='Sonia Pinto') LIMIT 1[0m
+Redirected to http://localhost:3000/map
+Completed in 54ms (DB: 3) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-30 01:29:40) [GET]
+  [4;35;1mLocation Load (0.0ms)[0m   [0mSELECT * FROM "locations" WHERE (username=NULL) [0m
+Rendering template within layouts/map
+Rendering map/index
+Completed in 34ms (View: 3, DB: 0) | 200 OK [http://localhost/map]
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-30 01:30:02) [POST]
+  Parameters: {"authenticity_token"=>"JHPHt/PxWVtqatdbGUxjQRIDb0W1CqvFgTiEKSBcRt8=", "userform"=>{"userName"=>"Sonia Pinto", "hashed_password"=>"sonia"}}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE (userName = 'Sonia Pinto' and hashed_password = 'sonia') LIMIT 1[0m
+
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  app/controllers/user_controller.rb:14:in `authenticate'
+
+Rendered rescues/_trace (152.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-30 01:30:31) [POST]
+  Parameters: {"authenticity_token"=>"JHPHt/PxWVtqatdbGUxjQRIDb0W1CqvFgTiEKSBcRt8=", "userform"=>{"userName"=>"Sonia Pinto", "hashed_password"=>"sonia"}}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE (userName = 'Sonia Pinto' and hashed_password = 'sonia') LIMIT 1[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT loginname FROM "users" WHERE (userName ='Sonia Pinto') [0m
+Redirected to http://localhost:3000/map
+Completed in 28ms (DB: 2) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-30 01:30:32) [GET]
+  [4;35;1mLocation Load (1.0ms)[0m   [0mSELECT * FROM "locations" WHERE (username=NULL) [0m
+Rendering template within layouts/map
+Rendering map/index
+Completed in 55ms (View: 4, DB: 1) | 200 OK [http://localhost/map]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-11-30 01:31:06) [GET]
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT * FROM "users" [0m
+Rendering template within layouts/users
+Rendering users/index
+Completed in 83ms (View: 44, DB: 2) | 200 OK [http://localhost/users]
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-30 01:31:10) [POST]
+  Parameters: {"authenticity_token"=>"JHPHt/PxWVtqatdbGUxjQRIDb0W1CqvFgTiEKSBcRt8=", "userform"=>{"userName"=>"Sonia Pinto", "hashed_password"=>"sonia"}}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE (userName = 'Sonia Pinto' and hashed_password = 'sonia') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT Loginname FROM "users" WHERE (userName ='Sonia Pinto') [0m
+Redirected to http://localhost:3000/map
+Completed in 47ms (DB: 1) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-30 01:31:11) [GET]
+  [4;35;1mLocation Load (0.0ms)[0m   [0mSELECT * FROM "locations" WHERE (username=NULL) [0m
+Rendering template within layouts/map
+Rendering map/index
+Completed in 54ms (View: 4, DB: 0) | 200 OK [http://localhost/map]
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-30 01:40:08) [POST]
+  Parameters: {"authenticity_token"=>"JHPHt/PxWVtqatdbGUxjQRIDb0W1CqvFgTiEKSBcRt8=", "userform"=>{"userName"=>"Sonia Pinto", "hashed_password"=>"sonia"}}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE (userName = 'Sonia Pinto' and hashed_password = 'sonia') LIMIT 1[0m
+
+NoMethodError (undefined method `Loginname' for #<User:0x6fce184>):
+  app/controllers/user_controller.rb:14:in `authenticate'
+
+Rendered rescues/_trace (77.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-30 01:43:08) [POST]
+  Parameters: {"authenticity_token"=>"JHPHt/PxWVtqatdbGUxjQRIDb0W1CqvFgTiEKSBcRt8=", "userform"=>{"userName"=>"Sonia Pinto", "hashed_password"=>"sonia"}}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE (userName = 'Sonia Pinto' and hashed_password = 'sonia') LIMIT 1[0m
+
+NoMethodError (undefined method `Loginname' for #<User:0x6e80cf0>):
+  app/controllers/user_controller.rb:14:in `authenticate'
+
+Rendered rescues/_trace (146.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-30 01:44:17) [POST]
+  Parameters: {"authenticity_token"=>"JHPHt/PxWVtqatdbGUxjQRIDb0W1CqvFgTiEKSBcRt8=", "userform"=>{"userName"=>"Sonia Pinto", "hashed_password"=>"sonia"}}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE (userName = 'Sonia Pinto' and hashed_password = 'sonia') LIMIT 1[0m
+Redirected to http://localhost:3000/map
+Completed in 30ms (DB: 1) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-30 01:44:18) [GET]
+  [4;35;1mLocation Load (2.0ms)[0m   [0mSELECT * FROM "locations" WHERE (username='sonia') [0m
+Rendering template within layouts/map
+Rendering map/index
+Rendered map/_location (9.0ms)
+Rendered map/_location (9.0ms)
+Completed in 49ms (View: 25, DB: 2) | 200 OK [http://localhost/map]
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-30 01:44:50) [POST]
+  Parameters: {"authenticity_token"=>"JHPHt/PxWVtqatdbGUxjQRIDb0W1CqvFgTiEKSBcRt8=", "userform"=>{"userName"=>"ashwini gadling", "hashed_password"=>"gadling"}}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE (userName = 'ashwini gadling' and hashed_password = 'gadling') LIMIT 1[0m
+Redirected to http://localhost:3000/map
+Completed in 32ms (DB: 0) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-30 01:44:51) [GET]
+  [4;35;1mLocation Load (1.0ms)[0m   [0mSELECT * FROM "locations" WHERE (username='ashwini') [0m
+Rendering template within layouts/map
+Rendering map/index
+Rendered map/_location (5.0ms)
+Completed in 22ms (View: 9, DB: 1) | 200 OK [http://localhost/map]
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-30 01:49:08) [POST]
+  Parameters: {"authenticity_token"=>"JHPHt/PxWVtqatdbGUxjQRIDb0W1CqvFgTiEKSBcRt8=", "userform"=>{"userName"=>"ashwini gadling", "hashed_password"=>"gadling"}}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE (userName = 'ashwini gadling' and hashed_password = 'gadling') LIMIT 1[0m
+Redirected to http://localhost:3000/map
+Completed in 30ms (DB: 1) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-30 01:49:09) [GET]
+  [4;35;1mLocation Load (1.0ms)[0m   [0mSELECT * FROM "locations" WHERE (username='ashwini') [0m
+
+NameError (undefined local variable or method `locations' for #<MapController:0x6d298fc>):
+  app/controllers/map_controller.rb:18:in `index'
+
+Rendered rescues/_trace (230.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-30 01:49:44) [POST]
+  Parameters: {"authenticity_token"=>"JHPHt/PxWVtqatdbGUxjQRIDb0W1CqvFgTiEKSBcRt8=", "userform"=>{"userName"=>"ashwini gadling", "hashed_password"=>"gadling"}}
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT * FROM "users" WHERE (userName = 'ashwini gadling' and hashed_password = 'gadling') LIMIT 1[0m
+Redirected to http://localhost:3000/map
+Completed in 47ms (DB: 2) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-30 01:49:45) [GET]
+  [4;35;1mLocation Load (1.0ms)[0m   [0mSELECT * FROM "locations" WHERE (username='ashwini') [0m
+
+NoMethodError (undefined method `latitude' for #<Array:0x6e8bc7c>):
+  app/controllers/map_controller.rb:18:in `index'
+
+Rendered rescues/_trace (75.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-30 01:50:11) [POST]
+  Parameters: {"authenticity_token"=>"JHPHt/PxWVtqatdbGUxjQRIDb0W1CqvFgTiEKSBcRt8=", "userform"=>{"userName"=>"ashwini gadling", "hashed_password"=>"gadling"}}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE (userName = 'ashwini gadling' and hashed_password = 'gadling') LIMIT 1[0m
+Redirected to http://localhost:3000/map
+Completed in 46ms (DB: 1) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-30 01:50:12) [GET]
+  [4;35;1mLocation Load (2.0ms)[0m   [0mSELECT * FROM "locations" WHERE (username='ashwini') [0m
+
+NameError (undefined local variable or method `locations' for #<MapController:0x6f3f5b0>):
+  app/controllers/map_controller.rb:18:in `index'
+
+Rendered rescues/_trace (91.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-30 01:51:40) [POST]
+  Parameters: {"authenticity_token"=>"JHPHt/PxWVtqatdbGUxjQRIDb0W1CqvFgTiEKSBcRt8=", "userform"=>{"userName"=>"ashwini gadling", "hashed_password"=>"gadling"}}
+  [4;36;1mUser Load (17.0ms)[0m   [0;1mSELECT * FROM "users" WHERE (userName = 'ashwini gadling' and hashed_password = 'gadling') LIMIT 1[0m
+Redirected to http://localhost:3000/map
+Completed in 76ms (DB: 17) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-30 01:51:41) [GET]
+  [4;35;1mLocation Load (1.0ms)[0m   [0mSELECT * FROM "locations" WHERE (username='ashwini') [0m
+
+NameError (undefined local variable or method `locations' for #<MapController:0x6d8e4c8>):
+  app/controllers/map_controller.rb:18:in `index'
+
+Rendered rescues/_trace (73.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-30 01:52:06) [POST]
+  Parameters: {"authenticity_token"=>"JHPHt/PxWVtqatdbGUxjQRIDb0W1CqvFgTiEKSBcRt8=", "userform"=>{"userName"=>"ashwini gadling", "hashed_password"=>"gadling"}}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE (userName = 'ashwini gadling' and hashed_password = 'gadling') LIMIT 1[0m
+Redirected to http://localhost:3000/map
+Completed in 48ms (DB: 1) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-11-30 01:52:07) [GET]
+
+SyntaxError (C:/Users/Savio/Desktop/InstantRails-2.0-win/rails_apps/locationtrial/location/app/controllers/map_controller.rb:18: syntax error, unexpected '(', expecting ']'
+    @map.center_zoom_init([@locations.latitude(1),@locations(1).longitude], 10)
+                                                             ^):
+  
+
+Rendered rescues/_trace (140.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-30 01:52:31) [POST]
+  Parameters: {"authenticity_token"=>"JHPHt/PxWVtqatdbGUxjQRIDb0W1CqvFgTiEKSBcRt8=", "userform"=>{"userName"=>"ashwini gadling", "hashed_password"=>"gadling"}}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE (userName = 'ashwini gadling' and hashed_password = 'gadling') LIMIT 1[0m
+Redirected to http://localhost:3000/map
+Completed in 37ms (DB: 0) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-30 01:52:32) [GET]
+  [4;36;1mLocation Load (1.0ms)[0m   [0;1mSELECT * FROM "locations" WHERE (username='ashwini') [0m
+
+NoMethodError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.latitude):
+  app/controllers/map_controller.rb:18:in `index'
+
+Rendered rescues/_trace (94.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-30 01:54:44) [POST]
+  Parameters: {"authenticity_token"=>"JHPHt/PxWVtqatdbGUxjQRIDb0W1CqvFgTiEKSBcRt8=", "userform"=>{"userName"=>"ashwini gadling", "hashed_password"=>"gadling"}}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE (userName = 'ashwini gadling' and hashed_password = 'gadling') LIMIT 1[0m
+Redirected to http://localhost:3000/map
+Completed in 47ms (DB: 1) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-30 01:54:46) [GET]
+  [4;36;1mLocation Load (1.0ms)[0m   [0;1mSELECT * FROM "locations" WHERE (username='ashwini') [0m
+
+NameError (undefined local variable or method `locations' for #<MapController:0x6d799c4>):
+  app/controllers/map_controller.rb:18:in `index'
+
+Rendered rescues/_trace (73.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-30 01:55:27) [POST]
+  Parameters: {"authenticity_token"=>"JHPHt/PxWVtqatdbGUxjQRIDb0W1CqvFgTiEKSBcRt8=", "userform"=>{"userName"=>"ashwini gadling", "hashed_password"=>"gadling"}}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE (userName = 'ashwini gadling' and hashed_password = 'gadling') LIMIT 1[0m
+Redirected to http://localhost:3000/map
+Completed in 46ms (DB: 1) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-30 01:55:28) [GET]
+  [4;36;1mLocation Load (2.0ms)[0m   [0;1mSELECT * FROM "locations" WHERE (username='ashwini') [0m
+
+NoMethodError (undefined method `Fetch_Row' for #<Array:0x6e46528>):
+  app/controllers/map_controller.rb:18:in `index'
+
+Rendered rescues/_trace (230.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-30 01:57:47) [POST]
+  Parameters: {"authenticity_token"=>"JHPHt/PxWVtqatdbGUxjQRIDb0W1CqvFgTiEKSBcRt8=", "userform"=>{"userName"=>"ashwini gadling", "hashed_password"=>"gadling"}}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE (userName = 'ashwini gadling' and hashed_password = 'gadling') LIMIT 1[0m
+Redirected to http://localhost:3000/map
+Completed in 54ms (DB: 1) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-30 01:57:48) [GET]
+  [4;36;1mLocation Load (2.0ms)[0m   [0;1mSELECT * FROM "locations" WHERE (username='ashwini') [0m
+
+NameError (undefined local variable or method `locations' for #<MapController:0x6ef1ec8>):
+  app/controllers/map_controller.rb:18:in `index'
+
+Rendered rescues/_trace (75.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-30 01:58:08) [POST]
+  Parameters: {"authenticity_token"=>"JHPHt/PxWVtqatdbGUxjQRIDb0W1CqvFgTiEKSBcRt8=", "userform"=>{"userName"=>"ashwini gadling", "hashed_password"=>"gadling"}}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE (userName = 'ashwini gadling' and hashed_password = 'gadling') LIMIT 1[0m
+Redirected to http://localhost:3000/map
+Completed in 47ms (DB: 1) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-30 01:58:10) [GET]
+  [4;36;1mLocation Load (1.0ms)[0m   [0;1mSELECT * FROM "locations" WHERE (username='ashwini') [0m
+
+NameError (undefined local variable or method `locations' for #<MapController:0x6fb5544>):
+  app/controllers/map_controller.rb:18:in `index'
+
+Rendered rescues/_trace (104.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-30 02:00:17) [POST]
+  Parameters: {"authenticity_token"=>"JHPHt/PxWVtqatdbGUxjQRIDb0W1CqvFgTiEKSBcRt8=", "userform"=>{"userName"=>"ashwini gadling", "hashed_password"=>"gadling"}}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE (userName = 'ashwini gadling' and hashed_password = 'gadling') LIMIT 1[0m
+Redirected to http://localhost:3000/map
+Completed in 51ms (DB: 1) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-30 02:00:18) [GET]
+  [4;36;1mLocation Load (1.0ms)[0m   [0;1mSELECT * FROM "locations" WHERE (username='ashwini') [0m
+  [4;35;1mLocation Load (1.0ms)[0m   [0mSELECT * FROM "locations" WHERE (username='ashwini') LIMIT 1[0m
+Rendering template within layouts/map
+Rendering map/index
+Rendered map/_location (5.0ms)
+Completed in 35ms (View: 10, DB: 2) | 200 OK [http://localhost/map]
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-30 02:01:37) [POST]
+  Parameters: {"authenticity_token"=>"JHPHt/PxWVtqatdbGUxjQRIDb0W1CqvFgTiEKSBcRt8=", "userform"=>{"userName"=>"ashwini gadling", "hashed_password"=>"gadling"}}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE (userName = 'ashwini gadling' and hashed_password = 'gadling') LIMIT 1[0m
+Redirected to http://localhost:3000/map
+Completed in 39ms (DB: 1) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-30 02:01:39) [GET]
+  [4;35;1mLocation Load (2.0ms)[0m   [0mSELECT * FROM "locations" WHERE (username='ashwini') [0m
+  [4;36;1mLocation Load (1.0ms)[0m   [0;1mSELECT * FROM "locations" WHERE (username='ashwini') LIMIT 1[0m
+Rendering template within layouts/map
+Rendering map/index
+Rendered map/_location (6.0ms)
+Completed in 26ms (View: 9, DB: 3) | 200 OK [http://localhost/map]
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-30 02:02:15) [POST]
+  Parameters: {"authenticity_token"=>"JHPHt/PxWVtqatdbGUxjQRIDb0W1CqvFgTiEKSBcRt8=", "userform"=>{"userName"=>"Sonia Pinto", "hashed_password"=>"sonia"}}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE (userName = 'Sonia Pinto' and hashed_password = 'sonia') LIMIT 1[0m
+Redirected to http://localhost:3000/map
+Completed in 43ms (DB: 1) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-30 02:02:16) [GET]
+  [4;36;1mLocation Load (3.0ms)[0m   [0;1mSELECT * FROM "locations" WHERE (username='sonia') [0m
+  [4;35;1mLocation Load (1.0ms)[0m   [0mSELECT * FROM "locations" WHERE (username='sonia') LIMIT 1[0m
+Rendering template within layouts/map
+Rendering map/index
+Rendered map/_location (10.0ms)
+Rendered map/_location (8.0ms)
+Completed in 52ms (View: 25, DB: 4) | 200 OK [http://localhost/map]
+
+
+Processing LocationsController#new (for 127.0.0.1 at 2009-11-30 02:05:13) [GET]
+Rendering template within layouts/locations
+Rendering locations/new
+Completed in 33ms (View: 23, DB: 0) | 200 OK [http://localhost/locations/new]
+
+
+Processing LocationsController#create (for 127.0.0.1 at 2009-11-30 02:07:20) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"JHPHt/PxWVtqatdbGUxjQRIDb0W1CqvFgTiEKSBcRt8=", "location"=>{"time(1i)"=>"2009", "time(2i)"=>"11", "latitude"=>"56.234", "time(3i)"=>"30", "time(4i)"=>"07", "time(5i)"=>"05", "username"=>"sonia1", "phonenumber"=>"0942342934209", "longitude"=>"-95", "commType"=>"6"}}
+  [4;36;1mLocation Create (1.0ms)[0m   [0;1mINSERT INTO "locations" ("latitude", "updated_at", "time", "username", "phonenumber", "longitude", "commType", "created_at") VALUES(56.234, '2009-11-30 07:07:20', '2009-11-30 07:05:00', 'sonia1', 942342934209, -95.0, 6, '2009-11-30 07:07:20')[0m
+Redirected to http://localhost:3000/locations/4
+Completed in 69ms (DB: 1) | 302 Found [http://localhost/locations]
+
+
+Processing LocationsController#show (for 127.0.0.1 at 2009-11-30 02:07:21) [GET]
+  Parameters: {"id"=>"4"}
+  [4;35;1mLocation Load (1.0ms)[0m   [0mSELECT * FROM "locations" WHERE ("locations"."id" = 4) [0m
+Rendering template within layouts/locations
+Rendering locations/show
+Completed in 31ms (View: 16, DB: 1) | 200 OK [http://localhost/locations/4]
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-11-30 02:07:32) [POST]
+  Parameters: {"authenticity_token"=>"JHPHt/PxWVtqatdbGUxjQRIDb0W1CqvFgTiEKSBcRt8=", "userform"=>{"userName"=>"Sonia Pinto1", "hashed_password"=>""}}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE (userName = 'Sonia Pinto1' and hashed_password = '') LIMIT 1[0m
+Redirected to http://localhost:3000/map
+Completed in 27ms (DB: 1) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-11-30 02:07:33) [GET]
+  [4;35;1mLocation Load (1.0ms)[0m   [0mSELECT * FROM "locations" WHERE (username='sonia1') [0m
+  [4;36;1mLocation Load (0.0ms)[0m   [0;1mSELECT * FROM "locations" WHERE (username='sonia1') LIMIT 1[0m
+Rendering template within layouts/map
+Rendering map/index
+Rendered map/_location (5.0ms)
+Completed in 24ms (View: 9, DB: 1) | 200 OK [http://localhost/map]
