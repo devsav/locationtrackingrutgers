@@ -5,13 +5,14 @@
 	<%= @map.to_html %>
 </head>
 <body>
-      <!--#displays hello (username)-->
-hello <strong><%=session[:user_id]%></strong>. 
+
+<!--#displays hello (username)-->
+<pre>
+hello <strong><%=session[:user_id]%></strong>               <%= link_to "logout",:controller => "user", :action => "logout" %></br>
+</pre>
 <!--#creates logout link, when the link is clicked, the controller is User and the method executed will be logout.-->
-<%= link_to "logout",:controller => "user", :action => "logout" %>
-
-
-	<%= @map.div(:width => 400, :height => 300) %>
+</br>
+	<%= @map.div(:width => 500, :height => 800) %>
 	<%= yield %>
 
 </body>
