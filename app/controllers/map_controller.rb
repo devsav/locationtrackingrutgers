@@ -4,8 +4,6 @@ class MapController < ApplicationController
 
 
   def index
-    # Create a new map object, also defining the div ("map") 
-    # where the map will be rendered in the view
     @map = GMap.new("map")
     # Use the larger pan/zoom control but disable the map type
     # selector
