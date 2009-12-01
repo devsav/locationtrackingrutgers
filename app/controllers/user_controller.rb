@@ -21,10 +21,7 @@ def authenticate
         end
 end
  
-  def login
-
-  end
- 
+   
   def private
   if !session[:user_id]
     redirect_to :action=> 'login'
