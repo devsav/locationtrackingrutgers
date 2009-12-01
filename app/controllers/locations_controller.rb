@@ -1,7 +1,7 @@
 class LocationsController < ApplicationController
   # GET /locations
   # GET /locations.xml
-  def index
+  def index     
     @locations = Location.all
 
     respond_to do |format|
@@ -26,7 +26,7 @@ class LocationsController < ApplicationController
   def new
     @location = Location.new
 
-    respond_to do |format|
+    respond_to do |format|      
       format.html # new.html.erb
       format.xml  { render :xml => @location }
     end
@@ -83,3 +83,4 @@ class LocationsController < ApplicationController
     end
   end
 end
+
