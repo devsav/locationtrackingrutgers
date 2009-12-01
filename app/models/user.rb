@@ -37,7 +37,7 @@ class User < ActiveRecord::Base
      errors.add(:password, "Missing password") if hashed_password.blank?
    end
 
-   def create_new_salt
+   def create_new_salt    
      self.salt = self.object_id.to_s + rand.to_s
    end
   
@@ -48,3 +48,5 @@ class User < ActiveRecord::Base
    
    
 end
+
+
