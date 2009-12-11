@@ -1,7 +1,4 @@
-<p>
-  <b>Name:</b>
-  <%=h @user.loginName %>
-</p>
+
 
 <!--p>
   <b>Hashed password:</b>
@@ -12,6 +9,30 @@
   <b>Salt:</b>
   <%=h @user.salt %>
 </p-->
+
+<html>
+<body>
+<body bgcolor="mintcream">
+<table align=center border =2 height="100%" width="100%" cellpadding="10">
+<tr valign="top"> 
+<td width="30%">
+<font color = "forestgreen" size=5>
+Hello <strong><%=session[:user_id]%></strong><br/><hr/>
+</font>
+<%= link_to 'Manage Account', :controller => "users", :action => "show", :id => "session[user_id]" %><br/>
+<a href="mailto:sonia.jan18@gmail.com">Contact Admin</a><br/>
+<%= link_to "logout",:controller => "user", :action => "logout" %><br /> <br />
+</td>
+<td width="80%">
+<p align="center">
+<p>
+  <b>Name:</b>
+  <%=h @user.loginName %>
+</p>
+
+
+
+
 
 <p>
   <b>Username:</b>
@@ -41,3 +62,7 @@
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <!--%= link_to 'Back', users_path %-->
+<br />
+</table>
+</body>
+</html>
