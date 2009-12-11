@@ -5657,3 +5657,33 @@ Processing UsersController#show (for 127.0.0.1 at 2009-12-11 10:38:48) [GET]
 Rendering template within layouts/users
 Rendering users/show
 Completed in 49ms (View: 10, DB: 1) | 200 OK [http://localhost/users/14]
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20091106045116)
+Migrating to CreateLocations (20091106045448)
+Migrating to AddImei (20091128184517)
+Migrating to EditCommType (20091211075955)
+Migrating to ChangeLoginname (20091211095041)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mCREATE TEMPORARY TABLE "altered_users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "loginName" varchar(255), "hashed_password" varchar(255), "salt" varchar(255), "userName" varchar(255), "contactNumber" integer, "address" text, "emailId" varchar(255), "registered" boolean, "created_at" datetime, "updated_at" datetime, "imeiNumber" varchar(255)) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("users")[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mDROP TABLE "users"[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "hashed_password" varchar(255), "salt" varchar(255), "userName" varchar(255), "contactNumber" integer, "address" text, "emailId" varchar(255), "registered" boolean, "created_at" datetime, "updated_at" datetime, "imeiNumber" varchar(255)) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("altered_users")[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mDROP TABLE "altered_users"[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mALTER TABLE "users" ADD "name" varchar(255)[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20091211095041')[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("locations")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("users")[0m
