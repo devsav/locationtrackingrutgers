@@ -10,7 +10,7 @@
 
   <p>
     <%= f.label :Name %><br />
-    <%= f.text_field :loginName %>
+    <%= f.text_field :Name %>
   </p>
 
 <p>
@@ -34,10 +34,6 @@
 <!--% form_for(@user) do |f| %-->
   <!--%= f.error_messages %-->
 
-  <!--p>
-    <%= f.label :loginName %><br />
-    <%= f.text_field :loginName %>
-  </p-->
   <!--p>
     <%= f.label :hashed_password %><br />
     <%= f.text_field :hashed_password %>
@@ -71,5 +67,5 @@
   </p>
 <% end %>
 
-<%= link_to 'Show', @user %> |
+<%= link_to 'Show', @user %> 
 <!--%= link_to 'Back', users_path %-->

@@ -19,7 +19,6 @@
 <font color = "maroon" size=5>
 Hello <strong><%=session[:user_id]%></strong><br/><hr/>
 </font>
-<%= link_to 'Manage Account', :controller => "users", :action => "show", :id => "session[user_id]" %><br/>
 <%= link_to 'Check Locations', :controller => "map", :action => "index" %><br />
 <a href="mailto:sonia.jan18@gmail.com">Contact Admin</a><br/>
 <%= link_to "logout",:controller => "user", :action => "logout" %><br /> <br />
@@ -28,7 +27,7 @@ Hello <strong><%=session[:user_id]%></strong><br/><hr/>
 <p align="center">
 <p>
   <b>Name:</b>
-  <%=h @user.loginName %>
+  <%=h @user.Name %>
 </p>
 
 
@@ -61,7 +60,7 @@ Hello <strong><%=session[:user_id]%></strong><br/><hr/>
 </p-->
 
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Edit', edit_user_path(@user) %>
 <!--%= link_to 'Back', users_path %-->
 <br />
 </table>
