@@ -1,6 +1,4 @@
 require 'ym4r_gm'
-require 'ym4r/google_maps/geocoding'
-include Ym4r::GoogleMaps
 
 
 class MapController < ApplicationController
@@ -103,6 +101,8 @@ class MapController < ApplicationController
           locationsArr[ [latitude,longitude] ] << location
         end
         
+        sorted=frequency.sort {|a,b| b[1]<=>a[1]}
+         sorted.each { |i| puts i}
         #@map.addControl(new GMapTypeControl());
 
         if init_location
