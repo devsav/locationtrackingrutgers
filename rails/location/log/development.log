@@ -5461,3 +5461,199 @@ Migrating to ChangeTime (20091211093652)
 [0m
   [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("locations")[0m
   [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("users")[0m
+
+
+Processing LocationsController#index (for 127.0.0.1 at 2009-12-11 05:28:50) [GET]
+  [4;36;1mLocation Load (3.0ms)[0m   [0;1mSELECT * FROM "locations" [0m
+Rendering template within layouts/locations
+Rendering locations/index
+Completed in 140ms (View: 127, DB: 3) | 200 OK [http://localhost/locations]
+
+
+Processing LocationsController#index (for 127.0.0.1 at 2009-12-11 10:21:13) [GET]
+  [4;35;1mLocation Load (6.0ms)[0m   [0mSELECT * FROM "locations" [0m
+Rendering template within layouts/locations
+Rendering locations/index
+Completed in 117ms (View: 95, DB: 6) | 200 OK [http://localhost/locations]
+
+
+Processing UserController#login (for 127.0.0.1 at 2009-12-11 10:21:23) [GET]
+Rendering template within layouts/user
+Rendering user/login
+Completed in 125ms (View: 121, DB: 0) | 200 OK [http://localhost/user/login]
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-12-11 10:21:31) [POST]
+  Parameters: {"authenticity_token"=>"cqISlKh18AQXogTPXURo6iqMFYNYtk6G2MUl6jwMRBc=", "userform"=>{"userName"=>"cibin ", "password"=>"12345"}}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."userName" = 'cibin ') LIMIT 1[0m
+Redirected to http://localhost:3000/user/login
+Completed in 80ms (DB: 1) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing UserController#login (for 127.0.0.1 at 2009-12-11 10:21:32) [GET]
+Rendering template within layouts/user
+Rendering user/login
+Completed in 9ms (View: 6, DB: 0) | 200 OK [http://localhost/user/login]
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-12-11 10:21:46) [POST]
+  Parameters: {"authenticity_token"=>"cqISlKh18AQXogTPXURo6iqMFYNYtk6G2MUl6jwMRBc=", "userform"=>{"userName"=>"cibin", "password"=>"12345"}}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."userName" = 'cibin') LIMIT 1[0m
+Redirected to http://localhost:3000/map
+Completed in 44ms (DB: 1) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-12-11 10:21:47) [GET]
+  [4;36;1mLocation Load (1.0ms)[0m   [0;1mSELECT * FROM "locations" WHERE (username=NULL) [0m
+  [4;35;1mLocation Load (1.0ms)[0m   [0mSELECT * FROM "locations" WHERE (username=NULL) LIMIT 1[0m
+Rendering template within layouts/map
+Rendering map/index
+Completed in 53ms (View: 33, DB: 2) | 200 OK [http://localhost/map]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-12-11 10:22:32) [GET]
+  Parameters: {"id"=>"17"}
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 17) [0m
+Rendering template within layouts/users
+Rendering users/show
+Completed in 49ms (View: 26, DB: 2) | 200 OK [http://localhost/users/17]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-12-11 10:22:59) [GET]
+  [4;35;1mLocation Load (1.0ms)[0m   [0mSELECT * FROM "locations" WHERE (username=NULL) [0m
+  [4;36;1mLocation Load (1.0ms)[0m   [0;1mSELECT * FROM "locations" WHERE (username=NULL) LIMIT 1[0m
+Rendering template within layouts/map
+Rendering map/index
+Completed in 20ms (View: 4, DB: 2) | 200 OK [http://localhost/map]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-12-11 10:24:08) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 78ms (View: 39, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-12-11 10:24:45) [POST]
+  Parameters: {"user"=>{"userName"=>"Ashwini", "Name"=>"Ashwini", "password_confirmation"=>"gadling", "emailId"=>"ashwinigadling@gmail.com", "address"=>"hwbpuwbvpw", "contactNumber"=>"2764264289", "password"=>"gadling"}, "commit"=>"Add User", "authenticity_token"=>"cqISlKh18AQXogTPXURo6iqMFYNYtk6G2MUl6jwMRBc="}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."userName" = 'Ashwini') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."contactNumber" = 2764264289) LIMIT 1[0m
+Rendering template within layouts/users
+Rendering users/new
+Completed in 80ms (View: 33, DB: 1) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-12-11 10:26:44) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 50ms (View: 14, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-12-11 10:27:09) [POST]
+  Parameters: {"user"=>{"userName"=>"ashwini", "Name"=>"ashwini", "password_confirmation"=>"gadling", "emailId"=>"ashwinigadling@gmail.com", "address"=>"jwkbouwb", "contactNumber"=>"83752357092375", "password"=>"gadling"}, "commit"=>"Add User", "authenticity_token"=>"cqISlKh18AQXogTPXURo6iqMFYNYtk6G2MUl6jwMRBc="}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."userName" = 'ashwini') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."contactNumber" = 83752357092375) LIMIT 1[0m
+Rendering template within layouts/users
+Rendering users/new
+Completed in 49ms (View: 21, DB: 0) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-12-11 10:27:26) [POST]
+  Parameters: {"user"=>{"userName"=>"ashwini1", "Name"=>"ashwini", "password_confirmation"=>"gadling", "emailId"=>"ashwinigadling@gmail.com", "address"=>"jwkbouwb", "contactNumber"=>"83752357092375", "password"=>"gadling"}, "commit"=>"Add User", "authenticity_token"=>"cqISlKh18AQXogTPXURo6iqMFYNYtk6G2MUl6jwMRBc="}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."userName" = 'ashwini1') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."contactNumber" = 83752357092375) LIMIT 1[0m
+  [4;35;1mUser Create (2.0ms)[0m   [0mINSERT INTO "users" ("salt", "userName", "Name", "updated_at", "hashed_password", "registered", "emailId", "contactNumber", "address", "created_at", "imeiNumber") VALUES('491618800.822969080947442', 'ashwini1', 'ashwini', '2009-12-11 15:27:26', '02ac623772fe6b74596a3ffb2f13868ac871f92c', NULL, 'ashwinigadling@gmail.com', 83752357092375, 'jwkbouwb', '2009-12-11 15:27:26', NULL)[0m
+Redirected to http://localhost:3000/users/20
+Completed in 40ms (DB: 2) | 302 Found [http://localhost/users]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-12-11 10:27:27) [GET]
+  Parameters: {"id"=>"20"}
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 20) [0m
+Rendering template within layouts/users
+Rendering users/show
+Completed in 49ms (View: 11, DB: 2) | 200 OK [http://localhost/users/20]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-12-11 10:27:37) [GET]
+  [4;35;1mLocation Load (1.0ms)[0m   [0mSELECT * FROM "locations" WHERE (username=NULL) [0m
+  [4;36;1mLocation Load (0.0ms)[0m   [0;1mSELECT * FROM "locations" WHERE (username=NULL) LIMIT 1[0m
+Rendering template within layouts/map
+Rendering map/index
+Completed in 17ms (View: 4, DB: 1) | 200 OK [http://localhost/map]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-12-11 10:27:51) [GET]
+  Parameters: {"id"=>"17"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 17) [0m
+Rendering template within layouts/users
+Rendering users/show
+Completed in 49ms (View: 10, DB: 1) | 200 OK [http://localhost/users/17]
+
+
+Processing UserController#login (for 127.0.0.1 at 2009-12-11 10:31:59) [GET]
+Rendering template within layouts/user
+Rendering user/login
+Completed in 14ms (View: 10, DB: 0) | 200 OK [http://localhost/user/login]
+
+
+Processing UserController#authenticate (for 127.0.0.1 at 2009-12-11 10:32:35) [POST]
+  Parameters: {"authenticity_token"=>"cqISlKh18AQXogTPXURo6iqMFYNYtk6G2MUl6jwMRBc=", "userform"=>{"userName"=>"ashwini", "password"=>"gadling"}}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."userName" = 'ashwini') LIMIT 1[0m
+Redirected to http://localhost:3000/map
+Completed in 44ms (DB: 1) | 302 Found [http://localhost/user/authenticate]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-12-11 10:32:36) [GET]
+  [4;35;1mLocation Load (1.0ms)[0m   [0mSELECT * FROM "locations" WHERE (username=NULL) [0m
+  [4;36;1mLocation Load (0.0ms)[0m   [0;1mSELECT * FROM "locations" WHERE (username=NULL) LIMIT 1[0m
+Rendering template within layouts/map
+Rendering map/index
+Completed in 22ms (View: 4, DB: 1) | 200 OK [http://localhost/map]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-12-11 10:32:46) [GET]
+  Parameters: {"id"=>"14"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 14) [0m
+Rendering template within layouts/users
+Rendering users/show
+Completed in 53ms (View: 12, DB: 1) | 200 OK [http://localhost/users/14]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-12-11 10:36:37) [GET]
+  [4;36;1mLocation Load (1.0ms)[0m   [0;1mSELECT * FROM "locations" WHERE (username=NULL) [0m
+  [4;35;1mLocation Load (0.0ms)[0m   [0mSELECT * FROM "locations" WHERE (username=NULL) LIMIT 1[0m
+Rendering template within layouts/map
+Rendering map/index
+Completed in 22ms (View: 5, DB: 1) | 200 OK [http://localhost/map]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-12-11 10:36:52) [GET]
+  Parameters: {"id"=>"14"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 14) [0m
+Rendering template within layouts/users
+Rendering users/show
+Completed in 52ms (View: 10, DB: 1) | 200 OK [http://localhost/users/14]
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2009-12-11 10:36:59) [GET]
+  Parameters: {"id"=>"14"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 14) [0m
+Rendering template within layouts/users
+Rendering users/edit
+Completed in 78ms (View: 41, DB: 1) | 200 OK [http://localhost/users/14/edit]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-12-11 10:37:07) [GET]
+  Parameters: {"id"=>"14"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 14) [0m
+Rendering template within layouts/users
+Rendering users/show
+Completed in 52ms (View: 10, DB: 1) | 200 OK [http://localhost/users/14]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-12-11 10:38:48) [GET]
+  Parameters: {"id"=>"14"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 14) [0m
+Rendering template within layouts/users
+Rendering users/show
+Completed in 49ms (View: 10, DB: 1) | 200 OK [http://localhost/users/14]
