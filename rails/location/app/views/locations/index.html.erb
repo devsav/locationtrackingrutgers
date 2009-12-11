@@ -1,7 +1,9 @@
+<div id="list">
 
 <h1><font color="Green">Listing locations</font></h1>
 
-<table>
+
+<table class="wide-table"> 
   <tr>
     <th>Username</th>
     <th>Phonenumber</th>
@@ -13,7 +15,7 @@
   </tr>
 
 <% @locations.each do |location| %>
-  <tr>
+  <tr class="<%= cycle('list-line-odd', 'list-line-even') %>">
     <td><%=h location.username %></td>
     <td><%=h location.phonenumber %></td>
     <td><%=h location.latitude %></td>
@@ -26,6 +28,7 @@
   </tr>
 <% end %>
 </table>
+</div>
 
 <br />
 
