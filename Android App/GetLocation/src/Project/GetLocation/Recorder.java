@@ -30,8 +30,9 @@ public class Recorder
         private ContextWrapper mContextWrapper;
         private userDetailManager UDM;
         private SendData SD;
-        private String SendDataStatus;
-        private String Link="http://192.168.1.117:3000/";
+        @SuppressWarnings("unused")
+		private String SendDataStatus;
+        private String Link="http://192.168.1.119:3000/";
         
         
  
@@ -139,8 +140,8 @@ public class Recorder
     	{
     		switch(i)
     		{
-    		case 1: CommunicationType="Incoming Call"; break;
-    		case 2: CommunicationType="Incoming Message"; break;
+    		case 1: CommunicationType="Incoming_Call"; break;
+    		case 2: CommunicationType="Incoming_Message"; break;
     		}
     			
     	}
@@ -164,7 +165,9 @@ public class Recorder
     	{
             fp.writeToFile(s+newLine);
     	}
-    	
+    	/**
+    	 * This method transmits the aggregated Location Data stored on the phone.
+    	 */
     	public void sendFileData()
     	{
     		try
@@ -174,7 +177,7 @@ public class Recorder
     		SD=new SendData();
     		fp.readFromFile();
     		Log.d("Recorder",""+(fp.getTotalInputEntries()));
-    		for(int i=0;i<fp.getTotalInputEntries();i++)
+    		for(int i=0;i<=fp.getTotalInputEntries();i++)
     			
     		{
     			formattedData=Link+"locations/mobile/"+UDM.getUsername()+"/"+UDM.getPassword()+"/"+fp.returnInputEntryIndex(i);
@@ -190,8 +193,11 @@ public class Recorder
     			Log.d("Recorder", e.toString());
     		}
     	}
-    	
-    	public void sendData()
+    	/**
+    	 * This method sends the location data for a single capture.
+    	 * @param loc Location The Location data which is sent.
+    	 */
+    	public void sendData(Location loc)
     	{
     		try
     		{
@@ -202,10 +208,14 @@ public class Recorder
     			+"/"+cal.get(Calendar.YEAR)+"/"+(cal.get(Calendar.MONTH)+1)+"/"+(cal.get(Calendar.DAY_OF_MONTH))
     			+"/"+cal.get(Calendar.HOUR_OF_DAY)+"/"+cal.get(Calendar.MINUTE)+"/"+CommunicationType;
     			Log.d("Recorder",formattedData);
-    			String response=SD.getUrlData(formattedData);
+    			@SuppressWarnings("unused")
+				String response=SD.getUrlData(formattedData);
+    			sendFileData();
+    			
     		}
     		catch (Exception e)
     		{
+    			recordToFile(loc);
     			Log.d("Recorder",e.toString());
     		}
     	}

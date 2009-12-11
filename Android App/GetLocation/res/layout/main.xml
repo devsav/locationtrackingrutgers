@@ -3,13 +3,6 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="vertical">
-
-    <TextView android:id="@+id/manualFixText"
-            android:gravity="center_horizontal|center_vertical"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical|center_horizontal|center"
-            android:text="Latest GPS Co-ordinates Recieved"/>
             
     <TextView android:id="@+id/locationDisplay"
             android:gravity="center_horizontal|center_vertical"
