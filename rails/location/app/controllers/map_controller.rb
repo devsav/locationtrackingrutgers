@@ -14,8 +14,8 @@ class MapController < ApplicationController
     # closely
     #@map.center_zoom_init([41.023849,-80.682053], 10)
 
-    @locations = Location.find(:all, :conditions => [ "username=?",session[:user_session]])
-    init_location = Location.find(:first, :conditions => [ "username=?",session[:user_session]])
+    @locations = Location.find(:all, :conditions => [ "username=?",session[:user_id]])
+    init_location = Location.find(:first, :conditions => [ "username=?",session[:user_id]])
     #@map.addControl(new GMapTypeControl());
     
     if init_location
