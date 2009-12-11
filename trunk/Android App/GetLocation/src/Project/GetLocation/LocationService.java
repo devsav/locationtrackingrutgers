@@ -24,11 +24,15 @@ public class LocationService extends Service{
 	
 	private Location loc;
 	
+	private boolean DataCaptured=false;
+	PhoneStateListener myPSL = null;
+	TelephonyManager tm1;
+	
     /**
 	   * This method is executed as soon at the object is created.
 	   * @param savedInstanceState Used if a saved instanced state needs reloading
 	   */	
-	PhoneStateListener myPSL = null;
+
 	public void onCreate() {
         super.onCreate();
         Log.d(TAG,TAG+"Started");
@@ -40,9 +44,8 @@ public class LocationService extends Service{
 	 */
 	private void startService()
 	{
-		TelephonyManager tm1 = (TelephonyManager)getSystemService(TELEPHONY_SERVICE);
-          tm1.listen(mPhoneListener, PhoneStateListener.LISTEN_CALL_STATE);
-          
+		tm1 = (TelephonyManager)getSystemService(TELEPHONY_SERVICE);
+          tm1.listen(mPhoneListener, PhoneStateListener.LISTEN_CALL_STATE);    
 	}
 	
 	
@@ -56,16 +59,24 @@ public class LocationService extends Service{
             {
 
             	try 
-                    {
-            			if(TelephonyManager.CALL_STATE_RINGING==1)
+                   {
+            		switch(state)
             			{
-                            captureLocation("Incoming_call_from_"+incomingNumber);
+            			case TelephonyManager.CALL_STATE_RINGING:
+            				if(!DataCaptured)
+            				{
+            					captureLocation("Incoming_call_from_"+incomingNumber); break;
+            				}
+            			case TelephonyManager.CALL_STATE_IDLE:
+            				transmitData();break;
+            				
+            				
             			}
-                    }
-                    catch (Exception e)
-                    {
-                    	Log.d(TAG,TAG+e);
-                    }
+            		}
+                catch (Exception e)
+                   {
+                   	Log.d(TAG,TAG+e);
+                   }
             }
             };
 	/**
@@ -77,8 +88,24 @@ public class LocationService extends Service{
         gpll = new GPSLocationListener(this);
         
         loc = gpll.getCurrentLocation();
- 	  	Rec.recordToFile(loc, commType);
- 	  	Rec.sendData();
+ 	  	Rec.setCommunicationType(commType);
+ 	  	
+ 	  	Rec.recordToFile(loc);
+
+ 	  	DataCaptured=true;
+    }
+    /**
+     * This method transmits the location data that were captured.
+     */
+    private void transmitData()
+    {
+    	if(DataCaptured)
+    	{
+    		Rec = new Recorder(this);
+ 	  		Rec.sendFileData();
+ 	  		DataCaptured=false;
+    	}
+    	
     }
     /**
      * Auto Generated.
@@ -87,5 +114,12 @@ public class LocationService extends Service{
 		// TODO Auto-generated method stub
 		return null;
 	}
+	/**
+	 * This method tell the service to stop listening the phone state changes.
+	 */
+    @Override 
+    public void onDestroy() { 
+    	tm1.listen(mPhoneListener, PhoneStateListener.LISTEN_NONE); 
+    } 
 
 }

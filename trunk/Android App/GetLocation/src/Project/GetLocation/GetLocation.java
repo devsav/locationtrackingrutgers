@@ -11,7 +11,6 @@
 */
 package Project.GetLocation;
 
-import java.io.InputStream;
 import java.util.Calendar;
 import android.app.Activity;
 import android.content.Intent;
@@ -22,7 +21,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class GetLocation extends Activity {
 	private TextView mLocationDisplay;
@@ -39,8 +37,6 @@ public class GetLocation extends Activity {
     private Recorder Rec;
     private GPSLocationListener gpll;
     private Calendar c;
-    private SendData SD;
-    
     private StringBuilder Latitude;
     private StringBuilder Longitude;
     private userDetailManager UDM;
@@ -61,10 +57,12 @@ public class GetLocation extends Activity {
         Rec = new Recorder(this);
         gpll = new GPSLocationListener(this);
         UDM = new userDetailManager(this);
-    	SD=new SendData();
+    	new SendData();
         
         // Set-up the Initial Display
-        setDisplayText();
+        //setDisplayText();
+    	displayText=new StringBuilder();
+    	displayText.append("Press Manual Fix to get a Manual Fix");
         
         // Set up the User interface Elements
         mLocationDisplay = (TextView) findViewById(R.id.locationDisplay);
@@ -169,10 +167,8 @@ public class GetLocation extends Activity {
           .append("\n").append(Latitude.toString())
           .append(" ").append(Longitude.toString());
     	
-          //Rec.recordToFile(loc);
-          //Rec.sendData();
-
-          Rec.sendFileData();
+          
+          Rec.sendData(loc);
     	}
     	else
     	{
@@ -190,6 +186,10 @@ public class GetLocation extends Activity {
     	
      }
     
+    
+    /**
+     * This method starts the background service Location Service.
+     */
     private void startService() 
     {
         Intent serviceIntent = new Intent(GetLocation.this, LocationService.class);
@@ -197,8 +197,13 @@ public class GetLocation extends Activity {
         startService(serviceIntent);
     }
 
+    
+    /**
+     * This method stops the background service Location Service.
+     */
     private void stopService() 
     {
+
         Intent serviceIntent = new Intent(GetLocation.this, LocationService.class);
         Log.d(TAG, "Stop Location service");
         if (stopService(serviceIntent)) 
