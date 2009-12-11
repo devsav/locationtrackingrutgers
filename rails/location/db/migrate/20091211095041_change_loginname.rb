@@ -6,7 +6,7 @@ class ChangeLoginname < ActiveRecord::Migration
 
   def self.down
   add_column :users,:loginName 
-  remove_column :users,:name
+    remove_column :users,:name
   
   end
 end
