@@ -12,27 +12,10 @@ class User < ActiveRecord::Base
   validates_confirmation_of :password
   validate :password_non_blank 
 
-def valid_contactNumber
-  return true if contactNumber.blank?
-   
-    phone_formats = [
-  /^\(\d\d\d\) \d\d\d-\d\d\d\d/,
-  /^\d\d\d\.\d\d\d\.\d\d\d\d/,
-  /^\d\d\d\-\d\d\d\-\d\d\d\d/
-    ]
-
-    valid = false
-    phone_formats.each do |format|
-    if contactNumber.match( format )
-        valid = true
-      end
-    end
-
-    unless valid
-      errors.add("Phone format isn't recognized")
-    end
-  end
-
+  validates_numericality_of :contactNumber 
+  
+  validates_format_of :emailId,
+  :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i
   
    def self.authenticate(userName, password)
      user = self.find_by_userName(userName)
