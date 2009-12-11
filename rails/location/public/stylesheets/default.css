@@ -1,0 +1,38 @@
+body 
+{
+	font: normal small Arial, Verdana, Helvetica, sans-serif;
+	font-size: 12pt;
+}
+img
+{
+	float:left;
+	margin: 16px 24px 16px 16px;
+}
+h1
+{
+	font-size: 32pt;
+	background: maroon;
+	color: White;
+	padding: 16px 0 16px 0;
+}
+h2
+{
+	color: Maroon;
+}
+a, a:visited
+{
+	color: Maroon;
+	text-decoration: none;
+}
+a:hover
+{
+	text-decoration: underline;
+}
+table
+{
+	border-collapse:collapse;
+}
+td
+{
+	padding-left: 16px;
+}
