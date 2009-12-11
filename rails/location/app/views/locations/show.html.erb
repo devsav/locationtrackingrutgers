@@ -1,3 +1,4 @@
+
 <p>
   <b>Username:</b>
   <%=h @location.username %>
@@ -28,6 +29,7 @@
   <%=h @location.commType %>
 </p>
 
-
+<%if session[:admin]%>
 <%= link_to 'Edit', edit_location_path(@location) %> |
-<%= link_to 'Back', locations_path %>
+<%end%>
+<%= link_to 'Back', :controller=>'map', :action=>"index" %>

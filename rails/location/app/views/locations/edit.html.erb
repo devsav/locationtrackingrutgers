@@ -1,3 +1,4 @@
+<%if session[:admin]%>
 <h1>Editing location</h1>
 
 <% form_for(@location) do |f| %>
@@ -32,5 +33,6 @@
   </p>
 <% end %>
 
-<%= link_to 'Show', @location %> |
+<%= link_to 'Show', @location %> 
+<%end%>
 <%= link_to 'Back', locations_path %>
