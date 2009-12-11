@@ -2,7 +2,7 @@
 
 one:
   username: MyString
-  phonenumber: 1
+  phonenumber: 16476388
   latitude: 1.5
   longitude: 1.5
   time: 2009-11-05 23:54:48
@@ -10,7 +10,7 @@ one:
 
 two:
   username: MyString
-  phonenumber: 1
+  phonenumber: 16476388
   latitude: 1.5
   longitude: 1.5
   time: 2009-11-05 23:54:48
