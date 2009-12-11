@@ -61,6 +61,7 @@ class UsersController < ApplicationController
             session[:user_id]=@user.userName
             session[:id]=@user.id
             session[:user_session]=@user.name
+            session[:admin]=@user.admin
 
             #redirects the user to our private page.
             redirect_to :controller => 'map', :action => 'index'

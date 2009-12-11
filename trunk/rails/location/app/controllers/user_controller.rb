@@ -11,7 +11,8 @@ def authenticate
             session[:user_id]=valid_user.userName
             session[:id]=valid_user.id
             session[:user_session]=valid_user.name
-
+            session[:admin]= valid_user.admin
+           
         #redirects the user to our private page.
             redirect_to :controller => 'map', :action => 'index'
         else
@@ -33,8 +34,8 @@ end
   def logout
       if session[:user_id]
           reset_session
-          redirect_to :action=> 'login'
       end
+      redirect_to :action=> 'login'
   end
  
 end

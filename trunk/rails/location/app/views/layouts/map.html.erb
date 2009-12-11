@@ -13,14 +13,17 @@
 <div>
 Hello <strong><%=session[:user_id]%></strong><br/><hr/>
 </div>
+
 <%= link_to 'Manage Account', :controller => "users", :action => "show", :id => session[:id] %><br/>
+<%= link_to 'Latest Visited Locations', :controller => "map", :action => "lastN", :id => 5 %><br/>
+<%= link_to 'Check Locations', :controller => "map", :action => "index" %><br />
 <%if !session[:admin]%>
 <a href="mailto:savio85@gmail.com">Contact Admin</a><br/>
-<%= link_to "logout",:controller => "user", :action => "logout" %><br /> <br />
 <%end%>
 <%if session[:admin]%>
-<%= link_to 'List Users', :controller=> "users", :action =>"index"%>
+<%= link_to 'List Users', :controller=> "users", :action =>"index"%><br>
 <%end%>
+<%= link_to "Logout",:controller => "user", :action => "logout" %><br /> <br />
 
 </td>
 <td width="80%">

@@ -6,8 +6,10 @@
   <td><%=h time %></td>
   <td><%=h commType %></td>
   <td><%= link_to 'Show', location %></td>
+<%if session[:admin]%>
   <td><%= link_to 'Edit', edit_location_path(locations) %></td>
   <td><%= link_to 'Destroy', locations, :confirm => 'Are you sure?', :method => :delete %></td>
+<%end%>
 </tr>
 <!--#displays hello (username)-->
 hello <strong><%=session[:user_id]%></strong>. 

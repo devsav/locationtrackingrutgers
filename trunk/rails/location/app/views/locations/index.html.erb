@@ -1,3 +1,4 @@
+<%if session[:admin]%>
 <div id="list">
 
 <h1><font color="White">Listing locations</font></h1>
@@ -32,3 +33,4 @@
 <br />
 
 <%= link_to 'New location', new_location_path %>
+<%end%>
