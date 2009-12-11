@@ -9,17 +9,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091211075955) do
+ActiveRecord::Schema.define(:version => 20091211093652) do
 
   create_table "locations", :force => true do |t|
     t.string   "username"
     t.integer  "phonenumber"
     t.float    "latitude"
     t.float    "longitude"
-    t.time     "time"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "commType",    :default => "Call"
+    t.datetime "time"
   end
 
   create_table "users", :force => true do |t|
