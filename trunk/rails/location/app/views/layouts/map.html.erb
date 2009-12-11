@@ -11,7 +11,7 @@
 <font color = "forestgreen" size=5>
 Hello <strong><%=session[:user_id]%></strong><br/><hr/>
 </font>
-<%= link_to 'Manage Account', :controller => "users", :action => "show" %><br/>
+<%= link_to 'Manage Account', :controller => "users", :action => "show", :id => session[:id] %><br/>
 <a href="mailto:sonia.jan18@gmail.com">Contact Admin</a><br/>
 <%= link_to "logout",:controller => "user", :action => "logout" %><br /> <br />
 </td>
