@@ -3,14 +3,18 @@ require 'digest/sha1'
 class User < ActiveRecord::Base
   validates_presence_of :loginName
   validates_presence_of :contactNumber
-  
-  validates_uniqueness_of :loginName
+  validates_presence_of :userName
+  validates_presence_of :password
+  validates_uniqueness_of :userName
+  validates_uniqueness_of :contactNumber
+
   attr_accessor :password_confirmation
   validates_confirmation_of :password
-  validate :password_non_blank
+  validate :password_non_blank 
+  
 
-   def self.authenticate(loginName, password)
-     user = self.find_by_loginName(loginName)
+   def self.authenticate(userName, password)
+     user = self.find_by_userName(userName)
      if user
        expected_password = encrypted_password(password, user.salt)
 
@@ -23,7 +27,7 @@ class User < ActiveRecord::Base
 
    def password
      @password
-   end
+   end 
 
    def password=(pwd)
      @password = pwd
@@ -48,5 +52,3 @@ class User < ActiveRecord::Base
    
    
 end
-
-
