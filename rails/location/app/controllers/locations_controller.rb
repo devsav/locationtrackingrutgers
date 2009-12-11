@@ -67,7 +67,7 @@ class LocationsController < ApplicationController
      "time(3i)"=>params[:dd],
      "time(4i)"=>params[:hh],
      "time(5i)"=>params[:min],
-     "longitude"=>params[:latitude_integer]+"."+params[:latitude_float],
+     "longitude"=>params[:longitude_integer]+"."+params[:longitude_float],
      "commType"=>params[:commType]}
     
     @location = Location.new(location)
