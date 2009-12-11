@@ -36,3 +36,51 @@ td
 {
 	padding-left: 16px;
 }
+
+
+#list table {
+        border-collapse: collapse;
+}
+
+#list table tr td {
+        padding: 5px;
+        vertical-align: top;
+}
+
+#list .list-image {
+  width:        60px;
+  height:       70px;
+}
+
+#list .list-description {
+  width:        60%;
+}
+
+#list .list-description dl {
+        margin: 0;
+}
+
+#list .list-description dt {
+	color:        #244;
+	font-weight:  bold;
+	font-size:    larger;
+}
+
+#list .list-description dd {
+        margin: 0;
+}
+
+#list .list-actions {
+  font-size:    x-small;
+  text-align:   right;
+  padding-left: 1em;
+}
+
+#list .list-line-even {
+  background:   #F2E6E6;
+}
+
+#list .list-line-odd {
+  background:   #993333;
+  color:	white;
+}
