@@ -12,7 +12,7 @@ User name: <%= text_field("userform", "userName",:size=>"20" ) %> <br /> <br />
 Password: <%= password_field("userform","password",:size=>"20" )%> <br /> <br />
 
 <%= button_to "Login" , :action => :authenticate %>
-
+<br /> <br />
 <%= yield %>
 <%= link_to 'New User??', new_user_path %>
 </body>
