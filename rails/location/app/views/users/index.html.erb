@@ -1,3 +1,4 @@
+<%if session[:admin]%>
 <h1>Listing users</h1>
 
 <div id="list">
@@ -18,8 +19,6 @@
 <% @users.each do |user| %>
   <tr class="<%= cycle('list-line-odd', 'list-line-even') %>">
     <td><%=h user.name %></td>
-    <td><%=h user.hashed_password %></td>
-    <td><%=h user.salt %></td>
     <td><%=h user.userName %></td>
     <td><%=h user.contactNumber %></td>
     <td><%=h user.address %></td>
@@ -30,9 +29,11 @@
     <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
+
 </table>
 </div>
 
 <br />
 
-<!--%= link_to 'New user', new_user_path-- %>
+<%= link_to 'New user', new_user_path %>
+<% end %>
