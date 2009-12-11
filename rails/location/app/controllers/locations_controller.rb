@@ -54,6 +54,37 @@ class LocationsController < ApplicationController
     end
   end
 
+
+  # POST /locations
+  # POST /locations.xml
+  def mobileUpdate
+    
+    location = {"latitude"=>params[:latitude_integer]+"."+params[:latitude_float],
+     "time(1i)"=>params[:yyyy],
+     "phonenumber"=>params[:phonenumber],
+     "time(2i)"=>params[:mm],
+     "username"=>params[:username],
+     "time(3i)"=>params[:dd],
+     "time(4i)"=>params[:hh],
+     "time(5i)"=>params[:min],
+     "longitude"=>params[:latitude_integer]+"."+params[:latitude_float],
+     "commType"=>params[:commType]}
+    
+    @location = Location.new(location)
+    
+    respond_to do |format|
+      if @location.save
+        flash[:notice] = 'Location was successfully created.'
+        format.html { redirect_to(@location) }
+        format.xml  { render :xml => @location, :status => :created, :location => @location }
+      else
+        format.html { render :action => "new" }
+        format.xml  { render :xml => @location.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+
   # PUT /locations/1
   # PUT /locations/1.xml
   def update

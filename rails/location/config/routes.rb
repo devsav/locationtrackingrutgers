@@ -1,4 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
+  map.connect "locations/mobile/:username/:password/:phonenumber/:latitude_integer.:latitude_float/:longitude_integer.:longitude_float/:yyyy/:mm/:dd/:hh/:min/:commType" ,
+        :controller => "locations" ,
+        :action => "mobileUpdate" 
+
   map.resources :locations
 
   map.resources :users
