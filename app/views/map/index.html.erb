@@ -1,14 +1,16 @@
-<h1>Listing locations</h1>
+<% if @locations.length > 0 %>
+<h1><font color="forestgreen">Listing locations</font></h1>
 
-<table>
+<table cellpadding=10 cellspacing=3>
   <tr>
     <th>Username</th>
     <th>Phonenumber</th>
     <th>Latitude</th>
     <th>Longitude</th>
-    <th>Date</th>
-    <th>Time</th>
+    <th>Date and Time</th>
     <th>Commtype</th>
+	<th></th>
+	<th></th>
   </tr>
 
 <%= render(:partial => "location", :collection => @locations ) %>
@@ -33,3 +35,4 @@
 </table>
 
 <br />
+<% end %>

@@ -1,19 +1,29 @@
 <html>
 <head>
-	<title>Test</title>
+	<title>Display Locations </title>
 	<%= GMap.header %>
 	<%= @map.to_html %>
 </head>
-<body>
+<body bgcolor="mintcream">
+<table border =2 height="70%" width="100%" cellpadding="10">
+<tr valign="top"> 
+<td width="20%">
+<font color = "forestgreen" size=5>
+Hello <strong><%=session[:user_id]%></strong><br/><hr/>
+</font>
+<%= link_to 'Manage Account', :controller => "users", :action => "show" %><br/>
+<a href="mailto:sonia.jan18@gmail.com">Contact Admin</a><br/>
+<%= link_to "logout",:controller => "user", :action => "logout" %><br /> <br />
+</td>
+<td width="80%">
+<p align="center">
+<%= @map.div(:width => 650, :height => 450) %>
+</p>
+<%= yield %>
+</td>
+</tr>
+</table>
 
-<!--#displays hello (username)-->
-<pre>
-hello <strong><%=session[:user_id]%></strong>               <%= link_to "logout",:controller => "user", :action => "logout" %></br>
-</pre>
-<!--#creates logout link, when the link is clicked, the controller is User and the method executed will be logout.-->
-</br>
-	<%= @map.div(:width => 500, :height => 800) %>
-	<%= yield %>
 
 </body>
 </html>
