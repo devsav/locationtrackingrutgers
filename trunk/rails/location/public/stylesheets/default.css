@@ -35,8 +35,17 @@ table
 td
 {
 	padding-left: 16px;
+    padding: 5px;
+    vertical-align: top;
+}
+tr
+{
+	padding-left: 16px;
+    padding: 5px;
+    vertical-align: top;
 }
 
+table.wide-table { width:100%; } 
 
 #list table {
         border-collapse: collapse;
