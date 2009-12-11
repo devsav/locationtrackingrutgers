@@ -3,6 +3,11 @@ body
 	font: normal small Arial, Verdana, Helvetica, sans-serif;
 	font-size: 12pt;
 }
+div
+{
+color: Maroon;
+font-size:20;
+}
 img
 {
 	float:left;
