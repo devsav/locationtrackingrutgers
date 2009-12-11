@@ -5120,3 +5120,61 @@ Processing LocationsController#index (for 127.0.0.1 at 2009-12-11 02:39:26) [GET
 Rendering template within layouts/locations
 Rendering locations/index
 Completed in 32ms (View: 26, DB: 1) | 200 OK [http://localhost/locations]
+
+
+Processing LocationsController#mobileUpdate (for 127.0.0.1 at 2009-12-11 02:43:26) [GET]
+  Parameters: {"hh"=>"12", "mm"=>"08", "yyyy"=>"2005", "dd"=>"12", "longitude_float"=>"32", "latitude_integer"=>"-42", "latitude_float"=>"42", "longitude_integer"=>"-32", "phonenumber"=>"987654321", "username"=>"cibin", "min"=>"12", "password"=>"12345", "commType"=>"1"}
+  [4;35;1mLocation Create (0.5ms)[0m   [0mINSERT INTO "locations" ("latitude", "created_at", "phonenumber", "updated_at", "username", "time", "longitude", "commType") VALUES(-42.42, '2009-12-11 07:43:26', 987654321, '2009-12-11 07:43:26', 'cibin', '2005-08-12 12:12:00', -42.42, 1)[0m
+Redirected to http://localhost:3000/locations/8
+Completed in 81ms (DB: 0) | 302 Found [http://localhost/locations/mobile/cibin/12345/987654321/-42.42/-32.32/2005/08/12/12/12/1]
+
+
+Processing LocationsController#show (for 127.0.0.1 at 2009-12-11 02:43:26) [GET]
+  Parameters: {"id"=>"8"}
+  [4;36;1mLocation Load (0.3ms)[0m   [0;1mSELECT * FROM "locations" WHERE ("locations"."id" = 8) [0m
+Rendering template within layouts/locations
+Rendering locations/show
+Completed in 11ms (View: 4, DB: 0) | 200 OK [http://localhost/locations/8]
+
+
+Processing LocationsController#index (for 127.0.0.1 at 2009-12-11 02:43:30) [GET]
+  [4;35;1mLocation Load (1.0ms)[0m   [0mSELECT * FROM "locations" [0m
+Rendering template within layouts/locations
+Rendering locations/index
+Completed in 31ms (View: 26, DB: 1) | 200 OK [http://localhost/locations]
+
+
+Processing LocationsController#show (for 127.0.0.1 at 2009-12-11 02:44:50) [GET]
+  Parameters: {"id"=>"4"}
+  [4;36;1mLocation Load (0.3ms)[0m   [0;1mSELECT * FROM "locations" WHERE ("locations"."id" = 4) [0m
+Rendering template within layouts/locations
+Rendering locations/show
+Completed in 11ms (View: 4, DB: 0) | 200 OK [http://localhost/locations/4]
+
+
+Processing LocationsController#mobileUpdate (for 127.0.0.1 at 2009-12-11 03:00:31) [GET]
+  Parameters: {"hh"=>"12", "mm"=>"08", "yyyy"=>"2005", "dd"=>"12", "longitude_float"=>"322", "latitude_integer"=>"-42", "latitude_float"=>"42", "longitude_integer"=>"-32", "phonenumber"=>"987654321", "username"=>"cibin", "min"=>"12", "password"=>"12345", "commType"=>"1"}
+  [4;35;1mLocation Create (0.5ms)[0m   [0mINSERT INTO "locations" ("latitude", "created_at", "phonenumber", "updated_at", "username", "time", "longitude", "commType") VALUES(-42.42, '2009-12-11 08:00:31', 987654321, '2009-12-11 08:00:31', 'cibin', '2005-08-12 12:12:00', -42.42, 1)[0m
+Redirected to http://localhost:3000/locations/9
+Completed in 14ms (DB: 0) | 302 Found [http://localhost/locations/mobile/cibin/12345/987654321/-42.42/-32.322/2005/08/12/12/12/1]
+
+
+Processing LocationsController#show (for 127.0.0.1 at 2009-12-11 03:00:31) [GET]
+  Parameters: {"id"=>"9"}
+  [4;36;1mLocation Load (0.3ms)[0m   [0;1mSELECT * FROM "locations" WHERE ("locations"."id" = 9) [0m
+Rendering template within layouts/locations
+Rendering locations/show
+Completed in 11ms (View: 5, DB: 0) | 200 OK [http://localhost/locations/9]
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-12-11 03:04:27) [GET]
+  [4;35;1mLocation Load (1.0ms)[0m   [0mSELECT * FROM "locations" WHERE (username='cibin') [0m
+  [4;36;1mLocation Load (0.3ms)[0m   [0;1mSELECT * FROM "locations" WHERE (username='cibin') LIMIT 1[0m
+Rendering template within layouts/map
+Rendering map/index
+Rendered map/_location (6.0ms)
+Rendered map/_location (4.5ms)
+Rendered map/_location (4.3ms)
+Rendered map/_location (4.3ms)
+Rendered map/_location (4.3ms)
+Completed in 52ms (View: 42, DB: 1) | 200 OK [http://localhost/map]
