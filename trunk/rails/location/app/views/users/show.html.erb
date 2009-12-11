@@ -20,6 +20,7 @@
 Hello <strong><%=session[:user_id]%></strong><br/><hr/>
 </font>
 <%= link_to 'Manage Account', :controller => "users", :action => "show", :id => "session[user_id]" %><br/>
+<%= link_to 'Check Locations', :controller => "map", :action => "index" %><br />
 <a href="mailto:sonia.jan18@gmail.com">Contact Admin</a><br/>
 <%= link_to "logout",:controller => "user", :action => "logout" %><br /> <br />
 </td>
