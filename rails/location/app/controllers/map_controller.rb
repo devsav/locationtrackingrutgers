@@ -1,4 +1,6 @@
 require 'ym4r_gm'
+require 'ym4r/google_maps/geocoding'
+include Ym4r::GoogleMaps
 
 
 class MapController < ApplicationController
@@ -88,16 +90,19 @@ class MapController < ApplicationController
         else
           resolution = 1000
         end
+        
         allLocations = Location.find( :all, 
                                     :conditions => [ "username=?",session[:user_id]],
                                     :order => "latitude,longitude DESC")
-        frequency = {}
-        allLocations.each do |location|
-          
+        frequency = Hash.new(0)
+        locationsArr=Hash.new( [])
+        allLocations.each do |location| 
+          latitude = (location.latitude * resolution).round.to_f / resolution.to_f
+          longitude = (location.longitude * resolution).round.to_f / resolution.to_f
+          frequency[ [latitude,longitude] ] += 1
+          locationsArr[ [latitude,longitude] ] << location
         end
-        init_location = Location.find(:first, :conditions => [ "username=?",session[:user_id]],
-                                    :order => "latitude,longitude DESC",
-                                    :limit => 1)
+        
         #@map.addControl(new GMapTypeControl());
 
         if init_location
