@@ -12,11 +12,11 @@
 
 <html>
 <body>
-<body bgcolor="mintcream">
+<body>
 <table align=center border =2 height="100%" width="100%" cellpadding="10">
 <tr valign="top"> 
 <td width="30%">
-<font color = "forestgreen" size=5>
+<font color = "maroon" size=5>
 Hello <strong><%=session[:user_id]%></strong><br/><hr/>
 </font>
 <%= link_to 'Manage Account', :controller => "users", :action => "show", :id => "session[user_id]" %><br/>
