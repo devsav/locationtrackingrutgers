@@ -1,0 +1,19 @@
+<tr>
+  <td><%=h username %></td>
+  <td><%=h phonenumber %></td>
+  <td><%=h latitude %></td>
+  <td><%=h longitude %></td>
+  <td><%=h time %></td>
+  <td><%=h commType %></td>
+  <td><%= link_to 'Show', location %></td>
+  <td><%= link_to 'Edit', edit_location_path(locations) %></td>
+  <td><%= link_to 'Destroy', locations, :confirm => 'Are you sure?', :method => :delete %></td>
+</tr>
+<!--#displays hello (username)-->
+hello <strong><%=session[:user_id]%></strong>. 
+<!--#creates logout link, when the link is clicked, the controller is User and the method executed will be logout.-->
+<%= link_to "logout",:controller => "user", :action => "logout" %>
+
+<% details = "#{username}<br/>#{phonenumber}<br/>#{time}<br/>#{commType}<br/>" %>
+<% locationPointer = GMarker.new([latitude,location.longitude], :title => "#{username}", :info_window => details) %>
+<% @map.overlay_init(locationPointer) %>

@@ -1,0 +1,65 @@
+<p style="text-align: center;">
+<h1>Registration Form</h1>
+</p>
+
+<% form_for(@user) do |f| %>
+  <%= f.error_messages %>
+<legend>Enter User Details</legend>
+
+
+  <p>
+    <%= f.label :Name %><br />
+    <%= f.text_field :loginName %>
+  </p>
+
+<p>
+<label for="user_userName">User Name:</label> <br />
+<%= f.text_field :userName, :size => 40 %>
+</p>
+<p>
+<label for="user_password">Password:</label> <br />
+<%= f.password_field :password, :size => 40 %>
+</p>
+<p>
+<label for="user_password_confirmation">Confirm:</label> <br />
+<%= f.password_field :password_confirmation, :size => 40 %>
+</p>
+
+  
+  <!--p>
+    <%= f.label :hashed_password %><br />
+    <%= f.text_field :hashed_password %>
+  </p-->
+  <!--p>
+    <%= f.label :salt %><br />
+    <%= f.text_field :salt %>
+  </p-->
+  <!--p>
+    <%= f.label :userName %><br />
+    <%= f.text_field :userName %>
+  </p-->
+  <p>
+    <%= f.label :contactNumber %><br />
+    <%= f.text_field :contactNumber %>
+  </p>
+  <p>
+    <%= f.label :address %><br />
+    <%= f.text_area :address %>
+  </p>
+  <p>
+    <%= f.label :emailId %><br />
+    <%= f.text_field :emailId %>
+  </p>
+
+<p>
+<%= f.submit "Add User" , :class => "submit" %>
+</p>
+  <!--p>
+    <%= f.label :registered %><br />
+    <%= f.check_box :registered %>
+  </p-->
+  <!--p>
+    <%= f.submit 'Create' %>
+  </p-->
+<% end %>
+<%= link_to 'Back', users_path %>
