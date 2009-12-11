@@ -54,16 +54,25 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
 
-    respond_to do |format|
+
       if @user.save
-        flash[:notice] = 'User was successfully created.'
-        format.html { redirect_to(@user) }
-        format.xml  { render :xml => @user, :status => :created, :location => @user }
+            flash[:notice] = 'User was successfully created.'
+            #creates a session with username
+            session[:user_id]=@user.userName
+            session[:id]=@user.id
+            session[:user_session]=@user.name
+
+            #redirects the user to our private page.
+            redirect_to :controller => 'map', :action => 'index'
+      
+#        format.html { redirect_to(@user) }
+#        format.xml  { render :xml => @user, :status => :created, :location => @user }
       else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
+        respond_to do |format|
+          format.html { render :action => "new" }
+          format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
+        end
       end
-    end
   end
 
   # PUT /users/1
