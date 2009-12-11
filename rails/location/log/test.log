@@ -1,0 +1,123 @@
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "locations" [0m
+
+
+Processing LocationsController#create (for 0.0.0.0 at 2009-12-11 12:58:13) [POST]
+  Parameters: {"location"=>{}}
+  [4;35;1mLocation Create (2.0ms)[0m   [0mINSERT INTO "locations" ("latitude", "updated_at", "time", "username", "phonenumber", "longitude", "created_at", "commType") VALUES(NULL, '2009-12-11 17:58:13', NULL, NULL, NULL, NULL, '2009-12-11 17:58:13', 'Call')[0m
+Redirected to http://test.host/locations/2053932786
+Completed in 10ms (DB: 5) | 302 Found [http://test.host/locations?]
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "locations" [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "locations" [0m
+  [4;36;1mLocation Load (1.0ms)[0m   [0;1mSELECT * FROM "locations" WHERE ("locations"."id" = 2053932785) [0m
+
+
+Processing LocationsController#destroy (for 0.0.0.0 at 2009-12-11 12:58:13) [DELETE]
+  Parameters: {"id"=>"2053932785"}
+  [4;35;1mLocation Load (0.0ms)[0m   [0mSELECT * FROM "locations" WHERE ("locations"."id" = 2053932785) [0m
+  [4;36;1mLocation Destroy (1.0ms)[0m   [0;1mDELETE FROM "locations" WHERE "id" = 2053932785[0m
+Redirected to http://test.host/locations
+Completed in 4ms (DB: 3) | 302 Found [http://test.host/locations/2053932785]
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT count(*) AS count_all FROM "locations" [0m
+  [4;36;1mLocation Load (1.0ms)[0m   [0;1mSELECT * FROM "locations" WHERE ("locations"."id" = 2053932785) [0m
+
+
+Processing LocationsController#edit (for 0.0.0.0 at 2009-12-11 12:58:13) [GET]
+  Parameters: {"id"=>"2053932785"}
+  [4;35;1mLocation Load (0.0ms)[0m   [0mSELECT * FROM "locations" WHERE ("locations"."id" = 2053932785) [0m
+Rendering template within layouts/locations
+Rendering locations/edit
+Completed in 128ms (View: 127, DB: 2) | 200 OK [http://test.host/locations/2053932785/edit]
+
+
+Processing LocationsController#index (for 0.0.0.0 at 2009-12-11 12:58:13) [GET]
+  [4;36;1mLocation Load (0.0ms)[0m   [0;1mSELECT * FROM "locations" [0m
+Rendering template within layouts/locations
+Rendering locations/index
+Completed in 11ms (View: 9, DB: 0) | 200 OK [http://test.host/locations]
+
+
+Processing LocationsController#new (for 0.0.0.0 at 2009-12-11 12:58:13) [GET]
+Rendering template within layouts/locations
+Rendering locations/new
+Completed in 15ms (View: 15, DB: 0) | 200 OK [http://test.host/locations/new]
+  [4;35;1mLocation Load (0.0ms)[0m   [0mSELECT * FROM "locations" WHERE ("locations"."id" = 2053932785) [0m
+
+
+Processing LocationsController#show (for 0.0.0.0 at 2009-12-11 12:58:13) [GET]
+  Parameters: {"id"=>"2053932785"}
+  [4;36;1mLocation Load (1.0ms)[0m   [0;1mSELECT * FROM "locations" WHERE ("locations"."id" = 2053932785) [0m
+Rendering template within layouts/locations
+Rendering locations/show
+Completed in 5ms (View: 3, DB: 1) | 200 OK [http://test.host/locations/2053932785]
+  [4;35;1mLocation Load (1.0ms)[0m   [0mSELECT * FROM "locations" WHERE ("locations"."id" = 2053932785) [0m
+
+
+Processing LocationsController#update (for 0.0.0.0 at 2009-12-11 12:58:13) [PUT]
+  Parameters: {"id"=>"2053932785", "location"=>{}}
+  [4;36;1mLocation Load (0.0ms)[0m   [0;1mSELECT * FROM "locations" WHERE ("locations"."id" = 2053932785) [0m
+Redirected to http://test.host/locations/2053932785
+Completed in 2ms (DB: 1) | 302 Found [http://test.host/locations/2053932785?]
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT count(*) AS count_all FROM "users" [0m
+
+
+Processing UsersController#create (for 0.0.0.0 at 2009-12-11 12:58:13) [POST]
+  Parameters: {"user"=>{}}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."userName" IS NULL) LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."contactNumber" IS NULL) LIMIT 1[0m
+Rendering template within layouts/users
+Rendering users/new
+Completed in 44ms (View: 37, DB: 2) | 200 OK [http://test.host/users?]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "users" [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2053932785) [0m
+
+
+Processing UsersController#destroy (for 0.0.0.0 at 2009-12-11 12:58:13) [DELETE]
+  Parameters: {"id"=>"2053932785"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2053932785) [0m
+  [4;36;1mUser Destroy (1.0ms)[0m   [0;1mDELETE FROM "users" WHERE "id" = 2053932785[0m
+Redirected to http://test.host/users
+Completed in 3ms (DB: 1) | 302 Found [http://test.host/users/2053932785]
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT count(*) AS count_all FROM "users" [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2053932785) [0m
+
+
+Processing UsersController#edit (for 0.0.0.0 at 2009-12-11 12:58:13) [GET]
+  Parameters: {"id"=>"2053932785"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2053932785) [0m
+Rendering template within layouts/users
+Rendering users/edit
+Completed in 14ms (View: 13, DB: 3) | 200 OK [http://test.host/users/2053932785/edit]
+
+
+Processing UsersController#index (for 0.0.0.0 at 2009-12-11 12:58:13) [GET]
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" [0m
+Rendering template within layouts/users
+Rendering users/index
+Completed in 12ms (View: 10, DB: 1) | 200 OK [http://test.host/users]
+
+
+Processing UsersController#new (for 0.0.0.0 at 2009-12-11 12:58:13) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 8ms (View: 7, DB: 0) | 200 OK [http://test.host/users/new]
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2053932785) [0m
+
+
+Processing UsersController#show (for 0.0.0.0 at 2009-12-11 12:58:13) [GET]
+  Parameters: {"id"=>"2053932785"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2053932785) [0m
+Rendering template within layouts/users
+Rendering users/show
+Completed in 7ms (View: 5, DB: 1) | 200 OK [http://test.host/users/2053932785]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2053932785) [0m
+
+
+Processing UsersController#update (for 0.0.0.0 at 2009-12-11 12:58:13) [PUT]
+  Parameters: {"user"=>{}, "id"=>"2053932785"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2053932785) [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."userName" = 'MyString' AND "users".id <> 2053932785) LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."contactNumber" = 1 AND "users".id <> 2053932785) LIMIT 1[0m
+Rendering template within layouts/users
+Rendering users/edit
+Completed in 28ms (View: 24, DB: 2) | 200 OK [http://test.host/users/2053932785?]

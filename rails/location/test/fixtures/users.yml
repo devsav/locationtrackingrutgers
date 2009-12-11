@@ -1,7 +1,7 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  loginName: MyString
+  name: MyString
   hashed_password: MyString
   salt: MyString
   userName: MyString
@@ -11,7 +11,7 @@ one:
   registered: false
 
 two:
-  loginName: MyString
+  name: MyString
   hashed_password: MyString
   salt: MyString
   userName: MyString
