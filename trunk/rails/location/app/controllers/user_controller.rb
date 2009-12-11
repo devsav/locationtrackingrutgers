@@ -10,7 +10,7 @@ def authenticate
             #creates a session with username
             session[:user_id]=valid_user.userName
             session[:id]=valid_user.id
-            session[:user_session]=valid_user.loginName
+            session[:user_session]=valid_user.Name
 
         #redirects the user to our private page.
             redirect_to :controller => 'map', :action => 'index'
