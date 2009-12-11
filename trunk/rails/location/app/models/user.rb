@@ -1,7 +1,7 @@
 require 'digest/sha1'
 
 class User < ActiveRecord::Base
-  validates_presence_of :Name
+  validates_presence_of :name
   validates_presence_of :contactNumber
   validates_presence_of :userName
   validates_presence_of :password
