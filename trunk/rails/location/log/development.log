@@ -5069,3 +5069,54 @@ ActionController::RoutingError (No route matches "/stylesheets/depot.css" with {
   
 
 Rendering rescues/layout (not_found)
+
+
+Processing MapController#index (for 127.0.0.1 at 2009-12-11 02:36:50) [GET]
+  [4;35;1mLocation Load (0.7ms)[0m   [0mSELECT * FROM "locations" WHERE (username='cibin') [0m
+  [4;36;1mLocation Load (0.3ms)[0m   [0;1mSELECT * FROM "locations" WHERE (username='cibin') LIMIT 1[0m
+Rendering template within layouts/map
+Rendering map/index
+Rendered map/_location (4.9ms)
+Rendered map/_location (4.4ms)
+Completed in 21ms (View: 12, DB: 1) | 200 OK [http://localhost/map]
+
+
+Processing LocationsController#index (for 127.0.0.1 at 2009-12-11 02:36:57) [GET]
+  [4;35;1mLocation Load (0.8ms)[0m   [0mSELECT * FROM "locations" [0m
+Rendering template within layouts/locations
+Rendering locations/index
+Completed in 23ms (View: 17, DB: 1) | 200 OK [http://localhost/locations]
+
+
+Processing LocationsController#new (for 127.0.0.1 at 2009-12-11 02:37:00) [GET]
+Rendering template within layouts/locations
+Rendering locations/new
+Completed in 23ms (View: 17, DB: 0) | 200 OK [http://localhost/locations/new]
+
+
+Processing LocationsController#new (for 127.0.0.1 at 2009-12-11 02:37:02) [GET]
+Rendering template within layouts/locations
+Rendering locations/new
+Completed in 26ms (View: 20, DB: 0) | 200 OK [http://localhost/locations/new]
+
+
+Processing LocationsController#mobileUpdate (for 127.0.0.1 at 2009-12-11 02:39:21) [GET]
+  Parameters: {"hh"=>"12", "mm"=>"08", "yyyy"=>"2005", "dd"=>"12", "longitude_float"=>"32", "latitude_integer"=>"42", "latitude_float"=>"42", "longitude_integer"=>"32", "phonenumber"=>"987654321", "username"=>"cibin", "min"=>"12", "password"=>"12345", "commType"=>"1"}
+  [4;36;1mLocation Create (0.6ms)[0m   [0;1mINSERT INTO "locations" ("latitude", "created_at", "phonenumber", "updated_at", "username", "time", "longitude", "commType") VALUES(42.42, '2009-12-11 07:39:21', 987654321, '2009-12-11 07:39:21', 'cibin', '2005-08-12 12:12:00', 42.42, 1)[0m
+Redirected to http://localhost:3000/locations/7
+Completed in 28ms (DB: 1) | 302 Found [http://localhost/locations/mobile/cibin/12345/987654321/42.42/32.32/2005/08/12/12/12/1]
+
+
+Processing LocationsController#show (for 127.0.0.1 at 2009-12-11 02:39:21) [GET]
+  Parameters: {"id"=>"7"}
+  [4;35;1mLocation Load (0.3ms)[0m   [0mSELECT * FROM "locations" WHERE ("locations"."id" = 7) [0m
+Rendering template within layouts/locations
+Rendering locations/show
+Completed in 24ms (View: 17, DB: 0) | 200 OK [http://localhost/locations/7]
+
+
+Processing LocationsController#index (for 127.0.0.1 at 2009-12-11 02:39:26) [GET]
+  [4;36;1mLocation Load (0.9ms)[0m   [0;1mSELECT * FROM "locations" [0m
+Rendering template within layouts/locations
+Rendering locations/index
+Completed in 32ms (View: 26, DB: 1) | 200 OK [http://localhost/locations]
