@@ -1,17 +1,17 @@
 <p>
-  <b>Loginname:</b>
+  <b>Name:</b>
   <%=h @user.loginName %>
 </p>
 
-<p>
+<!--p>
   <b>Hashed password:</b>
   <%=h @user.hashed_password %>
-</p>
+</p-->
 
-<p>
+<!--p>
   <b>Salt:</b>
   <%=h @user.salt %>
-</p>
+</p-->
 
 <p>
   <b>Username:</b>
@@ -33,10 +33,10 @@
   <%=h @user.emailId %>
 </p>
 
-<p>
+<!--p>
   <b>Registered:</b>
   <%=h @user.registered %>
-</p>
+</p-->
 
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
