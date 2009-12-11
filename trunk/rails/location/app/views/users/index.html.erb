@@ -1,5 +1,7 @@
 <h1>Listing users</h1>
 
+<div id="list">
+
 <table>
   <tr>
     <th>Loginname</th>
@@ -12,8 +14,9 @@
     <th>Registered</th>
   </tr>
 
+
 <% @users.each do |user| %>
-  <tr>
+  <tr class="<%= cycle('list-line-odd', 'list-line-even') %>">
     <td><%=h user.loginName %></td>
     <td><%=h user.hashed_password %></td>
     <td><%=h user.salt %></td>
@@ -28,6 +31,7 @@
   </tr>
 <% end %>
 </table>
+</div>
 
 <br />
 
