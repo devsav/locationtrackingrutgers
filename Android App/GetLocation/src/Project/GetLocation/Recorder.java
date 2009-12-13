@@ -32,7 +32,7 @@ public class Recorder
         private SendData SD;
         @SuppressWarnings("unused")
 		private String SendDataStatus;
-        private String Link="http://192.168.1.119:3000/";
+        private String Link="http://192.168.1.14:3000/";
         
         
  
