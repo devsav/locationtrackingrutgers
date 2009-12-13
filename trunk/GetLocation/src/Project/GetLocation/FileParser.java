@@ -177,7 +177,7 @@ public class FileParser {
     		}
     		else
     		{
-    			return InputString[i-1];
+    			return InputString[i];
     		}
     	}
     	
@@ -210,17 +210,8 @@ public class FileParser {
     			
     	public boolean cleanProcessedEntries()
     	{
-
-    			if((ReadModeOpen|AppendModeOpen))
-    			{	
-    				
-    			    Error=true;
-    				ErrorType="File already open Read/Append mode";
-    				CleanModeOpen=false;
-    			}
-    			else
-    			{
-    				try
+    		Log.d("File Parser","Cleaning");
+    			try
     				{
     					fOut = mContextWrapper.openFileOutput(FileName, Context.MODE_PRIVATE);
     					osw = new OutputStreamWriter(fOut);
@@ -232,7 +223,7 @@ public class FileParser {
     						{
     							osw.write(InputString[i]);
     							osw.flush();
-    							Log.d("File Parser",InputString[i]);
+    							Log.d("File Parser rewriting",InputString[i]);
     						}
     					}
     					closeFile();
@@ -246,8 +237,8 @@ public class FileParser {
     				}
     				ErrorType="File process Clean mode";
 
-    			}
-    		
+    			
+    			Log.d("File Parser",ErrorType);
     		return CleanModeOpen;
     	}
         /**
